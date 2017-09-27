@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 using Alipay.AopSdk.Core.Domain;
 
 namespace Alipay.AopSdk.Core.Response
@@ -12,32 +12,32 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     craftsmans:手艺人信息
 		/// </summary>
-		[XmlArray("craftsmans")]
-		[XmlArrayItem("craftsman_open_model")]
+		[JsonProperty("craftsmans")]
+		
 		public List<CraftsmanOpenModel> Craftsmans { get; set; }
 
 		/// <summary>
 		///     当前页码
 		/// </summary>
-		[XmlElement("current_page_no")]
+		[JsonProperty("current_page_no")]
 		public long CurrentPageNo { get; set; }
 
 		/// <summary>
 		///     每页记录数
 		/// </summary>
-		[XmlElement("page_size")]
+		[JsonProperty("page_size")]
 		public long PageSize { get; set; }
 
 		/// <summary>
 		///     门店下共手艺人数目
 		/// </summary>
-		[XmlElement("total_craftsmans")]
+		[JsonProperty("total_craftsmans")]
 		public long TotalCraftsmans { get; set; }
 
 		/// <summary>
 		///     总页码数目
 		/// </summary>
-		[XmlElement("total_page_no")]
+		[JsonProperty("total_page_no")]
 		public long TotalPageNo { get; set; }
 	}
 }

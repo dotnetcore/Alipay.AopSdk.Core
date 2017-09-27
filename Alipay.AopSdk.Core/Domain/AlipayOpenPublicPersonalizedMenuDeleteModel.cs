@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,7 +12,7 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     要删除的个性化菜单key
 		/// </summary>
-		[XmlElement("menu_key")]
+		[JsonProperty("menu_key")]
 		public string MenuKey { get; set; }
 	}
 }

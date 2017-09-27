@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Response
 {
@@ -11,14 +11,13 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     芝麻信用对于每一次请求返回的业务号。后续可以通过此业务号进行对账
 		/// </summary>
-		[XmlElement("biz_no")]
+		[JsonProperty("biz_no")]
 		public string BizNo { get; set; }
 
 		/// <summary>
 		///     <a href="https://doc.open.alipay.com/docs/doc.htm?treeId=272&articleId=105917&docType=1">验证code列表</a>
 		/// </summary>
-		[XmlArray("verify_code")]
-		[XmlArrayItem("string")]
+		[JsonProperty("verify_code")]
 		public List<string> VerifyCode { get; set; }
 	}
 }

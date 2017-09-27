@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -13,8 +13,8 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     物料生产单完成后指定物流信息
 		/// </summary>
-		[XmlArray("asset_produce_details")]
-		[XmlArrayItem("item_delivery_detail")]
+		[JsonProperty("asset_produce_details")]
+		
 		public List<ItemDeliveryDetail> AssetProduceDetails { get; set; }
 	}
 }

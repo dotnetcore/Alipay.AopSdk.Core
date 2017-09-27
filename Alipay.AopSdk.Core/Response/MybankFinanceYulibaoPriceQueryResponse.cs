@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 using Alipay.AopSdk.Core.Domain;
 
 namespace Alipay.AopSdk.Core.Response
@@ -12,8 +12,8 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     余利宝行情信息列表
 		/// </summary>
-		[XmlArray("ylb_price_detail_infos")]
-		[XmlArrayItem("y_l_b_price_detail_info")]
+		[JsonProperty("ylb_price_detail_infos")]
+		
 		public List<YLBPriceDetailInfo> YlbPriceDetailInfos { get; set; }
 	}
 }

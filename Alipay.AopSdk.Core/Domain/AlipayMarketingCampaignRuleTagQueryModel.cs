@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,7 +12,7 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     签约商户下属机构唯一编号
 		/// </summary>
-		[XmlElement("mpid")]
+		[JsonProperty("mpid")]
 		public string Mpid { get; set; }
 	}
 }

@@ -1,4 +1,4 @@
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Response
 {
@@ -10,7 +10,7 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     查询成功时返回json格式数据
 		/// </summary>
-		[XmlElement("report_data")]
+		[JsonProperty("report_data")]
 		public string ReportData { get; set; }
 	}
 }

@@ -1,4 +1,4 @@
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Response
 {
@@ -10,7 +10,7 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     本次认证的唯一标识,商户需要记录
 		/// </summary>
-		[XmlElement("biz_no")]
+		[JsonProperty("biz_no")]
 		public string BizNo { get; set; }
 	}
 }

@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,13 +12,13 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     修改后的活动状态, PAUSE或者READY或者CLOSED
 		/// </summary>
-		[XmlElement("camp_status")]
+		[JsonProperty("camp_status")]
 		public string CampStatus { get; set; }
 
 		/// <summary>
 		///     要修改的现金红包活动号
 		/// </summary>
-		[XmlElement("crowd_no")]
+		[JsonProperty("crowd_no")]
 		public string CrowdNo { get; set; }
 	}
 }

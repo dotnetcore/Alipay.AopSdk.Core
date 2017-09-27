@@ -1,4 +1,4 @@
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Response
 {
@@ -10,7 +10,7 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     是否阿里小号
 		/// </summary>
-		[XmlElement("is_alixiaohao")]
+		[JsonProperty("is_alixiaohao")]
 		public bool IsAlixiaohao { get; set; }
 	}
 }

@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -14,13 +14,13 @@ namespace Alipay.AopSdk.Core.Domain
 		///     "paramKey": "shopId",            "paramValue": "门店Id 的值"            },{            "paramKey": "memberType",
 		///     "paramValue": "1"            }]
 		/// </summary>
-		[XmlElement("req_parameters")]
+		[JsonProperty("req_parameters")]
 		public string ReqParameters { get; set; }
 
 		/// <summary>
 		///     uniq_key 为请求类型，传值为shopMemberHeatmap时查询门店会员/潜在会员 热力图数据；
 		/// </summary>
-		[XmlElement("uniq_key")]
+		[JsonProperty("uniq_key")]
 		public string UniqKey { get; set; }
 	}
 }

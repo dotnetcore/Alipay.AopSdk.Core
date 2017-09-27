@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,13 +12,13 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     预算数量，支持1～999999999之间。默认为999999999
 		/// </summary>
-		[XmlElement("budget_total")]
+		[JsonProperty("budget_total")]
 		public string BudgetTotal { get; set; }
 
 		/// <summary>
 		///     预算类型，现在支持CAMP_BUDGET_AMOUNT：表示数量预算
 		/// </summary>
-		[XmlElement("budget_type")]
+		[JsonProperty("budget_type")]
 		public string BudgetType { get; set; }
 	}
 }

@@ -1,4 +1,4 @@
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 using Alipay.AopSdk.Core.Domain;
 
 namespace Alipay.AopSdk.Core.Response
@@ -11,7 +11,7 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     芝麻信用通过模型计算出的该用户的芝麻信用评分
 		/// </summary>
-		[XmlElement("ali_trust_score")]
+		[JsonProperty("ali_trust_score")]
 		public AliTrustScore AliTrustScore { get; set; }
 	}
 }

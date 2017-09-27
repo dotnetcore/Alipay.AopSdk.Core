@@ -1,4 +1,4 @@
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Response
 {
@@ -10,7 +10,7 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     口碑评价id，即入参中的comment_id，后续可用于回复内容的增删改查
 		/// </summary>
-		[XmlElement("comment_id")]
+		[JsonProperty("comment_id")]
 		public string CommentId { get; set; }
 	}
 }

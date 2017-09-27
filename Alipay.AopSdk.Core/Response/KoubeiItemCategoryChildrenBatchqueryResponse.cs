@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 using Alipay.AopSdk.Core.Domain;
 
 namespace Alipay.AopSdk.Core.Response
@@ -12,8 +12,8 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     口碑标准后台类目信息列表
 		/// </summary>
-		[XmlArray("category_list")]
-		[XmlArrayItem("standard_category_info")]
+		[JsonProperty("category_list")]
+		
 		public List<StandardCategoryInfo> CategoryList { get; set; }
 	}
 }

@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,19 +12,19 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     查询区域类型  AREA_PRVN:省代码；  AREA_CITY:市代码；
 		/// </summary>
-		[XmlElement("area_type")]
+		[JsonProperty("area_type")]
 		public string AreaType { get; set; }
 
 		/// <summary>
 		///     续重价格（单位：元）
 		/// </summary>
-		[XmlElement("extra_weight_price")]
+		[JsonProperty("extra_weight_price")]
 		public string ExtraWeightPrice { get; set; }
 
 		/// <summary>
 		///     续重单位（单位：克）
 		/// </summary>
-		[XmlElement("extra_weight_unit")]
+		[JsonProperty("extra_weight_unit")]
 		public long ExtraWeightUnit { get; set; }
 
 		/// <summary>
@@ -35,7 +35,7 @@ namespace Alipay.AopSdk.Core.Domain
 		///     </a>
 		///     。
 		/// </summary>
-		[XmlElement("from_code")]
+		[JsonProperty("from_code")]
 		public string FromCode { get; set; }
 
 		/// <summary>
@@ -46,25 +46,25 @@ namespace Alipay.AopSdk.Core.Domain
 		///     </a>
 		///     。
 		/// </summary>
-		[XmlElement("logis_merch_code")]
+		[JsonProperty("logis_merch_code")]
 		public string LogisMerchCode { get; set; }
 
 		/// <summary>
 		///     首重重量（单位：克）
 		/// </summary>
-		[XmlElement("preset_weight")]
+		[JsonProperty("preset_weight")]
 		public long PresetWeight { get; set; }
 
 		/// <summary>
 		///     首重价格（单位：元）
 		/// </summary>
-		[XmlElement("preset_weight_price")]
+		[JsonProperty("preset_weight_price")]
 		public string PresetWeightPrice { get; set; }
 
 		/// <summary>
 		///     产品类型编码，取值如下：  STANDARD：标准快递。这是寄件平台默认支持的产品分类，如有其他产品分类的支持需求，可以发送邮件至xxx@alipay.com联系。
 		/// </summary>
-		[XmlElement("product_type_code")]
+		[JsonProperty("product_type_code")]
 		public string ProductTypeCode { get; set; }
 
 		/// <summary>
@@ -75,7 +75,7 @@ namespace Alipay.AopSdk.Core.Domain
 		///     </a>
 		///     。
 		/// </summary>
-		[XmlElement("to_code")]
+		[JsonProperty("to_code")]
 		public string ToCode { get; set; }
 	}
 }

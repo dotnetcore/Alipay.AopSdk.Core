@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 using Alipay.AopSdk.Core.Domain;
 
 namespace Alipay.AopSdk.Core.Response
@@ -12,14 +12,14 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     已经缓存的的key
 		/// </summary>
-		[XmlElement("cachekey")]
+		[JsonProperty("cachekey")]
 		public string Cachekey { get; set; }
 
 		/// <summary>
 		///     实时查询欠费单返回对象
 		/// </summary>
-		[XmlArray("inst_bill_info_list")]
-		[XmlArrayItem("query_inst_bill_info")]
+		[JsonProperty("inst_bill_info_list")]
+		
 		public List<QueryInstBillInfo> InstBillInfoList { get; set; }
 	}
 }

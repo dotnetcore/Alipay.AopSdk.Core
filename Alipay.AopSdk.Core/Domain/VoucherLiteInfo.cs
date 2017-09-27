@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,25 +12,25 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     发券时间，格式为：yyyy-MM-dd HH:mm:ss
 		/// </summary>
-		[XmlElement("send_time")]
+		[JsonProperty("send_time")]
 		public string SendTime { get; set; }
 
 		/// <summary>
 		///     券状态，可枚举，分别为“可用”(ENABLED)和“不可用”(DISABLED)
 		/// </summary>
-		[XmlElement("status")]
+		[JsonProperty("status")]
 		public string Status { get; set; }
 
 		/// <summary>
 		///     券模板ID
 		/// </summary>
-		[XmlElement("template_id")]
+		[JsonProperty("template_id")]
 		public string TemplateId { get; set; }
 
 		/// <summary>
 		///     券ID
 		/// </summary>
-		[XmlElement("voucher_id")]
+		[JsonProperty("voucher_id")]
 		public string VoucherId { get; set; }
 	}
 }

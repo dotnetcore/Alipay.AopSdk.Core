@@ -1,4 +1,4 @@
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Response
 {
@@ -10,7 +10,7 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     用户标签id列表，以英文逗号分隔
 		/// </summary>
-		[XmlElement("label_ids")]
+		[JsonProperty("label_ids")]
 		public string LabelIds { get; set; }
 	}
 }

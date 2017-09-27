@@ -1,4 +1,4 @@
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Response
 {
@@ -10,13 +10,13 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     券id
 		/// </summary>
-		[XmlElement("voucher_id")]
+		[JsonProperty("voucher_id")]
 		public string VoucherId { get; set; }
 
 		/// <summary>
 		///     券模板状态,EFFECTIVE=生效，INVALID=失效
 		/// </summary>
-		[XmlElement("voucher_status")]
+		[JsonProperty("voucher_status")]
 		public string VoucherStatus { get; set; }
 	}
 }

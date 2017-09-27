@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,7 +12,7 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     json格式的置顶的券id列表信息，id的顺序指定置顶的券的顺序
 		/// </summary>
-		[XmlElement("instance_id_list")]
+		[JsonProperty("instance_id_list")]
 		public string InstanceIdList { get; set; }
 	}
 }

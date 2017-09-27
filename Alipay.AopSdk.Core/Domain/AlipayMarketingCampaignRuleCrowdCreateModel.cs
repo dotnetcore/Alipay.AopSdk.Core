@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -22,19 +22,19 @@ namespace Alipay.AopSdk.Core.Domain
 		///     user_age <=17 then 1  [18,20] then 2  [21,25] then 3  [26,30] then 4  [31,35] then 5  [36,40] then 6  [41,45] then 7  [46,50] then 8  [51,55] then 9  [56,60] then 10  user_age >60
 		///     then 11
 		/// </summary>
-		[XmlElement("mdatacrowdsource")]
+		[JsonProperty("mdatacrowdsource")]
 		public string Mdatacrowdsource { get; set; }
 
 		/// <summary>
 		///     签约商户下属机构唯一编号
 		/// </summary>
-		[XmlElement("mpid")]
+		[JsonProperty("mpid")]
 		public string Mpid { get; set; }
 
 		/// <summary>
 		///     圈人规则描述，说明规则用途
 		/// </summary>
-		[XmlElement("ruledesc")]
+		[JsonProperty("ruledesc")]
 		public string Ruledesc { get; set; }
 	}
 }

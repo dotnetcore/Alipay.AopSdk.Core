@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -13,8 +13,8 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     供应商回传码物料码值记录（最多200条）
 		/// </summary>
-		[XmlArray("return_qrcodes")]
-		[XmlArrayItem("access_return_qrcode")]
+		[JsonProperty("return_qrcodes")]
+		
 		public List<AccessReturnQrcode> ReturnQrcodes { get; set; }
 	}
 }

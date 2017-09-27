@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -13,33 +13,33 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     追加的适用门店
 		/// </summary>
-		[XmlArray("suitable_shops")]
-		[XmlArrayItem("string")]
+		[JsonProperty("suitable_shops")]
+		
 		public List<string> SuitableShops { get; set; }
 
 		/// <summary>
 		///     描述信息
 		/// </summary>
-		[XmlElement("voucher_desc")]
+		[JsonProperty("voucher_desc")]
 		public string VoucherDesc { get; set; }
 
 		/// <summary>
 		///     券id
 		/// </summary>
-		[XmlElement("voucher_id")]
+		[JsonProperty("voucher_id")]
 		public string VoucherId { get; set; }
 
 		/// <summary>
 		///     券名称
 		/// </summary>
-		[XmlElement("voucher_name")]
+		[JsonProperty("voucher_name")]
 		public string VoucherName { get; set; }
 
 		/// <summary>
 		///     使用须知
 		/// </summary>
-		[XmlArray("voucher_terms")]
-		[XmlArrayItem("voucher_term_info")]
+		[JsonProperty("voucher_terms")]
+		
 		public List<VoucherTermInfo> VoucherTerms { get; set; }
 	}
 }

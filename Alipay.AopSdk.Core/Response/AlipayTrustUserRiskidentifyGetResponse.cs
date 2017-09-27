@@ -1,4 +1,4 @@
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 using Alipay.AopSdk.Core.Domain;
 
 namespace Alipay.AopSdk.Core.Response
@@ -11,7 +11,7 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     行业关注名单识别结果
 		/// </summary>
-		[XmlElement("ali_trust_risk_identify")]
+		[JsonProperty("ali_trust_risk_identify")]
 		public AliTrustRiskIdentify AliTrustRiskIdentify { get; set; }
 	}
 }

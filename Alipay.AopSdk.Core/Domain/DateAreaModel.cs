@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,13 +12,13 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     开始时间
 		/// </summary>
-		[XmlElement("begin_date")]
+		[JsonProperty("begin_date")]
 		public string BeginDate { get; set; }
 
 		/// <summary>
 		///     结束时间
 		/// </summary>
-		[XmlElement("end_date")]
+		[JsonProperty("end_date")]
 		public string EndDate { get; set; }
 	}
 }

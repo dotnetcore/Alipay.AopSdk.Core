@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 using Alipay.AopSdk.Core.Domain;
 
 namespace Alipay.AopSdk.Core.Response
@@ -12,8 +12,8 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     券列表，一定不为null，但是size可以为0
 		/// </summary>
-		[XmlArray("vouchers")]
-		[XmlArrayItem("voucher_lite_info")]
+		[JsonProperty("vouchers")]
+		
 		public List<VoucherLiteInfo> Vouchers { get; set; }
 	}
 }

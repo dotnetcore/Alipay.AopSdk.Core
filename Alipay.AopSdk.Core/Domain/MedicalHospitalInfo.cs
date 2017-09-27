@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,19 +12,19 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     医院唯一标识，编码开发者生成并保证唯一
 		/// </summary>
-		[XmlElement("code")]
+		[JsonProperty("code")]
 		public string Code { get; set; }
 
 		/// <summary>
 		///     医院名称
 		/// </summary>
-		[XmlElement("name")]
+		[JsonProperty("name")]
 		public string Name { get; set; }
 
 		/// <summary>
 		///     医院联系电话
 		/// </summary>
-		[XmlElement("phone")]
+		[JsonProperty("phone")]
 		public string Phone { get; set; }
 	}
 }

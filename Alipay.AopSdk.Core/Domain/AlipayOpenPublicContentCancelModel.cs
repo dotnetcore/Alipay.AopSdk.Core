@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,7 +12,7 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     message_id 是发布接口调用之后拿到的返回值，用来撤回已经发布的对应内容
 		/// </summary>
-		[XmlElement("message_id")]
+		[JsonProperty("message_id")]
 		public string MessageId { get; set; }
 	}
 }

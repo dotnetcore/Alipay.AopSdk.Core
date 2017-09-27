@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,7 +12,7 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     抽奖活动id，通过alipay.marketing.campaign.drawcamp.create接口返回
 		/// </summary>
-		[XmlElement("camp_id")]
+		[JsonProperty("camp_id")]
 		public string CampId { get; set; }
 	}
 }

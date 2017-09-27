@@ -91,9 +91,6 @@ namespace Alipay.AopSdk.Core
 			// 序列化BizModel
 			txtParams = SerializeBizModel(txtParams, request);
 
-			var xmlData = new StringBuilder();
-
-
 			// 添加协议级请求参数
 			//AopDictionary txtParams = new AopDictionary(request.GetParameters());
 			txtParams.Add(METHOD, request.GetApiName());
@@ -613,7 +610,9 @@ namespace Alipay.AopSdk.Core
 		/// <returns></returns>
 		private string Serialize(AopObject obj)
 		{
-			return JsonConvert.SerializeObject(obj);
+			JsonSerializerSettings jsetting = new JsonSerializerSettings();
+			jsetting.NullValueHandling = NullValueHandling.Ignore;
+			return JsonConvert.SerializeObject(obj, Formatting.None, jsetting);
 		}
 
 		#endregion

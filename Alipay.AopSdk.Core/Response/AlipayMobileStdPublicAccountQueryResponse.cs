@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 using Alipay.AopSdk.Core.Domain;
 
 namespace Alipay.AopSdk.Core.Response
@@ -12,8 +12,8 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     绑定账户列表
 		/// </summary>
-		[XmlArray("public_bind_accounts")]
-		[XmlArrayItem("public_bind_account")]
+		[JsonProperty("public_bind_accounts")]
+		
 		public List<PublicBindAccount> PublicBindAccounts { get; set; }
 	}
 }

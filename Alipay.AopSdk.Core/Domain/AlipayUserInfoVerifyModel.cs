@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -16,7 +16,7 @@ namespace Alipay.AopSdk.Core.Domain
 		///     （2）subRequests为待检查的信息项，会与principalInfo所指示的用户留存在支付宝的信息进行匹配；数组类型，支持多种字段的校验；其中type为信息类型，value为信息值。  （3）type目前支持的类型:
 		///     手机：mobile            姓名：realName
 		/// </summary>
-		[XmlElement("request")]
+		[JsonProperty("request")]
 		public string Request { get; set; }
 	}
 }

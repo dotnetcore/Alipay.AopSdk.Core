@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Response
 {
@@ -11,20 +11,20 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     结果码
 		/// </summary>
-		[XmlElement("code")]
+		[JsonProperty("code")]
 		public string Code { get; set; }
 
 		/// <summary>
 		///     所有标签
 		/// </summary>
-		[XmlArray("labels")]
-		[XmlArrayItem("string")]
+		[JsonProperty("labels")]
+		
 		public List<string> Labels { get; set; }
 
 		/// <summary>
 		///     结果信息
 		/// </summary>
-		[XmlElement("msg")]
+		[JsonProperty("msg")]
 		public string Msg { get; set; }
 	}
 }

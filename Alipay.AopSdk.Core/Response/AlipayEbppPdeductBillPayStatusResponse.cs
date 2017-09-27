@@ -1,4 +1,4 @@
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Response
 {
@@ -10,37 +10,37 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     支付宝协议流水
 		/// </summary>
-		[XmlElement("agreement_id")]
+		[JsonProperty("agreement_id")]
 		public string AgreementId { get; set; }
 
 		/// <summary>
 		///     支付宝流billNo
 		/// </summary>
-		[XmlElement("order_no")]
+		[JsonProperty("order_no")]
 		public string OrderNo { get; set; }
 
 		/// <summary>
 		///     订单的结果码
 		/// </summary>
-		[XmlElement("order_result_code")]
+		[JsonProperty("order_result_code")]
 		public string OrderResultCode { get; set; }
 
 		/// <summary>
 		///     订单的结果描述
 		/// </summary>
-		[XmlElement("order_result_msg")]
+		[JsonProperty("order_result_msg")]
 		public string OrderResultMsg { get; set; }
 
 		/// <summary>
 		///     外部订单流水
 		/// </summary>
-		[XmlElement("out_order_no")]
+		[JsonProperty("out_order_no")]
 		public string OutOrderNo { get; set; }
 
 		/// <summary>
 		///     支付宝订单支付状态。  0：未知状态。  1：支付成功。  2：支付失败。
 		/// </summary>
-		[XmlElement("status")]
+		[JsonProperty("status")]
 		public string Status { get; set; }
 	}
 }

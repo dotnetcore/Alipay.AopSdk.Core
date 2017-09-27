@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,7 +12,7 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     服务窗商户在渠道商处对应的用户id
 		/// </summary>
-		[XmlElement("channel_uid")]
+		[JsonProperty("channel_uid")]
 		public string ChannelUid { get; set; }
 	}
 }

@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -13,41 +13,41 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     sdafsdfsaf
 		/// </summary>
-		[XmlElement("adsfghjf")]
+		[JsonProperty("adsfghjf")]
 		public AlipayItemVoucherTemplete Adsfghjf { get; set; }
 
 		/// <summary>
 		///     ghjffdssfghj
 		/// </summary>
-		[XmlArray("easadasfd")]
-		[XmlArrayItem("string")]
+		[JsonProperty("easadasfd")]
+		
 		public List<string> Easadasfd { get; set; }
 
 		/// <summary>
 		///     dsfghdsagfhd
 		/// </summary>
-		[XmlArray("gdfsa")]
-		[XmlArrayItem("string")]
+		[JsonProperty("gdfsa")]
+		
 		public List<string> Gdfsa { get; set; }
 
 		/// <summary>
 		///     ghjkhg
 		/// </summary>
-		[XmlElement("hjgdfs")]
+		[JsonProperty("hjgdfs")]
 		public string Hjgdfs { get; set; }
 
 		/// <summary>
 		///     sdgfjhkg
 		/// </summary>
-		[XmlArray("sdfgsdfg")]
-		[XmlArrayItem("string")]
+		[JsonProperty("sdfgsdfg")]
+		
 		public List<string> Sdfgsdfg { get; set; }
 
 		/// <summary>
 		///     ASGFDGASaaf
 		/// </summary>
-		[XmlArray("wehtegf")]
-		[XmlArrayItem("string")]
+		[JsonProperty("wehtegf")]
+		
 		public List<string> Wehtegf { get; set; }
 	}
 }

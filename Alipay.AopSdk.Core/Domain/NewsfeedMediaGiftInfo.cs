@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,55 +12,55 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     地址
 		/// </summary>
-		[XmlElement("action")]
+		[JsonProperty("action")]
 		public string Action { get; set; }
 
 		/// <summary>
 		///     安卓的高度
 		/// </summary>
-		[XmlElement("adr_height")]
+		[JsonProperty("adr_height")]
 		public string AdrHeight { get; set; }
 
 		/// <summary>
 		///     安卓缩略图
 		/// </summary>
-		[XmlElement("adr_thumb")]
+		[JsonProperty("adr_thumb")]
 		public string AdrThumb { get; set; }
 
 		/// <summary>
 		///     安卓宽度
 		/// </summary>
-		[XmlElement("adr_width")]
+		[JsonProperty("adr_width")]
 		public string AdrWidth { get; set; }
 
 		/// <summary>
 		///     ios高度
 		/// </summary>
-		[XmlElement("ios_height")]
+		[JsonProperty("ios_height")]
 		public string IosHeight { get; set; }
 
 		/// <summary>
 		///     ios缩略图
 		/// </summary>
-		[XmlElement("ios_thumb")]
+		[JsonProperty("ios_thumb")]
 		public string IosThumb { get; set; }
 
 		/// <summary>
 		///     ios宽度
 		/// </summary>
-		[XmlElement("ios_width")]
+		[JsonProperty("ios_width")]
 		public string IosWidth { get; set; }
 
 		/// <summary>
 		///     大图
 		/// </summary>
-		[XmlElement("theme")]
+		[JsonProperty("theme")]
 		public string Theme { get; set; }
 
 		/// <summary>
 		///     红包类型all、f、m
 		/// </summary>
-		[XmlElement("type")]
+		[JsonProperty("type")]
 		public string Type { get; set; }
 	}
 }

@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -13,8 +13,8 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     非服务区区域代码列表
 		/// </summary>
-		[XmlArray("area_codes")]
-		[XmlArrayItem("area_code")]
+		[JsonProperty("area_codes")]
+		
 		public List<AreaCode> AreaCodes { get; set; }
 
 		/// <summary>
@@ -25,7 +25,7 @@ namespace Alipay.AopSdk.Core.Domain
 		///     </a>
 		///     。
 		/// </summary>
-		[XmlElement("logis_merch_code")]
+		[JsonProperty("logis_merch_code")]
 		public string LogisMerchCode { get; set; }
 	}
 }

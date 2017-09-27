@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Serialization;
+using Newtonsoft.Json;
 using Alipay.AopSdk.Core.Util;
 using Newtonsoft.Json;
 
@@ -105,22 +106,9 @@ namespace Alipay.AopSdk.Core.Parser
 				ta.Method = pi.GetSetMethod();
 
 				// 获取对象属性名称
-				var xeas = pi.GetCustomAttributes(typeof(XmlElementAttribute), true) as XmlElementAttribute[];
+				var xeas = pi.GetCustomAttributes(typeof(JsonPropertyAttribute), true) as JsonPropertyAttribute[];
 				if (xeas != null && xeas.Length > 0)
-					ta.ItemName = xeas[0].ElementName;
-
-				// 获取列表属性名称
-				if (ta.ItemName == null)
-				{
-					var xaias = pi.GetCustomAttributes(typeof(XmlArrayItemAttribute), true) as XmlArrayItemAttribute[];
-					if (xaias != null && xaias.Length > 0)
-						ta.ItemName = xaias[0].ElementName;
-					var xaas = pi.GetCustomAttributes(typeof(XmlArrayAttribute), true) as XmlArrayAttribute[];
-					if (xaas != null && xaas.Length > 0)
-						ta.ListName = xaas[0].ElementName;
-					if (ta.ListName == null)
-						continue;
-				}
+					ta.ItemName = xeas[0].PropertyName;
 
 				// 获取属性类型
 				if (pi.PropertyType.IsGenericType)
@@ -230,7 +218,11 @@ namespace Alipay.AopSdk.Core.Parser
 		{
 			T rsp = null;
 
-			var json = JsonConvert.DeserializeObject<IDictionary>(body);
+			IDictionary json = null;
+			if (!body.StartsWith("<form"))
+			{
+				json=JsonConvert.DeserializeObject<IDictionary>(body);
+			}
 			if (json != null)
 			{
 				IDictionary data = null;

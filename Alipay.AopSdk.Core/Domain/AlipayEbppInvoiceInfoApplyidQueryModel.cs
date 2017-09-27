@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,7 +12,7 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     申请开票时支付宝返回的申请id，具有全局唯一性。
 		/// </summary>
-		[XmlElement("apply_id")]
+		[JsonProperty("apply_id")]
 		public string ApplyId { get; set; }
 	}
 }

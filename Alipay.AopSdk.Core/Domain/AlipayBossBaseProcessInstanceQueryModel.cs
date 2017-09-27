@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,7 +12,7 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     流程全局唯一ID
 		/// </summary>
-		[XmlElement("puid")]
+		[JsonProperty("puid")]
 		public string Puid { get; set; }
 	}
 }

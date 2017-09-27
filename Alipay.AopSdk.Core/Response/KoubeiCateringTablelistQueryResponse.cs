@@ -1,4 +1,4 @@
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 using Alipay.AopSdk.Core.Domain;
 
 namespace Alipay.AopSdk.Core.Response
@@ -11,7 +11,7 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     返回tablelistresult列表
 		/// </summary>
-		[XmlElement("tableinfo_result")]
+		[JsonProperty("tableinfo_result")]
 		public TableInfoResult TableinfoResult { get; set; }
 	}
 }

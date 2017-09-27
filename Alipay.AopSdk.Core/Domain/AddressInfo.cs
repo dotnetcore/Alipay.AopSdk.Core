@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,7 +12,7 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     商户详细经营地址
 		/// </summary>
-		[XmlElement("address")]
+		[JsonProperty("address")]
 		public string Address { get; set; }
 
 		/// <summary>
@@ -20,7 +20,7 @@ namespace Alipay.AopSdk.Core.Domain
 		///     国标省市区号下载：http://aopsdkdownload.cn-hangzhou.alipay-pub.aliyun-inc.com/doc/2016.xls?spm=a219a.7629140.0.0.qRW4KQ&file
 		///     =2016.xls
 		/// </summary>
-		[XmlElement("city_code")]
+		[JsonProperty("city_code")]
 		public string CityCode { get; set; }
 
 		/// <summary>
@@ -28,19 +28,19 @@ namespace Alipay.AopSdk.Core.Domain
 		///     国标省市区号下载：http://aopsdkdownload.cn-hangzhou.alipay-pub.aliyun-inc.com/doc/2016.xls?spm=a219a.7629140.0.0.qRW4KQ&file
 		///     =2016.xls
 		/// </summary>
-		[XmlElement("district_code")]
+		[JsonProperty("district_code")]
 		public string DistrictCode { get; set; }
 
 		/// <summary>
 		///     纬度，浮点型,小数点后最多保留6位  如需要录入经纬度，请以高德坐标系为准，录入时请确保经纬度参数准确。高德经纬度查询：http://lbs.amap.com/console/show/picker
 		/// </summary>
-		[XmlElement("latitude")]
+		[JsonProperty("latitude")]
 		public string Latitude { get; set; }
 
 		/// <summary>
 		///     经度，浮点型, 小数点后最多保留6位。  如需要录入经纬度，请以高德坐标系为准，录入时请确保经纬度参数准确。高德经纬度查询：http://lbs.amap.com/console/show/picker
 		/// </summary>
-		[XmlElement("longitude")]
+		[JsonProperty("longitude")]
 		public string Longitude { get; set; }
 
 		/// <summary>
@@ -48,13 +48,13 @@ namespace Alipay.AopSdk.Core.Domain
 		///     国标省市区号下载：http://aopsdkdownload.cn-hangzhou.alipay-pub.aliyun-inc.com/doc/2016.xls?spm=a219a.7629140.0.0.qRW4KQ&file
 		///     =2016.xls
 		/// </summary>
-		[XmlElement("province_code")]
+		[JsonProperty("province_code")]
 		public string ProvinceCode { get; set; }
 
 		/// <summary>
 		///     地址类型。取值范围：BUSINESS_ADDRESS：经营地址（默认）
 		/// </summary>
-		[XmlElement("type")]
+		[JsonProperty("type")]
 		public string Type { get; set; }
 	}
 }

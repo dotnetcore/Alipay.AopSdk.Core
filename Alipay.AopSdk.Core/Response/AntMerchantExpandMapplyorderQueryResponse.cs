@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 using Alipay.AopSdk.Core.Domain;
 
 namespace Alipay.AopSdk.Core.Response
@@ -12,26 +12,26 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     支付宝端商户入驻申请单据号
 		/// </summary>
-		[XmlElement("order_no")]
+		[JsonProperty("order_no")]
 		public string OrderNo { get; set; }
 
 		/// <summary>
 		///     支付宝商户入驻申请单状态
 		/// </summary>
-		[XmlElement("order_status")]
+		[JsonProperty("order_status")]
 		public string OrderStatus { get; set; }
 
 		/// <summary>
 		///     外部入驻申请单据号
 		/// </summary>
-		[XmlElement("out_biz_no")]
+		[JsonProperty("out_biz_no")]
 		public string OutBizNo { get; set; }
 
 		/// <summary>
 		///     入驻申请单认证审核、签约审核详情
 		/// </summary>
-		[XmlArray("result_info")]
-		[XmlArrayItem("merchant_apply_result_record")]
+		[JsonProperty("result_info")]
+		
 		public List<MerchantApplyResultRecord> ResultInfo { get; set; }
 	}
 }

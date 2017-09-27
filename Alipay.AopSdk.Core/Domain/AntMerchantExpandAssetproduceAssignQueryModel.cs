@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,7 +12,7 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     每次拉取最大记录数量，可选值为[1,200] ;
 		/// </summary>
-		[XmlElement("page_size")]
+		[JsonProperty("page_size")]
 		public long PageSize { get; set; }
 	}
 }

@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -13,8 +13,8 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     供应商同步的发货信息及物流信息记录（最多100条）
 		/// </summary>
-		[XmlArray("purchase_order_sends")]
-		[XmlArrayItem("access_purchase_order_send")]
+		[JsonProperty("purchase_order_sends")]
+		
 		public List<AccessPurchaseOrderSend> PurchaseOrderSends { get; set; }
 	}
 }

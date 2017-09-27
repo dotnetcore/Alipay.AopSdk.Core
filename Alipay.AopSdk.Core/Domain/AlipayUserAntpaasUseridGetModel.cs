@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,7 +12,7 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     账户登录号，邮箱或者手机号
 		/// </summary>
-		[XmlElement("logon_id")]
+		[JsonProperty("logon_id")]
 		public string LogonId { get; set; }
 	}
 }

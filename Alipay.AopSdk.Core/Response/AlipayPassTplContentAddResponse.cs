@@ -1,4 +1,4 @@
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Response
 {
@@ -10,19 +10,19 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     业务结果
 		/// </summary>
-		[XmlElement("biz_result")]
+		[JsonProperty("biz_result")]
 		public string BizResult { get; set; }
 
 		/// <summary>
 		///     业务错误码
 		/// </summary>
-		[XmlElement("error_code")]
+		[JsonProperty("error_code")]
 		public string ErrorCode { get; set; }
 
 		/// <summary>
 		///     是否成功标识:T-成功；F-失败
 		/// </summary>
-		[XmlElement("success")]
+		[JsonProperty("success")]
 		public string Success { get; set; }
 	}
 }

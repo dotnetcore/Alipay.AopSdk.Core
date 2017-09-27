@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core
 {
@@ -16,7 +16,7 @@ namespace Alipay.AopSdk.Core
 		///     错误码
 		///     对应 ErrCode
 		/// </summary>
-		[XmlElement("code")]
+		[JsonProperty("code")]
 		public string Code
 		{
 			get => code;
@@ -27,7 +27,7 @@ namespace Alipay.AopSdk.Core
 		///     错误信息
 		///     对应 ErrMsg
 		/// </summary>
-		[XmlElement("msg")]
+		[JsonProperty("msg")]
 		public string Msg
 		{
 			get => msg;
@@ -38,7 +38,7 @@ namespace Alipay.AopSdk.Core
 		///     子错误码
 		///     对应 SubErrCode
 		/// </summary>
-		[XmlElement("sub_code")]
+		[JsonProperty("sub_code")]
 		public string SubCode
 		{
 			get => subCode;
@@ -49,7 +49,7 @@ namespace Alipay.AopSdk.Core
 		///     子错误信息
 		///     对应 SubErrMsg
 		/// </summary>
-		[XmlElement("sub_msg")]
+		[JsonProperty("sub_msg")]
 		public string SubMsg
 		{
 			get => subMsg;

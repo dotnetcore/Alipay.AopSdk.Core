@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Response
 {
@@ -11,20 +11,20 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     本次调用获取的userId个数，最大值为10000
 		/// </summary>
-		[XmlElement("count")]
+		[JsonProperty("count")]
 		public string Count { get; set; }
 
 		/// <summary>
 		///     查询分组的userid
 		/// </summary>
-		[XmlElement("next_user_id")]
+		[JsonProperty("next_user_id")]
 		public string NextUserId { get; set; }
 
 		/// <summary>
 		///     用户的userId列表
 		/// </summary>
-		[XmlArray("user_id_list")]
-		[XmlArrayItem("string")]
+		[JsonProperty("user_id_list")]
+		
 		public List<string> UserIdList { get; set; }
 	}
 }

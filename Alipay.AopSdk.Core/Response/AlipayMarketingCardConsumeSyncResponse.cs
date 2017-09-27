@@ -1,4 +1,4 @@
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Response
 {
@@ -10,7 +10,7 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     外部卡号
 		/// </summary>
-		[XmlElement("external_card_no")]
+		[JsonProperty("external_card_no")]
 		public string ExternalCardNo { get; set; }
 	}
 }

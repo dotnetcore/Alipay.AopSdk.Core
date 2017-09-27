@@ -3,6 +3,7 @@ using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Xml.Serialization;
+using Newtonsoft.Json;
 using Alipay.AopSdk.Core.Util;
 
 namespace Alipay.AopSdk.Core.Parser

@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 using Alipay.AopSdk.Core.Domain;
 
 namespace Alipay.AopSdk.Core.Response
@@ -12,8 +12,8 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     店铺商品集合
 		/// </summary>
-		[XmlArray("shopitemlist")]
-		[XmlArrayItem("ext_shop_item")]
+		[JsonProperty("shopitemlist")]
+		
 		public List<ExtShopItem> Shopitemlist { get; set; }
 	}
 }

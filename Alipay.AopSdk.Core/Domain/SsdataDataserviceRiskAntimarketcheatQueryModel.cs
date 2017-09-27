@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,37 +12,37 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     行为发生时的身份证号
 		/// </summary>
-		[XmlElement("cert_no")]
+		[JsonProperty("cert_no")]
 		public string CertNo { get; set; }
 
 		/// <summary>
 		///     调用服务的商户id ，如果是第三方服务商，需要将其实际的商户id透传过来，如果是普通商户传入自己的appid即可
 		/// </summary>
-		[XmlElement("partner_id")]
+		[JsonProperty("partner_id")]
 		public string PartnerId { get; set; }
 
 		/// <summary>
 		///     行为发生时的手机号
 		/// </summary>
-		[XmlElement("phone")]
+		[JsonProperty("phone")]
 		public string Phone { get; set; }
 
 		/// <summary>
 		///     风险场景码
 		/// </summary>
-		[XmlElement("risk_code")]
+		[JsonProperty("risk_code")]
 		public string RiskCode { get; set; }
 
 		/// <summary>
 		///     业务场景
 		/// </summary>
-		[XmlElement("scene_code")]
+		[JsonProperty("scene_code")]
 		public string SceneCode { get; set; }
 
 		/// <summary>
 		///     版本号
 		/// </summary>
-		[XmlElement("sys_version")]
+		[JsonProperty("sys_version")]
 		public string SysVersion { get; set; }
 	}
 }

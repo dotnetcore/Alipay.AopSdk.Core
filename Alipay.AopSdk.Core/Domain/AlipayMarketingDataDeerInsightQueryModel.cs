@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,55 +12,55 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     洞察名称，只能是数字、英文字母、横线或下划线
 		/// </summary>
-		[XmlElement("alias")]
+		[JsonProperty("alias")]
 		public string Alias { get; set; }
 
 		/// <summary>
 		///     应用唯一标识
 		/// </summary>
-		[XmlElement("app")]
+		[JsonProperty("app")]
 		public string App { get; set; }
 
 		/// <summary>
 		///     权限类型
 		/// </summary>
-		[XmlElement("auth")]
+		[JsonProperty("auth")]
 		public string Auth { get; set; }
 
 		/// <summary>
 		///     如果未查询到洞察，是否强制新建一个返回
 		/// </summary>
-		[XmlElement("force")]
+		[JsonProperty("force")]
 		public bool Force { get; set; }
 
 		/// <summary>
 		///     是否强制更新该洞察为最新版洞察
 		/// </summary>
-		[XmlElement("force_update")]
+		[JsonProperty("force_update")]
 		public bool ForceUpdate { get; set; }
 
 		/// <summary>
 		///     业务空间唯一标识
 		/// </summary>
-		[XmlElement("group_domain")]
+		[JsonProperty("group_domain")]
 		public string GroupDomain { get; set; }
 
 		/// <summary>
 		///     洞察唯一标识
 		/// </summary>
-		[XmlElement("insight_domain")]
+		[JsonProperty("insight_domain")]
 		public string InsightDomain { get; set; }
 
 		/// <summary>
 		///     业务指定的额外参数
 		/// </summary>
-		[XmlElement("params")]
+		[JsonProperty("params")]
 		public string Params { get; set; }
 
 		/// <summary>
 		///     调用服务的业务系统
 		/// </summary>
-		[XmlElement("system")]
+		[JsonProperty("system")]
 		public string System { get; set; }
 	}
 }

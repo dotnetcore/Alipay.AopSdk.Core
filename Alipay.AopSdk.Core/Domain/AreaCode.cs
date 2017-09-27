@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,7 +12,7 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     区域类型  AREA_PRVN:省代码；  AREA_CITY:市代码；  AREA_DIST:区县代码；
 		/// </summary>
-		[XmlElement("area_type")]
+		[JsonProperty("area_type")]
 		public string AreaType { get; set; }
 
 		/// <summary>
@@ -23,7 +23,7 @@ namespace Alipay.AopSdk.Core.Domain
 		///     </a>
 		///     。
 		/// </summary>
-		[XmlElement("code")]
+		[JsonProperty("code")]
 		public string Code { get; set; }
 	}
 }

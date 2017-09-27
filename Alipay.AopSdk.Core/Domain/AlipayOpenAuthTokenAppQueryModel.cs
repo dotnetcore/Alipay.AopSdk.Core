@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,7 +12,7 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     应用授权令牌
 		/// </summary>
-		[XmlElement("app_auth_token")]
+		[JsonProperty("app_auth_token")]
 		public string AppAuthToken { get; set; }
 	}
 }

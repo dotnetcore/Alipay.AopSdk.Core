@@ -16,7 +16,7 @@ namespace Alipay.AopSdk.Core.Request
 		#region IAopRequest Members
 
 		private bool needEncrypt;
-		private string apiVersion = "1.0";
+		private string apiVersion = "2.0";
 		private string terminalType;
 		private string terminalInfo;
 		private string prodCode;

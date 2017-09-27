@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 using Alipay.AopSdk.Core.Domain;
 
 namespace Alipay.AopSdk.Core.Response
@@ -12,14 +12,14 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     符合条件的小区房屋信息列表.
 		/// </summary>
-		[XmlArray("room_info")]
-		[XmlArrayItem("cplife_room_detail")]
+		[JsonProperty("room_info")]
+		
 		public List<CplifeRoomDetail> RoomInfo { get; set; }
 
 		/// <summary>
 		///     该小区下已上传的房间总数
 		/// </summary>
-		[XmlElement("total_room_number")]
+		[JsonProperty("total_room_number")]
 		public long TotalRoomNumber { get; set; }
 	}
 }

@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -13,8 +13,8 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     批量创建凭证请求
 		/// </summary>
-		[XmlArray("ins_create_certificate_requests")]
-		[XmlArrayItem("ins_create_certificate_request")]
+		[JsonProperty("ins_create_certificate_requests")]
+		
 		public List<InsCreateCertificateRequest> InsCreateCertificateRequests { get; set; }
 	}
 }

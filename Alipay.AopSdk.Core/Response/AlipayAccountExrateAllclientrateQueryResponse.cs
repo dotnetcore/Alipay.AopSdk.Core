@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 using Alipay.AopSdk.Core.Domain;
 
 namespace Alipay.AopSdk.Core.Response
@@ -12,8 +12,8 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     汇率信息列表
 		/// </summary>
-		[XmlArray("client_rate_list")]
-		[XmlArrayItem("ex_client_rate_v_o")]
+		[JsonProperty("client_rate_list")]
+		
 		public List<ExClientRateVO> ClientRateList { get; set; }
 	}
 }

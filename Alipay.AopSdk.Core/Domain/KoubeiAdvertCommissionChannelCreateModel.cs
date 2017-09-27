@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -13,8 +13,8 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     新增渠道列表
 		/// </summary>
-		[XmlArray("channels")]
-		[XmlArrayItem("kb_advert_add_channel_request")]
+		[JsonProperty("channels")]
+		
 		public List<KbAdvertAddChannelRequest> Channels { get; set; }
 	}
 }

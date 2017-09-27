@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -13,14 +13,14 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     根据benefit_type，确定ID含义  SINGLE_VOUCHER时，benefit_ids为券ID
 		/// </summary>
-		[XmlArray("benefit_ids")]
-		[XmlArrayItem("string")]
+		[JsonProperty("benefit_ids")]
+		
 		public List<string> BenefitIds { get; set; }
 
 		/// <summary>
 		///     发放权益类型  SINGLE_VOUCHER：单券
 		/// </summary>
-		[XmlElement("benefit_type")]
+		[JsonProperty("benefit_type")]
 		public string BenefitType { get; set; }
 
 		/// <summary>
@@ -29,25 +29,25 @@ namespace Alipay.AopSdk.Core.Domain
 		///     isv.voucher_activity_not_started:活动未开始  isv.voucher_activity_expired:活动已结束
 		///     isv.crowd_limit_not_match_error:暂无领取资格，详情请咨询商家  isv.member_crowd_limit_not_match_error:会员专属，请先注册会员
 		/// </summary>
-		[XmlElement("code")]
+		[JsonProperty("code")]
 		public string Code { get; set; }
 
 		/// <summary>
 		///     JSON格式数据，需要ISV自行解析
 		/// </summary>
-		[XmlElement("ext_info")]
+		[JsonProperty("ext_info")]
 		public string ExtInfo { get; set; }
 
 		/// <summary>
 		///     主键的值
 		/// </summary>
-		[XmlElement("identify")]
+		[JsonProperty("identify")]
 		public string Identify { get; set; }
 
 		/// <summary>
 		///     主键类型
 		/// </summary>
-		[XmlElement("identify_type")]
+		[JsonProperty("identify_type")]
 		public string IdentifyType { get; set; }
 	}
 }

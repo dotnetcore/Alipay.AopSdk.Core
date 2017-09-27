@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 using Alipay.AopSdk.Core.Domain;
 
 namespace Alipay.AopSdk.Core.Response
@@ -20,8 +20,8 @@ namespace Alipay.AopSdk.Core.Response
 		///     revenue_increase返回2000，则封装的文案可为“建议开展单品营销，吸引更多回头客提升店面收益，30天内可提升收益2000元。”
 		///     repurchase_customer返回8，则封装的文案是“一个明星菜将带来8个回头客。”
 		/// </summary>
-		[XmlArray("diagnose_result")]
-		[XmlArrayItem("diagnose_result")]
+		[JsonProperty("diagnose_result")]
+		
 		public List<DiagnoseResult> DiagnoseResult { get; set; }
 	}
 }

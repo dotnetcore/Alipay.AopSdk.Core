@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -13,116 +13,116 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     店铺跳转链接
 		/// </summary>
-		[XmlElement("action_param")]
+		[JsonProperty("action_param")]
 		public string ActionParam { get; set; }
 
 		/// <summary>
 		///     店铺地址
 		/// </summary>
-		[XmlElement("address")]
+		[JsonProperty("address")]
 		public string Address { get; set; }
 
 		/// <summary>
 		///     品牌名称
 		/// </summary>
-		[XmlElement("brand_name")]
+		[JsonProperty("brand_name")]
 		public string BrandName { get; set; }
 
 		/// <summary>
 		///     城市id
 		/// </summary>
-		[XmlElement("city_id")]
+		[JsonProperty("city_id")]
 		public string CityId { get; set; }
 
 		/// <summary>
 		///     菜系
 		/// </summary>
-		[XmlElement("cuisine")]
+		[JsonProperty("cuisine")]
 		public string Cuisine { get; set; }
 
 		/// <summary>
 		///     预留扩展信息
 		/// </summary>
-		[XmlElement("ext_info")]
+		[JsonProperty("ext_info")]
 		public string ExtInfo { get; set; }
 
 		/// <summary>
 		///     是否有优惠
 		/// </summary>
-		[XmlElement("has_hui")]
+		[JsonProperty("has_hui")]
 		public string HasHui { get; set; }
 
 		/// <summary>
 		///     店铺名称
 		/// </summary>
-		[XmlElement("head_shop_name")]
+		[JsonProperty("head_shop_name")]
 		public string HeadShopName { get; set; }
 
 		/// <summary>
 		///     纬度
 		/// </summary>
-		[XmlElement("latitude")]
+		[JsonProperty("latitude")]
 		public string Latitude { get; set; }
 
 		/// <summary>
 		///     经度
 		/// </summary>
-		[XmlElement("longitude")]
+		[JsonProperty("longitude")]
 		public string Longitude { get; set; }
 
 		/// <summary>
 		///     人气分
 		/// </summary>
-		[XmlElement("popularity")]
+		[JsonProperty("popularity")]
 		public string Popularity { get; set; }
 
 		/// <summary>
 		///     人气等级
 		/// </summary>
-		[XmlElement("popularity_level")]
+		[JsonProperty("popularity_level")]
 		public string PopularityLevel { get; set; }
 
 		/// <summary>
 		///     人均消费
 		/// </summary>
-		[XmlElement("price_average")]
+		[JsonProperty("price_average")]
 		public string PriceAverage { get; set; }
 
 		/// <summary>
 		///     前台一级类目列表
 		/// </summary>
-		[XmlElement("root_display_category_info")]
+		[JsonProperty("root_display_category_info")]
 		public string RootDisplayCategoryInfo { get; set; }
 
 		/// <summary>
 		///     店铺id
 		/// </summary>
-		[XmlElement("shop_id")]
+		[JsonProperty("shop_id")]
 		public string ShopId { get; set; }
 
 		/// <summary>
 		///     店铺logo图
 		/// </summary>
-		[XmlElement("shop_logo_url")]
+		[JsonProperty("shop_logo_url")]
 		public string ShopLogoUrl { get; set; }
 
 		/// <summary>
 		///     店铺详细名称
 		/// </summary>
-		[XmlElement("shop_name")]
+		[JsonProperty("shop_name")]
 		public string ShopName { get; set; }
 
 		/// <summary>
 		///     推荐语
 		/// </summary>
-		[XmlElement("shop_recommend_one_tag_compose")]
+		[JsonProperty("shop_recommend_one_tag_compose")]
 		public string ShopRecommendOneTagCompose { get; set; }
 
 		/// <summary>
 		///     店铺券信息
 		/// </summary>
-		[XmlArray("voucher_info_list")]
-		[XmlArrayItem("promo_voucher_info")]
+		[JsonProperty("voucher_info_list")]
+		
 		public List<PromoVoucherInfo> VoucherInfoList { get; set; }
 	}
 }

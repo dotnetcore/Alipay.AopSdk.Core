@@ -1,4 +1,4 @@
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Response
 {
@@ -10,7 +10,7 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     预算ID
 		/// </summary>
-		[XmlElement("budget_id")]
+		[JsonProperty("budget_id")]
 		public string BudgetId { get; set; }
 	}
 }

@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,25 +12,25 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     标签id
 		/// </summary>
-		[XmlElement("label_id")]
+		[JsonProperty("label_id")]
 		public string LabelId { get; set; }
 
 		/// <summary>
 		///     标签名
 		/// </summary>
-		[XmlElement("label_name")]
+		[JsonProperty("label_name")]
 		public string LabelName { get; set; }
 
 		/// <summary>
 		///     当有多个取值时用英文","分隔，不允许传入下划线"_"、竖线"|"或者空格" "
 		/// </summary>
-		[XmlElement("label_value")]
+		[JsonProperty("label_value")]
 		public string LabelValue { get; set; }
 
 		/// <summary>
 		///     运算符
 		/// </summary>
-		[XmlElement("operator")]
+		[JsonProperty("operator")]
 		public string Operator { get; set; }
 	}
 }

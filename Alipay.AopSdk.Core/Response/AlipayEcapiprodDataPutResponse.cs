@@ -1,4 +1,4 @@
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Response
 {
@@ -10,7 +10,7 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     数据版本
 		/// </summary>
-		[XmlElement("data_version")]
+		[JsonProperty("data_version")]
 		public string DataVersion { get; set; }
 	}
 }

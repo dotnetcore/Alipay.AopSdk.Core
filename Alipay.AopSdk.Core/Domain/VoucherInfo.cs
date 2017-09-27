@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -13,56 +13,56 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     是否可转赠。默认true
 		/// </summary>
-		[XmlElement("can_give_friend")]
+		[JsonProperty("can_give_friend")]
 		public bool CanGiveFriend { get; set; }
 
 		/// <summary>
 		///     使用规则
 		/// </summary>
-		[XmlElement("use_rule")]
+		[JsonProperty("use_rule")]
 		public UseRuleInfo UseRule { get; set; }
 
 		/// <summary>
 		///     有效期
 		/// </summary>
-		[XmlElement("valid_date")]
+		[JsonProperty("valid_date")]
 		public ValidDateInfo ValidDate { get; set; }
 
 		/// <summary>
 		///     券详情描述
 		/// </summary>
-		[XmlElement("voucher_desc")]
+		[JsonProperty("voucher_desc")]
 		public string VoucherDesc { get; set; }
 
 		/// <summary>
 		///     券背景图。该值调用接口:alipay.offline.material.image.upload生成
 		/// </summary>
-		[XmlElement("voucher_img")]
+		[JsonProperty("voucher_img")]
 		public string VoucherImg { get; set; }
 
 		/// <summary>
 		///     logo图片id。该值调用接口:alipay.offline.material.image.upload生成
 		/// </summary>
-		[XmlElement("voucher_logo")]
+		[JsonProperty("voucher_logo")]
 		public string VoucherLogo { get; set; }
 
 		/// <summary>
 		///     券名称
 		/// </summary>
-		[XmlElement("voucher_name")]
+		[JsonProperty("voucher_name")]
 		public string VoucherName { get; set; }
 
 		/// <summary>
 		///     券上的详情描述信息
 		/// </summary>
-		[XmlArray("voucher_terms")]
-		[XmlArrayItem("voucher_term_info")]
+		[JsonProperty("voucher_terms")]
+		
 		public List<VoucherTermInfo> VoucherTerms { get; set; }
 
 		/// <summary>
 		///     券类型
 		/// </summary>
-		[XmlElement("voucher_type")]
+		[JsonProperty("voucher_type")]
 		public string VoucherType { get; set; }
 	}
 }

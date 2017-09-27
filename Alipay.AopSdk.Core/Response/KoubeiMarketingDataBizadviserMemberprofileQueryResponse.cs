@@ -1,4 +1,4 @@
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Response
 {
@@ -14,7 +14,7 @@ namespace Alipay.AopSdk.Core.Response
 		///     [0,17]、[18,25]、[26,35]、[36,45]、[46,55]、[56,~ ]；  学生、非学生；  有小孩、无小孩；用于判断是否有小孩  1、2、3、4、5、6、次及以上；用于判断消费次数的层级
 		///     金额分段区间；均价分段区间
 		/// </summary>
-		[XmlElement("result")]
+		[JsonProperty("result")]
 		public string Result { get; set; }
 	}
 }

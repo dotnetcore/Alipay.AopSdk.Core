@@ -11,7 +11,9 @@ namespace Alipay.AopSdk.Core.Parser
 		/// <returns></returns>
 		public string SerializeAopObject(AopObject res)
 		{
-			return JsonConvert.SerializeObject(res);
+			JsonSerializerSettings jsetting = new JsonSerializerSettings();
+			jsetting.NullValueHandling = NullValueHandling.Ignore;
+			return JsonConvert.SerializeObject(res,Formatting.None,jsetting);
 		}
 	}
 }

@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,13 +12,13 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     二次确认参数，防止篡改
 		/// </summary>
-		[XmlElement("confirm_params")]
+		[JsonProperty("confirm_params")]
 		public string ConfirmParams { get; set; }
 
 		/// <summary>
 		///     安全请求生成的唯一ID
 		/// </summary>
-		[XmlElement("security_id")]
+		[JsonProperty("security_id")]
 		public string SecurityId { get; set; }
 	}
 }

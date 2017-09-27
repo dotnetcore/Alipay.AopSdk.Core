@@ -1,4 +1,4 @@
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Response
 {
@@ -10,7 +10,7 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     分组圈出的人群数量
 		/// </summary>
-		[XmlElement("count")]
+		[JsonProperty("count")]
 		public string Count { get; set; }
 	}
 }

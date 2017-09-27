@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,7 +12,7 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     用户在isv界面通过扫一扫传入的url文本
 		/// </summary>
-		[XmlElement("url_context")]
+		[JsonProperty("url_context")]
 		public string UrlContext { get; set; }
 	}
 }

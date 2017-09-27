@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -17,7 +17,7 @@ namespace Alipay.AopSdk.Core.Domain
 		///     6、codeSingleShopInfo：shopId，shopId店铺ID值  7、codeSingleShopTrend：shopId，shopId店铺ID值  7、cardMemberBigData：dimension
 		///     Dimension 对应关系  1- 性别；2-年龄；3-是否学生；4-是否有小孩；5-消费频率；6-消费金额；7-笔单价；  没有在此列举的uniq_key表示无需传入此参数；
 		/// </summary>
-		[XmlElement("req_parameters")]
+		[JsonProperty("req_parameters")]
 		public string ReqParameters { get; set; }
 
 		/// <summary>
@@ -32,13 +32,13 @@ namespace Alipay.AopSdk.Core.Domain
 		///     cardMemberBigData时查会员大数据 数据；  cardMemberSum时查会员总；  cardMemberTotalMember时查会员数据汇总；  cardMemberClassify时查会员分层数据；
 		///     memberCurTradeCnt时查当月交易笔数 数据；  memberHierarchical时查商户会员分层查询；  memberDefaultShop时查商户门店数  loginCount时查询登录次数；
 		/// </summary>
-		[XmlElement("uniq_key")]
+		[JsonProperty("uniq_key")]
 		public string UniqKey { get; set; }
 
 		/// <summary>
 		///     用户id
 		/// </summary>
-		[XmlElement("user_id")]
+		[JsonProperty("user_id")]
 		public string UserId { get; set; }
 	}
 }

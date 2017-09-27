@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,19 +12,19 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     是否是taomaomao好友关系
 		/// </summary>
-		[XmlElement("maomao_friend")]
+		[JsonProperty("maomao_friend")]
 		public bool MaomaoFriend { get; set; }
 
 		/// <summary>
 		///     是否注册taomaomao游戏
 		/// </summary>
-		[XmlElement("maomao_register")]
+		[JsonProperty("maomao_register")]
 		public bool MaomaoRegister { get; set; }
 
 		/// <summary>
 		///     支付宝对应的taobao_id
 		/// </summary>
-		[XmlElement("taobao_id")]
+		[JsonProperty("taobao_id")]
 		public string TaobaoId { get; set; }
 	}
 }

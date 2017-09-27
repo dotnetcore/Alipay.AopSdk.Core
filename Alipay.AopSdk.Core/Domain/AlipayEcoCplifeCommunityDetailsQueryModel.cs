@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,7 +12,7 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     支付宝社区小区统一编号，必须在物业账号名下存在。
 		/// </summary>
-		[XmlElement("community_id")]
+		[JsonProperty("community_id")]
 		public string CommunityId { get; set; }
 	}
 }

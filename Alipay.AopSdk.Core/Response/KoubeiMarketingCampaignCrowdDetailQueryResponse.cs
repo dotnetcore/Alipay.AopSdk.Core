@@ -1,4 +1,4 @@
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Response
 {
@@ -12,13 +12,13 @@ namespace Alipay.AopSdk.Core.Response
 		///     tagCode:就是标签code，详细标签信息参见附件
 		///     <a href="http://aopsdkdownload.cn-hangzhou.alipay-pub.aliyun-inc.com/doc/tags%26usecase.zip">标签信息</a>  value：标签对应的值
 		/// </summary>
-		[XmlElement("crowd_group_info")]
+		[JsonProperty("crowd_group_info")]
 		public string CrowdGroupInfo { get; set; }
 
 		/// <summary>
 		///     人群名称
 		/// </summary>
-		[XmlElement("name")]
+		[JsonProperty("name")]
 		public string Name { get; set; }
 	}
 }

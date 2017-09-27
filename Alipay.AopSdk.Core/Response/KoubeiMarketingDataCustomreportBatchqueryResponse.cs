@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 using Alipay.AopSdk.Core.Domain;
 
 namespace Alipay.AopSdk.Core.Response
@@ -12,8 +12,8 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     分页输出自定义开放数据规则列表
 		/// </summary>
-		[XmlArray("report_condition_list")]
-		[XmlArrayItem("custom_report_condition")]
+		[JsonProperty("report_condition_list")]
+		
 		public List<CustomReportCondition> ReportConditionList { get; set; }
 	}
 }

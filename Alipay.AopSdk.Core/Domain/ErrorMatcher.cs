@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,13 +12,13 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     失败原因
 		/// </summary>
-		[XmlElement("error_msg")]
+		[JsonProperty("error_msg")]
 		public string ErrorMsg { get; set; }
 
 		/// <summary>
 		///     用户打标接口出错的匹配器
 		/// </summary>
-		[XmlElement("matcher")]
+		[JsonProperty("matcher")]
 		public Matcher Matcher { get; set; }
 	}
 }

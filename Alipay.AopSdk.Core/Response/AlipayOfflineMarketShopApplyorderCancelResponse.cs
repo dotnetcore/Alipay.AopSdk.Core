@@ -1,4 +1,4 @@
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Response
 {
@@ -10,7 +10,7 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     申请撤销成功接口同步返回的支付宝申请流水号。
 		/// </summary>
-		[XmlElement("apply_id")]
+		[JsonProperty("apply_id")]
 		public string ApplyId { get; set; }
 	}
 }

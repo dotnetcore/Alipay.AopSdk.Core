@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 using Alipay.AopSdk.Core.Domain;
 
 namespace Alipay.AopSdk.Core.Response
@@ -12,8 +12,8 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     标签列表
 		/// </summary>
-		[XmlArray("labels")]
-		[XmlArrayItem("life_label")]
+		[JsonProperty("labels")]
+		
 		public List<LifeLabel> Labels { get; set; }
 	}
 }

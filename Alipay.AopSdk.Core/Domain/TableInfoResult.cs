@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -13,8 +13,8 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     返回TableListResult集合
 		/// </summary>
-		[XmlArray("table_info_list")]
-		[XmlArrayItem("table_list_result")]
+		[JsonProperty("table_info_list")]
+		
 		public List<TableListResult> TableInfoList { get; set; }
 	}
 }

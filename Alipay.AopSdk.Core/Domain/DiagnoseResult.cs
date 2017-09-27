@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -15,13 +15,13 @@ namespace Alipay.AopSdk.Core.Domain
 		///     您当前店均会员量较少，落后同行${industryRate}(60%)的商家。        REPAY_RATE 复购率低
 		///     您当前${tradeCycle}(60)天会员回头率为${repayRate}(30%)，落后于同行${industryRate}(60%)的商家。
 		/// </summary>
-		[XmlElement("biz_data")]
+		[JsonProperty("biz_data")]
 		public string BizData { get; set; }
 
 		/// <summary>
 		///     诊断结果CODE，目前有如下三个值  TRADE_RATE 流失会员占比高  USER_COUNT 会员数量少  REPAY_RATE 复购率低
 		/// </summary>
-		[XmlElement("diagnose_code")]
+		[JsonProperty("diagnose_code")]
 		public string DiagnoseCode { get; set; }
 	}
 }

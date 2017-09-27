@@ -1,4 +1,4 @@
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Response
 {
@@ -10,7 +10,7 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     生成的带参推广短链接
 		/// </summary>
-		[XmlElement("shortlink")]
+		[JsonProperty("shortlink")]
 		public string Shortlink { get; set; }
 	}
 }

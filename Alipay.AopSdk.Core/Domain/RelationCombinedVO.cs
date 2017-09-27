@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,31 +12,31 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     扩展信息
 		/// </summary>
-		[XmlElement("ext_info")]
+		[JsonProperty("ext_info")]
 		public ExtraInfoVO ExtInfo { get; set; }
 
 		/// <summary>
 		///     支付宝头像
 		/// </summary>
-		[XmlElement("head_img")]
+		[JsonProperty("head_img")]
 		public string HeadImg { get; set; }
 
 		/// <summary>
 		///     是否支付宝双向好友
 		/// </summary>
-		[XmlElement("real_friend")]
+		[JsonProperty("real_friend")]
 		public bool RealFriend { get; set; }
 
 		/// <summary>
 		///     支付宝userid
 		/// </summary>
-		[XmlElement("user_id")]
+		[JsonProperty("user_id")]
 		public string UserId { get; set; }
 
 		/// <summary>
 		///     有可能包含emoji表情，业务方要注意编码
 		/// </summary>
-		[XmlElement("view_name")]
+		[JsonProperty("view_name")]
 		public string ViewName { get; set; }
 	}
 }

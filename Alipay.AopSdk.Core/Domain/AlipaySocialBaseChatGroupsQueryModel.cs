@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,7 +12,7 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     上次接口返回的key，初始传0
 		/// </summary>
-		[XmlElement("last_key")]
+		[JsonProperty("last_key")]
 		public long LastKey { get; set; }
 	}
 }

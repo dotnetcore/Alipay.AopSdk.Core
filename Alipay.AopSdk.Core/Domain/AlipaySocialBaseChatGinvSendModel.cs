@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -13,14 +13,14 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     群id
 		/// </summary>
-		[XmlElement("group_id")]
+		[JsonProperty("group_id")]
 		public string GroupId { get; set; }
 
 		/// <summary>
 		///     邀请的好友id列表，最多50人
 		/// </summary>
-		[XmlArray("uids")]
-		[XmlArrayItem("string")]
+		[JsonProperty("uids")]
+		
 		public List<string> Uids { get; set; }
 	}
 }

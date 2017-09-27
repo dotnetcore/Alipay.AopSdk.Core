@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,7 +12,7 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     人群组ID，人群组创建成功时返回的ID
 		/// </summary>
-		[XmlElement("crowd_group_id")]
+		[JsonProperty("crowd_group_id")]
 		public string CrowdGroupId { get; set; }
 	}
 }

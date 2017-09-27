@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,13 +12,13 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     评论总数
 		/// </summary>
-		[XmlElement("comment_count")]
+		[JsonProperty("comment_count")]
 		public long CommentCount { get; set; }
 
 		/// <summary>
 		///     评分（平均分），两位小数
 		/// </summary>
-		[XmlElement("score")]
+		[JsonProperty("score")]
 		public long Score { get; set; }
 	}
 }

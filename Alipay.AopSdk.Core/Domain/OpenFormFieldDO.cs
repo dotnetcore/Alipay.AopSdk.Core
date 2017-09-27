@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,7 +12,7 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     表单可选字段配置，common_fields属性定义一个表单字段数组，表单字段有效值列表与required字段有效值列表相同。  可选字段配置中不能含有必须字段配置的有效值。
 		/// </summary>
-		[XmlElement("optional")]
+		[JsonProperty("optional")]
 		public string Optional { get; set; }
 
 		/// <summary>
@@ -21,7 +21,7 @@ namespace Alipay.AopSdk.Core.Domain
 		///     邮箱  OPEN_FORM_FIELD_ADDRESS -- 地址  OPEN_FORM_FIELD_CITY -- 城市  OPEN_FORM_FIELD_IS_STUDENT -- 是否学生认证
 		///     OPEN_FORM_FIELD_MEMBER_GRADE -- 会员等级
 		/// </summary>
-		[XmlElement("required")]
+		[JsonProperty("required")]
 		public string Required { get; set; }
 	}
 }

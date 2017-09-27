@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,25 +12,25 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     external_system_name
 		/// </summary>
-		[XmlElement("external_system_name")]
+		[JsonProperty("external_system_name")]
 		public string ExternalSystemName { get; set; }
 
 		/// <summary>
 		///     is_transfer_uid
 		/// </summary>
-		[XmlElement("is_transfer_uid")]
+		[JsonProperty("is_transfer_uid")]
 		public bool IsTransferUid { get; set; }
 
 		/// <summary>
 		///     operate_type
 		/// </summary>
-		[XmlElement("operate_type")]
+		[JsonProperty("operate_type")]
 		public string OperateType { get; set; }
 
 		/// <summary>
 		///     query_condition
 		/// </summary>
-		[XmlElement("query_condition")]
+		[JsonProperty("query_condition")]
 		public string QueryCondition { get; set; }
 	}
 }

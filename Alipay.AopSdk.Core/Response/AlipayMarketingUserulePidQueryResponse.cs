@@ -1,4 +1,4 @@
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Response
 {
@@ -10,7 +10,7 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     满足条件的所有pid，多个pid使用英文逗号隔开
 		/// </summary>
-		[XmlElement("pids")]
+		[JsonProperty("pids")]
 		public string Pids { get; set; }
 	}
 }

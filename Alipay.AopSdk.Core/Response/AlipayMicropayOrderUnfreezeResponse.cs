@@ -1,4 +1,4 @@
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 using Alipay.AopSdk.Core.Domain;
 
 namespace Alipay.AopSdk.Core.Response
@@ -11,7 +11,7 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     冻结订单详情结果
 		/// </summary>
-		[XmlElement("unfreeze_order_detail")]
+		[JsonProperty("unfreeze_order_detail")]
 		public UnfreezeOrderDetail UnfreezeOrderDetail { get; set; }
 	}
 }

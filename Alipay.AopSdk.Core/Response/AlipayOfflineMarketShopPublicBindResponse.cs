@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Response
 {
@@ -11,20 +11,20 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     绑定失败的店铺ID列表
 		/// </summary>
-		[XmlArray("error_binding_shop_ids")]
-		[XmlArrayItem("string")]
+		[JsonProperty("error_binding_shop_ids")]
+		
 		public List<string> ErrorBindingShopIds { get; set; }
 
 		/// <summary>
 		///     数字类型，标示总的绑定错误总数
 		/// </summary>
-		[XmlElement("total_error")]
+		[JsonProperty("total_error")]
 		public long TotalError { get; set; }
 
 		/// <summary>
 		///     绑定店铺总成功数
 		/// </summary>
-		[XmlElement("total_success")]
+		[JsonProperty("total_success")]
 		public long TotalSuccess { get; set; }
 	}
 }

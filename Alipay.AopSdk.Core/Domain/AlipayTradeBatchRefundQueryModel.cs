@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,13 +12,13 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     商户请求批量退款时传递的批次号。  trade_no和batch_no不能同时为空
 		/// </summary>
-		[XmlElement("batch_no")]
+		[JsonProperty("batch_no")]
 		public string BatchNo { get; set; }
 
 		/// <summary>
 		///     退款明细的支付宝交易号。  trade_no和batch_no不能同时为空
 		/// </summary>
-		[XmlElement("trade_no")]
+		[JsonProperty("trade_no")]
 		public string TradeNo { get; set; }
 	}
 }

@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,7 +12,7 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     需要查询汇率的货币对，如果为空则返回当前支持的所有货币对的汇率
 		/// </summary>
-		[XmlElement("currency_pair")]
+		[JsonProperty("currency_pair")]
 		public string CurrencyPair { get; set; }
 	}
 }

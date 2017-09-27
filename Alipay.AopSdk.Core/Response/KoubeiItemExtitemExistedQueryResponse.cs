@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Response
 {
@@ -11,8 +11,8 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     商品库中存在的商品编码
 		/// </summary>
-		[XmlArray("existed_list")]
-		[XmlArrayItem("string")]
+		[JsonProperty("existed_list")]
+		
 		public List<string> ExistedList { get; set; }
 	}
 }

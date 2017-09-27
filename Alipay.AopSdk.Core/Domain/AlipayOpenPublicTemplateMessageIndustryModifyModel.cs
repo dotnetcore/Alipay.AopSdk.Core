@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,7 +12,7 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     服务窗消息模板所属主行业一/二级编码
 		/// </summary>
-		[XmlElement("primary_industry_code")]
+		[JsonProperty("primary_industry_code")]
 		public string PrimaryIndustryCode { get; set; }
 
 		/// <summary>
@@ -26,19 +26,19 @@ namespace Alipay.AopSdk.Core.Domain
 		///     商业服务/法律 10012/21201  商业服务/广告会展 10012/21201  商业服务/中介服务 10012/21202  商业服务/检测|认证 10012/21203  商业服务/会计|审计 10012/21204
 		///     文体娱乐/文化|传媒 10013/21301  文体娱乐/体育 10013/21302  文体娱乐/娱乐休闲 10013/21303  印刷/打印|印刷 10014/21401  其它/其它 10015/21501
 		/// </summary>
-		[XmlElement("primary_industry_name")]
+		[JsonProperty("primary_industry_name")]
 		public string PrimaryIndustryName { get; set; }
 
 		/// <summary>
 		///     服务窗消息模板所属副行业一/二级编码
 		/// </summary>
-		[XmlElement("secondary_industry_code")]
+		[JsonProperty("secondary_industry_code")]
 		public string SecondaryIndustryCode { get; set; }
 
 		/// <summary>
 		///     服务窗消息模板所属副行业一/二级名称
 		/// </summary>
-		[XmlElement("secondary_industry_name")]
+		[JsonProperty("secondary_industry_name")]
 		public string SecondaryIndustryName { get; set; }
 	}
 }

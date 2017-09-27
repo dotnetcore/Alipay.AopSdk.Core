@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,7 +12,7 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     需要删除的用户分组的id
 		/// </summary>
-		[XmlElement("group_id")]
+		[JsonProperty("group_id")]
 		public string GroupId { get; set; }
 	}
 }

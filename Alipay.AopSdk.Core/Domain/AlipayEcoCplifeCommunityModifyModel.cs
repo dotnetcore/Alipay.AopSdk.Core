@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -15,26 +15,26 @@ namespace Alipay.AopSdk.Core.Domain
 		///     若传入该参数且参数值合法，则该参数的优先级高于传入的地理位置经纬度。    注：最多包含10组poiid。    高德POI ID的获取接口：
 		///     http://lbs.amap.com/api/webservice/guide/api/search/
 		/// </summary>
-		[XmlArray("associated_pois")]
-		[XmlArrayItem("string")]
+		[JsonProperty("associated_pois")]
+		
 		public List<string> AssociatedPois { get; set; }
 
 		/// <summary>
 		///     地级市编码，国标码，详见国家统计局数据 <a href="http://aopsdkdownload.cn-hangzhou.alipay-pub.aliyun-inc.com/doc/2016.xls">点此下载</a>。
 		/// </summary>
-		[XmlElement("city_code")]
+		[JsonProperty("city_code")]
 		public string CityCode { get; set; }
 
 		/// <summary>
 		///     小区主要详细地址，不需要包含省市区名称。
 		/// </summary>
-		[XmlElement("community_address")]
+		[JsonProperty("community_address")]
 		public string CommunityAddress { get; set; }
 
 		/// <summary>
 		///     支付宝社区小区统一编号，必须在物业账号名下存在。
 		/// </summary>
-		[XmlElement("community_id")]
+		[JsonProperty("community_id")]
 		public string CommunityId { get; set; }
 
 		/// <summary>
@@ -42,38 +42,38 @@ namespace Alipay.AopSdk.Core.Domain
 		///     经纬度是小区搜索和用户推广的重要参数，录入时请确保经纬度参数准确。  高德经纬度查询接口：http://lbs.amap.com/api/webservice/guide/api/search/
 		///     高德坐标系转换接口：http://lbs.amap.com/api/webservice/guide/api/convert/
 		/// </summary>
-		[XmlArray("community_locations")]
-		[XmlArrayItem("string")]
+		[JsonProperty("community_locations")]
+		
 		public List<string> CommunityLocations { get; set; }
 
 		/// <summary>
 		///     小区名称，最长不超过32个字符。
 		/// </summary>
-		[XmlElement("community_name")]
+		[JsonProperty("community_name")]
 		public string CommunityName { get; set; }
 
 		/// <summary>
 		///     区县编码，国标码，详见国家统计局数据 <a href="http://aopsdkdownload.cn-hangzhou.alipay-pub.aliyun-inc.com/doc/2016.xls">点此下载</a>。
 		/// </summary>
-		[XmlElement("district_code")]
+		[JsonProperty("district_code")]
 		public string DistrictCode { get; set; }
 
 		/// <summary>
 		///     需要提供物业服务热线或联系电话，便于用户在需要时联系物业。
 		/// </summary>
-		[XmlElement("hotline")]
+		[JsonProperty("hotline")]
 		public string Hotline { get; set; }
 
 		/// <summary>
 		///     小区在物业系统中的唯一编号。
 		/// </summary>
-		[XmlElement("out_community_id")]
+		[JsonProperty("out_community_id")]
 		public string OutCommunityId { get; set; }
 
 		/// <summary>
 		///     省份编码，国标码，详见国家统计局数据 <a href="http://aopsdkdownload.cn-hangzhou.alipay-pub.aliyun-inc.com/doc/2016.xls">点此下载</a>。
 		/// </summary>
-		[XmlElement("province_code")]
+		[JsonProperty("province_code")]
 		public string ProvinceCode { get; set; }
 	}
 }

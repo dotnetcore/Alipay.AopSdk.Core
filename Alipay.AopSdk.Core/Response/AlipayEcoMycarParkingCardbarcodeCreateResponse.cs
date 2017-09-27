@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 using Alipay.AopSdk.Core.Domain;
 
 namespace Alipay.AopSdk.Core.Response
@@ -12,8 +12,8 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     停车车卡对应二维码列表
 		/// </summary>
-		[XmlArray("qrcodes")]
-		[XmlArrayItem("q_rcode")]
+		[JsonProperty("qrcodes")]
+		
 		public List<QRcode> Qrcodes { get; set; }
 	}
 }

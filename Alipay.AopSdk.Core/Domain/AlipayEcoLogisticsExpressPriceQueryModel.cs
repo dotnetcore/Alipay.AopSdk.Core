@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,7 +12,7 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     查询区域类型  AREA_PRVN:省代码；  AREA_CITY:市代码；
 		/// </summary>
-		[XmlElement("area_type")]
+		[JsonProperty("area_type")]
 		public string AreaType { get; set; }
 
 		/// <summary>
@@ -23,7 +23,7 @@ namespace Alipay.AopSdk.Core.Domain
 		///     </a>
 		///     。
 		/// </summary>
-		[XmlElement("from_code")]
+		[JsonProperty("from_code")]
 		public string FromCode { get; set; }
 
 		/// <summary>
@@ -34,13 +34,13 @@ namespace Alipay.AopSdk.Core.Domain
 		///     </a>
 		///     。
 		/// </summary>
-		[XmlElement("logis_merch_code")]
+		[JsonProperty("logis_merch_code")]
 		public string LogisMerchCode { get; set; }
 
 		/// <summary>
 		///     产品类型编码，取值如下：  STANDARD：标准快递。这是寄件平台默认支持的产品分类，如有其他产品分类的支持需求，可以发送邮件至xxx@alipay.com联系。
 		/// </summary>
-		[XmlElement("product_type_code")]
+		[JsonProperty("product_type_code")]
 		public string ProductTypeCode { get; set; }
 
 		/// <summary>
@@ -51,7 +51,7 @@ namespace Alipay.AopSdk.Core.Domain
 		///     </a>
 		///     。
 		/// </summary>
-		[XmlElement("to_code")]
+		[JsonProperty("to_code")]
 		public string ToCode { get; set; }
 	}
 }

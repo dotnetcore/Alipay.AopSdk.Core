@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 using Alipay.AopSdk.Core.Domain;
 
 namespace Alipay.AopSdk.Core.Response
@@ -12,14 +12,14 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     商户机构配置信息
 		/// </summary>
-		[XmlArray("inst_configs")]
-		[XmlArrayItem("merchant_inst_config")]
+		[JsonProperty("inst_configs")]
+		
 		public List<MerchantInstConfig> InstConfigs { get; set; }
 
 		/// <summary>
 		///     商户的用户ID
 		/// </summary>
-		[XmlElement("merchant_user_id")]
+		[JsonProperty("merchant_user_id")]
 		public string MerchantUserId { get; set; }
 	}
 }

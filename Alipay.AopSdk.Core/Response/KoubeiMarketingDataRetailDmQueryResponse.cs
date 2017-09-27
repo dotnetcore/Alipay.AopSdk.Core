@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 using Alipay.AopSdk.Core.Domain;
 
 namespace Alipay.AopSdk.Core.Response
@@ -12,26 +12,26 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     内容ID
 		/// </summary>
-		[XmlElement("content_id")]
+		[JsonProperty("content_id")]
 		public string ContentId { get; set; }
 
 		/// <summary>
 		///     店面DM营销数据，包括商品的PV、UV、曝光。
 		/// </summary>
-		[XmlArray("dm_marketing_datas")]
-		[XmlArrayItem("dm_activity_shop_data")]
+		[JsonProperty("dm_marketing_datas")]
+		
 		public List<DmActivityShopData> DmMarketingDatas { get; set; }
 
 		/// <summary>
 		///     商品码
 		/// </summary>
-		[XmlElement("item_code")]
+		[JsonProperty("item_code")]
 		public string ItemCode { get; set; }
 
 		/// <summary>
 		///     商品名称
 		/// </summary>
-		[XmlElement("item_name")]
+		[JsonProperty("item_name")]
 		public string ItemName { get; set; }
 	}
 }

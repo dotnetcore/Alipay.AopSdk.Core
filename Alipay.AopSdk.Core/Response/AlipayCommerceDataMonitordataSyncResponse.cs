@@ -1,4 +1,4 @@
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Response
 {
@@ -15,7 +15,7 @@ namespace Alipay.AopSdk.Core.Response
 		///     [source]:type:String value:20    [error]:Data_Type_Value_Invalid,数据或类型不合法    [operation]:忽略数据
 		///     [indicator]:当面付成功交易数    [source]:type:String value:30}
 		/// </summary>
-		[XmlElement("error_detail")]
+		[JsonProperty("error_detail")]
 		public string ErrorDetail { get; set; }
 	}
 }

@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,7 +12,7 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     H5应用的唯一id，调用alipay.marketing.tool.fengdie.activity.create获得
 		/// </summary>
-		[XmlElement("activity_id")]
+		[JsonProperty("activity_id")]
 		public long ActivityId { get; set; }
 	}
 }

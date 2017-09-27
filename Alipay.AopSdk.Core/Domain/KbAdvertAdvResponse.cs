@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,25 +12,25 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     推广ID
 		/// </summary>
-		[XmlElement("adv_id")]
+		[JsonProperty("adv_id")]
 		public string AdvId { get; set; }
 
 		/// <summary>
 		///     指定推广活动的名称
 		/// </summary>
-		[XmlElement("name")]
+		[JsonProperty("name")]
 		public string Name { get; set; }
 
 		/// <summary>
 		///     单张券推广  只有type=single_voucher才会有值
 		/// </summary>
-		[XmlElement("single_voucher")]
+		[JsonProperty("single_voucher")]
 		public KbAdvertAdvSingleVoucherResponse SingleVoucher { get; set; }
 
 		/// <summary>
 		///     推广类型
 		/// </summary>
-		[XmlElement("type")]
+		[JsonProperty("type")]
 		public string Type { get; set; }
 	}
 }

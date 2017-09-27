@@ -1,4 +1,4 @@
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Response
 {
@@ -12,7 +12,7 @@ namespace Alipay.AopSdk.Core.Response
 		///     OPEN_FORM_FIELD_NAME – 姓名  OPEN_FORM_FIELD_BIRTHDAY – 生日  OPEN_FORM_FIELD_IDCARD – 身份证  OPEN_FORM_FIELD_EMAIL – 邮箱
 		///     OPEN_FORM_FIELD_ADDRESS – 地址
 		/// </summary>
-		[XmlElement("infos")]
+		[JsonProperty("infos")]
 		public string Infos { get; set; }
 	}
 }

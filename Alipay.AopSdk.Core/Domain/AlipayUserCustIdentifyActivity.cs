@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,13 +12,13 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     活动扩展信息，预留字段。例如通过连接引导参加运营活动，包含活动链接（或者参与方式）及活动信息。
 		/// </summary>
-		[XmlElement("activity_info")]
+		[JsonProperty("activity_info")]
 		public string ActivityInfo { get; set; }
 
 		/// <summary>
 		///     活动名称
 		/// </summary>
-		[XmlElement("activity_name")]
+		[JsonProperty("activity_name")]
 		public string ActivityName { get; set; }
 	}
 }

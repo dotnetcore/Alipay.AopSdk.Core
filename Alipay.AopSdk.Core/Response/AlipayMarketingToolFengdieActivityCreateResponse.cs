@@ -1,4 +1,4 @@
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Response
 {
@@ -10,7 +10,7 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     H5应用的唯一id
 		/// </summary>
-		[XmlElement("activity_id")]
+		[JsonProperty("activity_id")]
 		public long ActivityId { get; set; }
 	}
 }

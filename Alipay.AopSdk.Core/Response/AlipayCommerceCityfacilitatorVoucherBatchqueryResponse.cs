@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 using Alipay.AopSdk.Core.Domain;
 
 namespace Alipay.AopSdk.Core.Response
@@ -12,8 +12,8 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     查询到的订单信息列表
 		/// </summary>
-		[XmlArray("tickets")]
-		[XmlArrayItem("ticket_detail_info")]
+		[JsonProperty("tickets")]
+		
 		public List<TicketDetailInfo> Tickets { get; set; }
 	}
 }

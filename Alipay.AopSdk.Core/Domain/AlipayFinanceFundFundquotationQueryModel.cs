@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,7 +12,7 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     基金编号：基金产品编号
 		/// </summary>
-		[XmlElement("fund_code")]
+		[JsonProperty("fund_code")]
 		public string FundCode { get; set; }
 	}
 }

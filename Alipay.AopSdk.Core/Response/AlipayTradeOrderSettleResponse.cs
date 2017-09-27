@@ -1,4 +1,4 @@
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Response
 {
@@ -10,7 +10,7 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     支付宝交易号
 		/// </summary>
-		[XmlElement("trade_no")]
+		[JsonProperty("trade_no")]
 		public string TradeNo { get; set; }
 	}
 }

@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -13,32 +13,32 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     当前页数
 		/// </summary>
-		[XmlElement("current_page")]
+		[JsonProperty("current_page")]
 		public long CurrentPage { get; set; }
 
 		/// <summary>
 		///     结果列表
 		/// </summary>
-		[XmlArray("list")]
-		[XmlArrayItem("ins_certificate_api_d_t_o")]
+		[JsonProperty("list")]
+		
 		public List<InsCertificateApiDTO> List { get; set; }
 
 		/// <summary>
 		///     每页数量
 		/// </summary>
-		[XmlElement("page_size")]
+		[JsonProperty("page_size")]
 		public long PageSize { get; set; }
 
 		/// <summary>
 		///     总记录数
 		/// </summary>
-		[XmlElement("total_count")]
+		[JsonProperty("total_count")]
 		public long TotalCount { get; set; }
 
 		/// <summary>
 		///     全部页数
 		/// </summary>
-		[XmlElement("total_page_num")]
+		[JsonProperty("total_page_num")]
 		public long TotalPageNum { get; set; }
 	}
 }

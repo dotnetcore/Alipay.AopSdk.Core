@@ -1,4 +1,4 @@
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Response
 {
@@ -10,7 +10,7 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     是否已经授权,已授权:true,未授权:false
 		/// </summary>
-		[XmlElement("authorized")]
+		[JsonProperty("authorized")]
 		public bool Authorized { get; set; }
 	}
 }

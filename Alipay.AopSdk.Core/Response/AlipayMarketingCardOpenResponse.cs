@@ -1,4 +1,4 @@
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 using Alipay.AopSdk.Core.Domain;
 
 namespace Alipay.AopSdk.Core.Response
@@ -11,7 +11,7 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     商户卡信息（包括支付宝分配的业务卡号）
 		/// </summary>
-		[XmlElement("card_info")]
+		[JsonProperty("card_info")]
 		public MerchantCard CardInfo { get; set; }
 	}
 }

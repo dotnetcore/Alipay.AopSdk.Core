@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,19 +12,19 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     最高优惠金额
 		/// </summary>
-		[XmlElement("max_amount")]
+		[JsonProperty("max_amount")]
 		public string MaxAmount { get; set; }
 
 		/// <summary>
 		///     最低优惠金额
 		/// </summary>
-		[XmlElement("min_amount")]
+		[JsonProperty("min_amount")]
 		public string MinAmount { get; set; }
 
 		/// <summary>
 		///     概率 金额区间、占比支持小数点后两位  区间为前闭、后闭，最多可以设置10种金额区间，所有区间占比和需要等于100%
 		/// </summary>
-		[XmlElement("probability")]
+		[JsonProperty("probability")]
 		public string Probability { get; set; }
 	}
 }

@@ -1,4 +1,4 @@
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Response
 {
@@ -10,7 +10,7 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     发奖token，用于校验商户是否有权限给制定用户发奖
 		/// </summary>
-		[XmlElement("token")]
+		[JsonProperty("token")]
 		public string Token { get; set; }
 	}
 }

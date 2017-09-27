@@ -1,4 +1,4 @@
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 using Alipay.AopSdk.Core.Domain;
 
 namespace Alipay.AopSdk.Core.Response
@@ -11,7 +11,7 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     SinglePayDetail信息
 		/// </summary>
-		[XmlElement("single_pay_detail")]
+		[JsonProperty("single_pay_detail")]
 		public SinglePayDetail SinglePayDetail { get; set; }
 	}
 }

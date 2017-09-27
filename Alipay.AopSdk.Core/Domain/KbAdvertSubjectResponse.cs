@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,19 +12,19 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     分佣规则
 		/// </summary>
-		[XmlElement("commission_clause")]
+		[JsonProperty("commission_clause")]
 		public KbAdvertCommissionClauseResponse CommissionClause { get; set; }
 
 		/// <summary>
 		///     标的类型  voucher-券
 		/// </summary>
-		[XmlElement("type")]
+		[JsonProperty("type")]
 		public string Type { get; set; }
 
 		/// <summary>
 		///     券标的  只有type=voucher才会有值
 		/// </summary>
-		[XmlElement("voucher")]
+		[JsonProperty("voucher")]
 		public KbAdvertSubjectVoucherResponse Voucher { get; set; }
 	}
 }

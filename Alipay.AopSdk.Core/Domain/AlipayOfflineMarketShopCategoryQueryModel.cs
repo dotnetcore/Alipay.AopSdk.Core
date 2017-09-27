@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,13 +12,13 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     类目ID，如果为空则查询全部类目。
 		/// </summary>
-		[XmlElement("category_id")]
+		[JsonProperty("category_id")]
 		public string CategoryId { get; set; }
 
 		/// <summary>
 		///     表示接口业务的调用方身份,默认不填标识为ISV。
 		/// </summary>
-		[XmlElement("op_role")]
+		[JsonProperty("op_role")]
 		public string OpRole { get; set; }
 	}
 }

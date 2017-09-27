@@ -1,4 +1,4 @@
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 using Alipay.AopSdk.Core.Domain;
 
 namespace Alipay.AopSdk.Core.Response
@@ -11,7 +11,7 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     H5应用详情
 		/// </summary>
-		[XmlElement("activity")]
+		[JsonProperty("activity")]
 		public FengdieActivity Activity { get; set; }
 	}
 }

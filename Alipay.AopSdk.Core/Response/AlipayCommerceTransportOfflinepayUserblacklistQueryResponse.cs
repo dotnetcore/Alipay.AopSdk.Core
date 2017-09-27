@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Response
 {
@@ -11,8 +11,8 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     黑名单用户ID
 		/// </summary>
-		[XmlArray("black_list")]
-		[XmlArrayItem("string")]
+		[JsonProperty("black_list")]
+		
 		public List<string> BlackList { get; set; }
 	}
 }

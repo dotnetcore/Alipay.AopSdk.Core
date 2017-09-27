@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -13,20 +13,20 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     分组ID，整型值
 		/// </summary>
-		[XmlElement("group_id")]
+		[JsonProperty("group_id")]
 		public string GroupId { get; set; }
 
 		/// <summary>
 		///     标签规则，满足该规则的粉丝将被圈定，标签id不能重复
 		/// </summary>
-		[XmlArray("label_rule")]
-		[XmlArrayItem("complex_label_rule")]
+		[JsonProperty("label_rule")]
+		
 		public List<ComplexLabelRule> LabelRule { get; set; }
 
 		/// <summary>
 		///     分组名称，仅支持中文、字母、数字、下划线的组合。
 		/// </summary>
-		[XmlElement("name")]
+		[JsonProperty("name")]
 		public string Name { get; set; }
 	}
 }

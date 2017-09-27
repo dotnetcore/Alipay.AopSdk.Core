@@ -1,4 +1,4 @@
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Response
 {
@@ -10,7 +10,7 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     图片在sfs中的标识
 		/// </summary>
-		[XmlElement("image_id")]
+		[JsonProperty("image_id")]
 		public string ImageId { get; set; }
 	}
 }

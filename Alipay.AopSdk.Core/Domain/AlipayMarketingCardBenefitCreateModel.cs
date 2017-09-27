@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,7 +12,7 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     会员卡模板外部权益
 		/// </summary>
-		[XmlElement("mcard_template_benefit")]
+		[JsonProperty("mcard_template_benefit")]
 		public McardTemplateBenefit McardTemplateBenefit { get; set; }
 	}
 }

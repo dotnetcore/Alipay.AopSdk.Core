@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,151 +12,151 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     公司在合作方的唯一标识id
 		/// </summary>
-		[XmlElement("campany_source")]
+		[JsonProperty("campany_source")]
 		public string CampanySource { get; set; }
 
 		/// <summary>
 		///     工作城市
 		/// </summary>
-		[XmlElement("city")]
+		[JsonProperty("city")]
 		public string City { get; set; }
 
 		/// <summary>
 		///     工作城市code
 		/// </summary>
-		[XmlElement("city_code")]
+		[JsonProperty("city_code")]
 		public string CityCode { get; set; }
 
 		/// <summary>
 		///     宣讲会公司法律名称（唯一）
 		/// </summary>
-		[XmlElement("company_lawname")]
+		[JsonProperty("company_lawname")]
 		public string CompanyLawname { get; set; }
 
 		/// <summary>
 		///     宣讲会公司全称
 		/// </summary>
-		[XmlElement("company_name")]
+		[JsonProperty("company_name")]
 		public string CompanyName { get; set; }
 
 		/// <summary>
 		///     备用字段，json格式
 		/// </summary>
-		[XmlElement("content_var")]
+		[JsonProperty("content_var")]
 		public string ContentVar { get; set; }
 
 		/// <summary>
 		///     工作城市地区
 		/// </summary>
-		[XmlElement("district")]
+		[JsonProperty("district")]
 		public string District { get; set; }
 
 		/// <summary>
 		///     工作地点纬度
 		/// </summary>
-		[XmlElement("latitude")]
+		[JsonProperty("latitude")]
 		public string Latitude { get; set; }
 
 		/// <summary>
 		///     企业logo的url
 		/// </summary>
-		[XmlElement("logo_url")]
+		[JsonProperty("logo_url")]
 		public string LogoUrl { get; set; }
 
 		/// <summary>
 		///     工作地点经度
 		/// </summary>
-		[XmlElement("longitude")]
+		[JsonProperty("longitude")]
 		public string Longitude { get; set; }
 
 		/// <summary>
 		///     工作省份
 		/// </summary>
-		[XmlElement("province")]
+		[JsonProperty("province")]
 		public string Province { get; set; }
 
 		/// <summary>
 		///     工作省份code
 		/// </summary>
-		[XmlElement("province_code")]
+		[JsonProperty("province_code")]
 		public string ProvinceCode { get; set; }
 
 		/// <summary>
 		///     街道
 		/// </summary>
-		[XmlElement("street")]
+		[JsonProperty("street")]
 		public string Street { get; set; }
 
 		/// <summary>
 		///     宣讲会举办地点
 		/// </summary>
-		[XmlElement("talk_address")]
+		[JsonProperty("talk_address")]
 		public string TalkAddress { get; set; }
 
 		/// <summary>
 		///     宣讲会正文，过滤要求：表格，字体字号，符号，图片，链接
 		/// </summary>
-		[XmlElement("talk_content")]
+		[JsonProperty("talk_content")]
 		public string TalkContent { get; set; }
 
 		/// <summary>
 		///     宣讲会结束时间(毫秒数)
 		/// </summary>
-		[XmlElement("talk_endtime")]
+		[JsonProperty("talk_endtime")]
 		public string TalkEndtime { get; set; }
 
 		/// <summary>
 		///     宣讲会举办时间(毫秒数)
 		/// </summary>
-		[XmlElement("talk_holdtime")]
+		[JsonProperty("talk_holdtime")]
 		public string TalkHoldtime { get; set; }
 
 		/// <summary>
 		///     宣讲会举办学校code
 		/// </summary>
-		[XmlElement("talk_school_code")]
+		[JsonProperty("talk_school_code")]
 		public string TalkSchoolCode { get; set; }
 
 		/// <summary>
 		///     宣讲会举办学校
 		/// </summary>
-		[XmlElement("talk_school_name")]
+		[JsonProperty("talk_school_name")]
 		public string TalkSchoolName { get; set; }
 
 		/// <summary>
 		///     宣讲会来源方id
 		/// </summary>
-		[XmlElement("talk_source_code")]
+		[JsonProperty("talk_source_code")]
 		public string TalkSourceCode { get; set; }
 
 		/// <summary>
 		///     宣讲会在合作方的ID
 		/// </summary>
-		[XmlElement("talk_source_id")]
+		[JsonProperty("talk_source_id")]
 		public string TalkSourceId { get; set; }
 
 		/// <summary>
 		///     宣讲会标题
 		/// </summary>
-		[XmlElement("talk_title")]
+		[JsonProperty("talk_title")]
 		public string TalkTitle { get; set; }
 
 		/// <summary>
 		///     宣讲会类型  1=宣讲会  2=空中宣讲会  3=双选会
 		/// </summary>
-		[XmlElement("talk_type")]
+		[JsonProperty("talk_type")]
 		public long TalkType { get; set; }
 
 		/// <summary>
 		///     宣讲会信息来源
 		/// </summary>
-		[XmlElement("talksource_source")]
+		[JsonProperty("talksource_source")]
 		public string TalksourceSource { get; set; }
 
 		/// <summary>
 		///     企业官网
 		/// </summary>
-		[XmlElement("web_url")]
+		[JsonProperty("web_url")]
 		public string WebUrl { get; set; }
 	}
 }

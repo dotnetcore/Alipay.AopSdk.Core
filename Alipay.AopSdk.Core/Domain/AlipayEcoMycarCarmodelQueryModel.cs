@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,7 +12,7 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     支付宝车型库车型编号,系统唯一。
 		/// </summary>
-		[XmlElement("model_id")]
+		[JsonProperty("model_id")]
 		public string ModelId { get; set; }
 	}
 }

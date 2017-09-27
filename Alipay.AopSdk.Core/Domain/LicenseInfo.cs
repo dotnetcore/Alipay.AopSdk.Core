@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,49 +12,49 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     证书的认证机构
 		/// </summary>
-		[XmlElement("agency")]
+		[JsonProperty("agency")]
 		public string Agency { get; set; }
 
 		/// <summary>
 		///     证照过期时间，格式：yyyy-MM-dd
 		/// </summary>
-		[XmlElement("gmt_expire")]
+		[JsonProperty("gmt_expire")]
 		public string GmtExpire { get; set; }
 
 		/// <summary>
 		///     证照的起始时间：证件生效的开始时间，格式：yyyy-MM-dd
 		/// </summary>
-		[XmlElement("gmt_start")]
+		[JsonProperty("gmt_start")]
 		public string GmtStart { get; set; }
 
 		/// <summary>
 		///     证书id
 		/// </summary>
-		[XmlElement("license_id")]
+		[JsonProperty("license_id")]
 		public string LicenseId { get; set; }
 
 		/// <summary>
 		///     证照名称，当type为OTHER时，必填
 		/// </summary>
-		[XmlElement("license_name")]
+		[JsonProperty("license_name")]
 		public string LicenseName { get; set; }
 
 		/// <summary>
 		///     证书照片的url
 		/// </summary>
-		[XmlElement("pic_url")]
+		[JsonProperty("pic_url")]
 		public string PicUrl { get; set; }
 
 		/// <summary>
 		///     技能或者能力的认证结果，如“高级”
 		/// </summary>
-		[XmlElement("result")]
+		[JsonProperty("result")]
 		public string Result { get; set; }
 
 		/// <summary>
 		///     服务者的证书编号，由证书机构颁发的证书编号
 		/// </summary>
-		[XmlElement("sequence")]
+		[JsonProperty("sequence")]
 		public string Sequence { get; set; }
 
 		/// <summary>
@@ -64,7 +64,7 @@ namespace Alipay.AopSdk.Core.Domain
 		///     LOCKS_REPAIR：锁具修理服务卡（公安印章）  HEALTH：健康证  BEAUTY：美容相关证件  MASSAGE：按摩师职业证书  TRANSPORT：道路运输证  DRIVING：驾驶证
 		///     TRANSPORT_PERMIT：道路运输经营许可  OTHER：其他
 		/// </summary>
-		[XmlElement("type")]
+		[JsonProperty("type")]
 		public string Type { get; set; }
 	}
 }

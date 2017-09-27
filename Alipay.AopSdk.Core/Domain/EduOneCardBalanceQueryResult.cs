@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,37 +12,37 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     校园一卡通机构
 		/// </summary>
-		[XmlElement("agent_code")]
+		[JsonProperty("agent_code")]
 		public string AgentCode { get; set; }
 
 		/// <summary>
 		///     校园一卡通可用余额
 		/// </summary>
-		[XmlElement("balance")]
+		[JsonProperty("balance")]
 		public string Balance { get; set; }
 
 		/// <summary>
 		///     校园一卡通姓名
 		/// </summary>
-		[XmlElement("card_name")]
+		[JsonProperty("card_name")]
 		public string CardName { get; set; }
 
 		/// <summary>
 		///     校园一卡通卡号
 		/// </summary>
-		[XmlElement("card_no")]
+		[JsonProperty("card_no")]
 		public string CardNo { get; set; }
 
 		/// <summary>
 		///     余额最后更新时间
 		/// </summary>
-		[XmlElement("last_update_time")]
+		[JsonProperty("last_update_time")]
 		public string LastUpdateTime { get; set; }
 
 		/// <summary>
 		///     校园一卡通待领金额
 		/// </summary>
-		[XmlElement("pound_amount")]
+		[JsonProperty("pound_amount")]
 		public string PoundAmount { get; set; }
 	}
 }

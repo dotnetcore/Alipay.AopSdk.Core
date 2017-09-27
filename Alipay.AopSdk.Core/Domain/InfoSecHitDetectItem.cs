@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,7 +12,7 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     级别
 		/// </summary>
-		[XmlElement("detect_resource_level")]
+		[JsonProperty("detect_resource_level")]
 		public string DetectResourceLevel { get; set; }
 
 		/// <summary>
@@ -21,19 +21,19 @@ namespace Alipay.AopSdk.Core.Domain
 		///     "样图检测"),    OCR("ocr", "图文识别"),    PICTURE_FACE("picture_face","图片人脸检测"),    QRCODE("QRCode", "二维码检测"),
 		///     MDP_MODEL("mdpModel", "mdp检测"),    ANTI_SPAM_MODEL("anti_spam_model", "反垃圾模型");
 		/// </summary>
-		[XmlElement("detect_type_code")]
+		[JsonProperty("detect_type_code")]
 		public string DetectTypeCode { get; set; }
 
 		/// <summary>
 		///     保存被命中的内容： 如正则表达式，则保存被正则表达式命中的内容
 		/// </summary>
-		[XmlElement("hit_content")]
+		[JsonProperty("hit_content")]
 		public string HitContent { get; set; }
 
 		/// <summary>
 		///     命中的检测项的资源： 如命中关键字，则存关键字，如命中正则表达式，则保存正则表达式
 		/// </summary>
-		[XmlElement("hit_detect_resource")]
+		[JsonProperty("hit_detect_resource")]
 		public string HitDetectResource { get; set; }
 	}
 }

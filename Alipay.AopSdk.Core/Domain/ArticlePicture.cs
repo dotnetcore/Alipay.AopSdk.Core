@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,25 +12,25 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     图片的描述
 		/// </summary>
-		[XmlElement("desc")]
+		[JsonProperty("desc")]
 		public string Desc { get; set; }
 
 		/// <summary>
 		///     图片上传到素材中心后生成的id
 		/// </summary>
-		[XmlElement("location")]
+		[JsonProperty("location")]
 		public string Location { get; set; }
 
 		/// <summary>
 		///     图片名称
 		/// </summary>
-		[XmlElement("name")]
+		[JsonProperty("name")]
 		public string Name { get; set; }
 
 		/// <summary>
 		///     "DISH"："菜品"，"ENVIRONMENT"："环境"，"SHOPHEAD"："门头照"，"OTHER"："其他"
 		/// </summary>
-		[XmlElement("type")]
+		[JsonProperty("type")]
 		public string Type { get; set; }
 	}
 }

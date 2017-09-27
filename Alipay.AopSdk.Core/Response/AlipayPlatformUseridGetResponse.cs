@@ -1,4 +1,4 @@
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Response
 {
@@ -10,7 +10,7 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     id字典，key为openId，value为userId
 		/// </summary>
-		[XmlElement("dict")]
+		[JsonProperty("dict")]
 		public string Dict { get; set; }
 	}
 }

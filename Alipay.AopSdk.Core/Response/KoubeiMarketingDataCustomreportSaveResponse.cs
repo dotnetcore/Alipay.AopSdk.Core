@@ -1,4 +1,4 @@
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Response
 {
@@ -10,7 +10,7 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     自定义报表的规则ID
 		/// </summary>
-		[XmlElement("condition_key")]
+		[JsonProperty("condition_key")]
 		public string ConditionKey { get; set; }
 	}
 }

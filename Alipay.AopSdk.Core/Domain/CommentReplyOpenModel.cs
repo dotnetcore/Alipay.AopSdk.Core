@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,19 +12,19 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     回复内容，最多500字，不区分中英文
 		/// </summary>
-		[XmlElement("content")]
+		[JsonProperty("content")]
 		public string Content { get; set; }
 
 		/// <summary>
 		///     发表回复的操作员id
 		/// </summary>
-		[XmlElement("operator_id")]
+		[JsonProperty("operator_id")]
 		public string OperatorId { get; set; }
 
 		/// <summary>
 		///     回复发表时间
 		/// </summary>
-		[XmlElement("reply_publish_time")]
+		[JsonProperty("reply_publish_time")]
 		public string ReplyPublishTime { get; set; }
 	}
 }

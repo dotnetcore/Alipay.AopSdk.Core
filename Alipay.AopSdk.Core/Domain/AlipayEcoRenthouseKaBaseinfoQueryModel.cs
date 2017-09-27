@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,7 +12,7 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     kaCode唯一标识
 		/// </summary>
-		[XmlElement("ka_code")]
+		[JsonProperty("ka_code")]
 		public string KaCode { get; set; }
 	}
 }

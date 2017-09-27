@@ -1,4 +1,4 @@
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Response
 {
@@ -10,7 +10,7 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     奖品剩余数量，数值
 		/// </summary>
-		[XmlElement("remain_amount")]
+		[JsonProperty("remain_amount")]
 		public string RemainAmount { get; set; }
 	}
 }

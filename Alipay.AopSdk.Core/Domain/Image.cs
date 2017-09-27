@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,7 +12,7 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     图片url，请先调用alipay.offline.material.image.upload 图片上传接口获得图片url
 		/// </summary>
-		[XmlElement("url")]
+		[JsonProperty("url")]
 		public string Url { get; set; }
 	}
 }

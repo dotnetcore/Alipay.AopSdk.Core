@@ -1,4 +1,4 @@
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Response
 {
@@ -10,7 +10,7 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     若小区创建成功，则返回支付宝社区物业平台中的小区统一编号。
 		/// </summary>
-		[XmlElement("community_id")]
+		[JsonProperty("community_id")]
 		public string CommunityId { get; set; }
 
 		/// <summary>
@@ -19,14 +19,14 @@ namespace Alipay.AopSdk.Core.Response
 		///     WAIT_ONLINE_APPLICATION - 等待提起上线申请  WAIT_OFFLINE_APPLICATION - 等待提起下线申请  WAIT_CONFIRMATION - 等待相关方确认  WAIT_AUDITING
 		///     - 等待审核
 		/// </summary>
-		[XmlElement("next_action")]
+		[JsonProperty("next_action")]
 		public string NextAction { get; set; }
 
 		/// <summary>
 		///     若小区创建成功，则返回当前状态，状态值：  PENDING_ONLINE 待上线  ONLINE - 上线  MAINTAIN - 维护中  OFFLINE - 下线
 		///     新创建的小区为PENDING_ONLINE待上线状态，需要尽快初始化基础服务，完成开发和验证，并提交服务上线申请。由支付宝小二审核通过后完成服务和小区上线。
 		/// </summary>
-		[XmlElement("status")]
+		[JsonProperty("status")]
 		public string Status { get; set; }
 	}
 }

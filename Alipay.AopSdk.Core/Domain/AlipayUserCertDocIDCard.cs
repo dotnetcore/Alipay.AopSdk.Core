@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,31 +12,31 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     身份证国徽页照片BASE64编码
 		/// </summary>
-		[XmlElement("encoded_img_emblem")]
+		[JsonProperty("encoded_img_emblem")]
 		public string EncodedImgEmblem { get; set; }
 
 		/// <summary>
 		///     头像页照片BASE64编码
 		/// </summary>
-		[XmlElement("encoded_img_identity")]
+		[JsonProperty("encoded_img_identity")]
 		public string EncodedImgIdentity { get; set; }
 
 		/// <summary>
 		///     有效期至
 		/// </summary>
-		[XmlElement("expire_date")]
+		[JsonProperty("expire_date")]
 		public string ExpireDate { get; set; }
 
 		/// <summary>
 		///     身份证姓名
 		/// </summary>
-		[XmlElement("name")]
+		[JsonProperty("name")]
 		public string Name { get; set; }
 
 		/// <summary>
 		///     身份证号码
 		/// </summary>
-		[XmlElement("number")]
+		[JsonProperty("number")]
 		public string Number { get; set; }
 	}
 }

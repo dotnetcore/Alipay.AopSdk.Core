@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -15,21 +15,21 @@ namespace Alipay.AopSdk.Core.Domain
 		///     tagCode:标签code，详细标签code参见附件。
 		///     <a href="http://aopsdkdownload.cn-hangzhou.alipay-pub.aliyun-inc.com/doc/tags%26usecase.zip">标签信息</a>  value:标签值
 		/// </summary>
-		[XmlElement("conditions")]
+		[JsonProperty("conditions")]
 		public string Conditions { get; set; }
 
 		/// <summary>
 		///     crowd_group_id和conditions不能同时为空
 		///     如果crowd_group_id不为空则根据crowd_group_id查询人群分组的信息进行统计，否则以conditions的内容为过滤条件进行统计，如果crowd_group_id和conditions都不为空则优先使用conditions的条件
 		/// </summary>
-		[XmlElement("crowd_group_id")]
+		[JsonProperty("crowd_group_id")]
 		public string CrowdGroupId { get; set; }
 
 		/// <summary>
 		///     画像分析的维度，目前支持:["pam_age","pam_gender","pam_constellation","pam_hometown_code","pam_city_code","pam_occupation","pam_consume_level","pam_have_baby"]，以koubei.marketing.campaign.tags.query接口返回的dimensions为准，各个维度标签的详细信息参见附件，
 		///     <a href="http://aopsdkdownload.cn-hangzhou.alipay-pub.aliyun-inc.com/doc/tags%26usecase.zip">标签信息</a>
 		/// </summary>
-		[XmlElement("dimensions")]
+		[JsonProperty("dimensions")]
 		public string Dimensions { get; set; }
 	}
 }

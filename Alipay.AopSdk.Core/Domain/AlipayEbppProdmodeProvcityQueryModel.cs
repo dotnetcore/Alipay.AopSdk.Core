@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,13 +12,13 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     省市编号
 		/// </summary>
-		[XmlElement("adcode")]
+		[JsonProperty("adcode")]
 		public string Adcode { get; set; }
 
 		/// <summary>
 		///     查询类型，queryType=1,查询省下面的市信息
 		/// </summary>
-		[XmlElement("query_type")]
+		[JsonProperty("query_type")]
 		public string QueryType { get; set; }
 	}
 }

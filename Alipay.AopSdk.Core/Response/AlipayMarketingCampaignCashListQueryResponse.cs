@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 using Alipay.AopSdk.Core.Domain;
 
 namespace Alipay.AopSdk.Core.Response
@@ -12,26 +12,26 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     活动列表
 		/// </summary>
-		[XmlArray("camp_list")]
-		[XmlArrayItem("cash_campaign_info")]
+		[JsonProperty("camp_list")]
+		
 		public List<CashCampaignInfo> CampList { get; set; }
 
 		/// <summary>
 		///     分页的页码,起始从1开始
 		/// </summary>
-		[XmlElement("page_index")]
+		[JsonProperty("page_index")]
 		public string PageIndex { get; set; }
 
 		/// <summary>
 		///     分页每页大小
 		/// </summary>
-		[XmlElement("page_size")]
+		[JsonProperty("page_size")]
 		public string PageSize { get; set; }
 
 		/// <summary>
 		///     活动总个数
 		/// </summary>
-		[XmlElement("total_size")]
+		[JsonProperty("total_size")]
 		public string TotalSize { get; set; }
 	}
 }

@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -13,8 +13,8 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     需要删除的渠道ID列表
 		/// </summary>
-		[XmlArray("channel_ids")]
-		[XmlArrayItem("string")]
+		[JsonProperty("channel_ids")]
+		
 		public List<string> ChannelIds { get; set; }
 	}
 }

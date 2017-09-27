@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,7 +12,7 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     服务端生成的设备码（由我方提供的sdk生成）
 		/// </summary>
-		[XmlElement("device_code")]
+		[JsonProperty("device_code")]
 		public string DeviceCode { get; set; }
 	}
 }

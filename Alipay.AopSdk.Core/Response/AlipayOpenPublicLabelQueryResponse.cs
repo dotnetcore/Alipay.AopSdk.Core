@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 using Alipay.AopSdk.Core.Domain;
 
 namespace Alipay.AopSdk.Core.Response
@@ -12,8 +12,8 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     该服务窗拥有的标签列表
 		/// </summary>
-		[XmlArray("label_list")]
-		[XmlArrayItem("public_label")]
+		[JsonProperty("label_list")]
+		
 		public List<PublicLabel> LabelList { get; set; }
 	}
 }

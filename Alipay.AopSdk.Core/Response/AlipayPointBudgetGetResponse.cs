@@ -1,4 +1,4 @@
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Response
 {
@@ -10,7 +10,7 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     还可以发放的集分宝个数
 		/// </summary>
-		[XmlElement("budget_amount")]
+		[JsonProperty("budget_amount")]
 		public long BudgetAmount { get; set; }
 	}
 }

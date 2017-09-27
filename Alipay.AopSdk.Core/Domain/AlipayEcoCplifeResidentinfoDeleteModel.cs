@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -13,14 +13,14 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     待删除的住户所在的小区ID(支付宝平台统一小区ID标识)
 		/// </summary>
-		[XmlElement("community_id")]
+		[JsonProperty("community_id")]
 		public string CommunityId { get; set; }
 
 		/// <summary>
 		///     待删除住户在物业系统中的唯一标示,一次至多传入200条用户ID
 		/// </summary>
-		[XmlArray("out_resident_id_set")]
-		[XmlArrayItem("string")]
+		[JsonProperty("out_resident_id_set")]
+		
 		public List<string> OutResidentIdSet { get; set; }
 	}
 }

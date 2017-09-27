@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,7 +12,7 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     抬头动态码
 		/// </summary>
-		[XmlElement("bar_code")]
+		[JsonProperty("bar_code")]
 		public string BarCode { get; set; }
 	}
 }

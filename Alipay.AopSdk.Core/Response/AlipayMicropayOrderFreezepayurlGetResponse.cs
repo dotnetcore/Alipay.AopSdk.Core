@@ -1,4 +1,4 @@
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Response
 {
@@ -10,7 +10,7 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     支付冻结金的地址
 		/// </summary>
-		[XmlElement("pay_freeze_url")]
+		[JsonProperty("pay_freeze_url")]
 		public string PayFreezeUrl { get; set; }
 	}
 }

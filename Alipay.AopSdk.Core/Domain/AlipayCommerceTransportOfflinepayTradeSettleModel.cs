@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -13,8 +13,8 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     脱机交易列表
 		/// </summary>
-		[XmlArray("trade_list")]
-		[XmlArrayItem("alipay_offline_trade")]
+		[JsonProperty("trade_list")]
+		
 		public List<AlipayOfflineTrade> TradeList { get; set; }
 	}
 }

@@ -1,4 +1,4 @@
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 using Alipay.AopSdk.Core.Domain;
 
 namespace Alipay.AopSdk.Core.Response
@@ -11,19 +11,19 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     蓝牙设备信息
 		/// </summary>
-		[XmlElement("beacon_device_info")]
+		[JsonProperty("beacon_device_info")]
 		public BeaconDeviceInfo BeaconDeviceInfo { get; set; }
 
 		/// <summary>
 		///     操作返回码，200为成功
 		/// </summary>
-		[XmlElement("code")]
+		[JsonProperty("code")]
 		public string Code { get; set; }
 
 		/// <summary>
 		///     请求处理结果
 		/// </summary>
-		[XmlElement("msg")]
+		[JsonProperty("msg")]
 		public string Msg { get; set; }
 	}
 }

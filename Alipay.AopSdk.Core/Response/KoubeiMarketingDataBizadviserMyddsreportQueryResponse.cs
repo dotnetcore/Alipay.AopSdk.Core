@@ -1,4 +1,4 @@
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Response
 {
@@ -10,7 +10,7 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     result是一个所有结果集合的json串。  result结果集是一个json格式数组， 是门店热力图信息  lng: 位置经度 lat:位置维度 cnt：会员数量
 		/// </summary>
-		[XmlElement("result")]
+		[JsonProperty("result")]
 		public string Result { get; set; }
 	}
 }

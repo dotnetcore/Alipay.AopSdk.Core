@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,19 +12,19 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     折扣预算ID
 		/// </summary>
-		[XmlElement("budget_id")]
+		[JsonProperty("budget_id")]
 		public string BudgetId { get; set; }
 
 		/// <summary>
 		///     奖品id
 		/// </summary>
-		[XmlElement("id")]
+		[JsonProperty("id")]
 		public string Id { get; set; }
 
 		/// <summary>
 		///     单笔上限金额只能填写数字，大于等于0，小数点后最多2位，整数部分不能超过5位
 		/// </summary>
-		[XmlElement("max_discount_amt")]
+		[JsonProperty("max_discount_amt")]
 		public string MaxDiscountAmt { get; set; }
 
 		/// <summary>
@@ -33,7 +33,7 @@ namespace Alipay.AopSdk.Core.Domain
 		///     十位数取整，交易金额必须大于100元，最大优惠幅度99.99元，EG：交易金额125.56元，取整后优惠后金额为100元
 		///     百位数取整，交易金额必须大于1000元，最大优惠幅度999.99元，EG：交易金额1125.56元，取整后优惠后金额为1000元
 		/// </summary>
-		[XmlElement("reset_zero_amt")]
+		[JsonProperty("reset_zero_amt")]
 		public string ResetZeroAmt { get; set; }
 	}
 }

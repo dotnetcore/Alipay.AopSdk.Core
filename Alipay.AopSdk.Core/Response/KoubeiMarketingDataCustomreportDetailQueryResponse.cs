@@ -1,4 +1,4 @@
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 using Alipay.AopSdk.Core.Domain;
 
 namespace Alipay.AopSdk.Core.Response
@@ -11,7 +11,7 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     自定义报表规则条件的详细信息
 		/// </summary>
-		[XmlElement("report_condition_info")]
+		[JsonProperty("report_condition_info")]
 		public CustomReportCondition ReportConditionInfo { get; set; }
 	}
 }

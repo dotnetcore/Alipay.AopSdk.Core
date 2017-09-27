@@ -1,4 +1,4 @@
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Response
 {
@@ -13,13 +13,13 @@ namespace Alipay.AopSdk.Core.Response
 		///     WAIT_ONLINE_APPLICATION - 等待提起上线申请（目前支持开发者调用alipay.eco.cplife.basicservice.modify接口发起上线申请）  WAIT_AUTH_TO_PLATFORM -
 		///     等待物业授权给支付宝社区平台  WAIT_CONFIRMATION - 等待相关方确认  WAIT_AUDITING - 等待审核
 		/// </summary>
-		[XmlElement("next_action")]
+		[JsonProperty("next_action")]
 		public string NextAction { get; set; }
 
 		/// <summary>
 		///     若服务成功变更，则返回当前状态。
 		/// </summary>
-		[XmlElement("status")]
+		[JsonProperty("status")]
 		public string Status { get; set; }
 	}
 }

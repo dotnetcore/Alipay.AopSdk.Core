@@ -1,4 +1,4 @@
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 using Alipay.AopSdk.Core.Domain;
 
 namespace Alipay.AopSdk.Core.Response
@@ -11,7 +11,7 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     支付宝用户订购信息
 		/// </summary>
-		[XmlElement("alipay_contract")]
+		[JsonProperty("alipay_contract")]
 		public AlipayContract AlipayContract { get; set; }
 	}
 }

@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,13 +12,13 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     当前页码
 		/// </summary>
-		[XmlElement("page")]
+		[JsonProperty("page")]
 		public string Page { get; set; }
 
 		/// <summary>
 		///     每页最大条数，最大每页30条
 		/// </summary>
-		[XmlElement("size")]
+		[JsonProperty("size")]
 		public string Size { get; set; }
 	}
 }

@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -13,8 +13,8 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     openId的列表
 		/// </summary>
-		[XmlArray("open_ids")]
-		[XmlArrayItem("string")]
+		[JsonProperty("open_ids")]
+		
 		public List<string> OpenIds { get; set; }
 	}
 }

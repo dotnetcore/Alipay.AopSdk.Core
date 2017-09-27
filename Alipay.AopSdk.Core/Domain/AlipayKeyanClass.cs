@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,7 +12,7 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     1
 		/// </summary>
-		[XmlElement("user_name")]
+		[JsonProperty("user_name")]
 		public string UserName { get; set; }
 	}
 }

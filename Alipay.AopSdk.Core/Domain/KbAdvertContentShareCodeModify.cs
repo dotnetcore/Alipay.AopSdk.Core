@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,7 +12,7 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     宣传展示标题（不能超过30个字符）
 		/// </summary>
-		[XmlElement("display_title")]
+		[JsonProperty("display_title")]
 		public string DisplayTitle { get; set; }
 	}
 }

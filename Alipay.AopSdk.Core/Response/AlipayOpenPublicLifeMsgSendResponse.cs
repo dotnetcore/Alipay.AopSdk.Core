@@ -1,4 +1,4 @@
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Response
 {
@@ -10,7 +10,7 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     生活号消息唯一标识
 		/// </summary>
-		[XmlElement("alipay_msg_id")]
+		[JsonProperty("alipay_msg_id")]
 		public string AlipayMsgId { get; set; }
 	}
 }

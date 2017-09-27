@@ -1,4 +1,4 @@
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Response
 {
@@ -10,7 +10,7 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     协议号，商户会员在支付宝服务窗账号中的唯一标识
 		/// </summary>
-		[XmlElement("agreement_id")]
+		[JsonProperty("agreement_id")]
 		public string AgreementId { get; set; }
 	}
 }

@@ -1,4 +1,4 @@
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Response
 {
@@ -10,7 +10,7 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     服务窗菜单
 		/// </summary>
-		[XmlElement("public_menu")]
+		[JsonProperty("public_menu")]
 		public string PublicMenu { get; set; }
 	}
 }

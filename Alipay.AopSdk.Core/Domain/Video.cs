@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,13 +12,13 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     调用alipay.offline.material.image.upload接口将视频上传到素材中心后，生成的ID
 		/// </summary>
-		[XmlElement("location")]
+		[JsonProperty("location")]
 		public string Location { get; set; }
 
 		/// <summary>
 		///     视频名称
 		/// </summary>
-		[XmlElement("name")]
+		[JsonProperty("name")]
 		public string Name { get; set; }
 	}
 }

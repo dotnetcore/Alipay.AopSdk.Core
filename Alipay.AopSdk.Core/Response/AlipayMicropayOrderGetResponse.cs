@@ -1,4 +1,4 @@
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 using Alipay.AopSdk.Core.Domain;
 
 namespace Alipay.AopSdk.Core.Response
@@ -11,7 +11,7 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     冻结订单详情
 		/// </summary>
-		[XmlElement("micro_pay_order_detail")]
+		[JsonProperty("micro_pay_order_detail")]
 		public MicroPayOrderDetail MicroPayOrderDetail { get; set; }
 	}
 }

@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,13 +12,13 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     图片URL地址，最大不超过60K，必须使用https
 		/// </summary>
-		[XmlElement("img")]
+		[JsonProperty("img")]
 		public string Img { get; set; }
 
 		/// <summary>
 		///     文本描述
 		/// </summary>
-		[XmlElement("text")]
+		[JsonProperty("text")]
 		public string Text { get; set; }
 	}
 }

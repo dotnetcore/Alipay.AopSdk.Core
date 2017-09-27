@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 using Alipay.AopSdk.Core.Domain;
 
 namespace Alipay.AopSdk.Core.Response
@@ -12,14 +12,14 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     签约订单id，关联了若干个签约任务id。
 		/// </summary>
-		[XmlElement("order_id")]
+		[JsonProperty("order_id")]
 		public string OrderId { get; set; }
 
 		/// <summary>
 		///     签约认证任务列表
 		/// </summary>
-		[XmlArray("task_list")]
-		[XmlArrayItem("sign_task_result")]
+		[JsonProperty("task_list")]
+		
 		public List<SignTaskResult> TaskList { get; set; }
 	}
 }

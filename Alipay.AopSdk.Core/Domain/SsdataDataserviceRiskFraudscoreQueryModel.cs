@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,19 +12,19 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     商户和支付宝交互时，用于代表支付宝分配给商户ID
 		/// </summary>
-		[XmlElement("partner_id")]
+		[JsonProperty("partner_id")]
 		public string PartnerId { get; set; }
 
 		/// <summary>
 		///     版本号
 		/// </summary>
-		[XmlElement("sys_version")]
+		[JsonProperty("sys_version")]
 		public string SysVersion { get; set; }
 
 		/// <summary>
 		///     蚂蚁统一会员ID
 		/// </summary>
-		[XmlElement("user_id")]
+		[JsonProperty("user_id")]
 		public string UserId { get; set; }
 	}
 }

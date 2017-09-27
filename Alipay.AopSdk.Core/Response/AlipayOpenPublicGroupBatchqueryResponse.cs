@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 using Alipay.AopSdk.Core.Domain;
 
 namespace Alipay.AopSdk.Core.Response
@@ -12,8 +12,8 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     用户分组列表，包含每个分组的id、name、以及规则模型
 		/// </summary>
-		[XmlArray("groups")]
-		[XmlArrayItem("query_group")]
+		[JsonProperty("groups")]
+		
 		public List<QueryGroup> Groups { get; set; }
 	}
 }

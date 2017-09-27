@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,13 +12,13 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     标签值类型，目前只支持string（字符串类型），不传默认为"string"
 		/// </summary>
-		[XmlElement("data_type")]
+		[JsonProperty("data_type")]
 		public string DataType { get; set; }
 
 		/// <summary>
 		///     自定义标签名
 		/// </summary>
-		[XmlElement("label_name")]
+		[JsonProperty("label_name")]
 		public string LabelName { get; set; }
 	}
 }

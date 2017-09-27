@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 using Alipay.AopSdk.Core.Domain;
 
 namespace Alipay.AopSdk.Core.Response
@@ -12,8 +12,8 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     会员卡模板外部权益列表
 		/// </summary>
-		[XmlArray("mcard_template_benefit_query")]
-		[XmlArrayItem("mcard_template_benefit_query")]
+		[JsonProperty("mcard_template_benefit_query")]
+		
 		public List<McardTemplateBenefitQuery> McardTemplateBenefitQuery { get; set; }
 	}
 }

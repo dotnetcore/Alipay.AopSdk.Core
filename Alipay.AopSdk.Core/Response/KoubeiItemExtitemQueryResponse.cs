@@ -1,4 +1,4 @@
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 using Alipay.AopSdk.Core.Domain;
 
 namespace Alipay.AopSdk.Core.Response
@@ -11,7 +11,7 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     商品信息
 		/// </summary>
-		[XmlElement("extitem")]
+		[JsonProperty("extitem")]
 		public ExtItem Extitem { get; set; }
 	}
 }

@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,19 +12,19 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     Isv pid
 		/// </summary>
-		[XmlElement("isv_pid")]
+		[JsonProperty("isv_pid")]
 		public string IsvPid { get; set; }
 
 		/// <summary>
 		///     ISV调用发送账单接口，返回给商户的order_no
 		/// </summary>
-		[XmlElement("out_trade_no")]
+		[JsonProperty("out_trade_no")]
 		public string OutTradeNo { get; set; }
 
 		/// <summary>
 		///     学校支付宝pid
 		/// </summary>
-		[XmlElement("school_pid")]
+		[JsonProperty("school_pid")]
 		public string SchoolPid { get; set; }
 	}
 }

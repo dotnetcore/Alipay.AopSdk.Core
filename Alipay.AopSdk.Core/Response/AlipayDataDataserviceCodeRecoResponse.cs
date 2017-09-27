@@ -1,4 +1,4 @@
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 using Alipay.AopSdk.Core.Domain;
 
 namespace Alipay.AopSdk.Core.Response
@@ -11,7 +11,7 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     识别结果
 		/// </summary>
-		[XmlElement("result")]
+		[JsonProperty("result")]
 		public AlipayCodeRecoResult Result { get; set; }
 	}
 }

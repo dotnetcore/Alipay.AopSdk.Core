@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,7 +12,7 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     内容id，通过调用koubei.marketing.campaign.retail.dm.create接口创建内容时返回的内容ID
 		/// </summary>
-		[XmlElement("content_id")]
+		[JsonProperty("content_id")]
 		public string ContentId { get; set; }
 	}
 }

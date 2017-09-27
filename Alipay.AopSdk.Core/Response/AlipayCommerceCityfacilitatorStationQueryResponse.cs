@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 using Alipay.AopSdk.Core.Domain;
 
 namespace Alipay.AopSdk.Core.Response
@@ -12,8 +12,8 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     支持设为起点的站点列表
 		/// </summary>
-		[XmlArray("support_starts")]
-		[XmlArrayItem("station_detail_info")]
+		[JsonProperty("support_starts")]
+		
 		public List<StationDetailInfo> SupportStarts { get; set; }
 	}
 }

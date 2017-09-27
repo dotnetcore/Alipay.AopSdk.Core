@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,31 +12,31 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     车主平台服务子订单id
 		/// </summary>
-		[XmlElement("order_server_id")]
+		[JsonProperty("order_server_id")]
 		public string OrderServerId { get; set; }
 
 		/// <summary>
 		///     原始金额。服务对应原始价格。对应划掉的服务价格。金额单位(元)，保留两位小数。
 		/// </summary>
-		[XmlElement("origin_cost")]
+		[JsonProperty("origin_cost")]
 		public string OriginCost { get; set; }
 
 		/// <summary>
 		///     外部服务商品编码。下单时记录ISV服务商品唯一标示。用于区分不同商品
 		/// </summary>
-		[XmlElement("out_product_id")]
+		[JsonProperty("out_product_id")]
 		public string OutProductId { get; set; }
 
 		/// <summary>
 		///     销售金额。服务真实售卖单价。金额单位(元)，保留两位小数。
 		/// </summary>
-		[XmlElement("real_cost")]
+		[JsonProperty("real_cost")]
 		public string RealCost { get; set; }
 
 		/// <summary>
 		///     数量
 		/// </summary>
-		[XmlElement("sale_num")]
+		[JsonProperty("sale_num")]
 		public long SaleNum { get; set; }
 
 		/// <summary>
@@ -47,7 +47,7 @@ namespace Alipay.AopSdk.Core.Domain
 		///     401001:传动皮带套件(4S)    401001:冷媒（4S）   4S养护类：  402001:清洗节气门(4S)  402001:清洗喷油嘴(4S)  402001:清洗三元催化(4S)
 		///     402001:清洗进气道(4S)  402001:添加新车保护剂(4S)  402001:发动机润滑系统清洗(4S)  402001:发动机内部保护(4S)
 		/// </summary>
-		[XmlElement("service_category_id")]
+		[JsonProperty("service_category_id")]
 		public long ServiceCategoryId { get; set; }
 	}
 }

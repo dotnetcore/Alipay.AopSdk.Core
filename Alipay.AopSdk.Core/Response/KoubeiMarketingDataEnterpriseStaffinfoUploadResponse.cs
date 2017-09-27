@@ -1,4 +1,4 @@
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Response
 {
@@ -10,7 +10,7 @@ namespace Alipay.AopSdk.Core.Response
 		/// <summary>
 		///     人群ID
 		/// </summary>
-		[XmlElement("crowd_id")]
+		[JsonProperty("crowd_id")]
 		public string CrowdId { get; set; }
 	}
 }

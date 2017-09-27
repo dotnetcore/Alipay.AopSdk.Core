@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,13 +12,13 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     安全累计属性列表字段，安全属性列表，key为属性名称，value为属性值；如 key:"145" ，value:"1"
 		/// </summary>
-		[XmlElement("security_content")]
+		[JsonProperty("security_content")]
 		public string SecurityContent { get; set; }
 
 		/// <summary>
 		///     代码发送给安全核心的事件编码
 		/// </summary>
-		[XmlElement("security_sign")]
+		[JsonProperty("security_sign")]
 		public string SecuritySign { get; set; }
 	}
 }

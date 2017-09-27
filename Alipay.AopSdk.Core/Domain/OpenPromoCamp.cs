@@ -1,5 +1,5 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
@@ -12,37 +12,37 @@ namespace Alipay.AopSdk.Core.Domain
 		/// <summary>
 		///     简短活动名，默认和活动名称相同
 		/// </summary>
-		[XmlElement("camp_alias")]
+		[JsonProperty("camp_alias")]
 		public string CampAlias { get; set; }
 
 		/// <summary>
 		///     活动描述
 		/// </summary>
-		[XmlElement("camp_desc")]
+		[JsonProperty("camp_desc")]
 		public string CampDesc { get; set; }
 
 		/// <summary>
 		///     活动结束时间
 		/// </summary>
-		[XmlElement("camp_end_time")]
+		[JsonProperty("camp_end_time")]
 		public string CampEndTime { get; set; }
 
 		/// <summary>
 		///     活动名称
 		/// </summary>
-		[XmlElement("camp_name")]
+		[JsonProperty("camp_name")]
 		public string CampName { get; set; }
 
 		/// <summary>
 		///     活动开始时间
 		/// </summary>
-		[XmlElement("camp_start_time")]
+		[JsonProperty("camp_start_time")]
 		public string CampStartTime { get; set; }
 
 		/// <summary>
 		///     活动类型，现在支持DRAW_PRIZE：表示领奖活动
 		/// </summary>
-		[XmlElement("camp_type")]
+		[JsonProperty("camp_type")]
 		public string CampType { get; set; }
 	}
 }
