@@ -9,3 +9,7 @@
 - [SDK集成示例](https://docs.open.alipay.com/54/103419 "SDK集成示例")
 - [快速接入](https://docs.open.alipay.com/194/105170/ "快速接入")
 - [PC网站接入](https://docs.open.alipay.com/270/106291/ "PC网站接入")
+
+# Demo
+
+- [PC网站支付Demo](https://github.com/stulzq/Alipay.Demo.PCPayment "PC网站支付Demo")
