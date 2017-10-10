@@ -225,28 +225,20 @@ namespace Alipay.AopSdk.Core.Parser
 			}
 			if (json != null)
 			{
-				IDictionary data = null;
-
 				// 忽略根节点的名称
 				foreach (var key in json.Keys)
 				{
-					data = json[key] as IDictionary;
-					if (data != null && data.Count > 0)
+					rsp = JsonConvert.DeserializeObject<T>(json[key].ToString());
+					if (rsp != null)
 						break;
 				}
 
-				if (data != null)
-				{
-					IAopReader reader = new AopJsonReader(data);
-					rsp = (T) AopJsonConvert(reader, typeof(T));
-				}
 			}
 
 			if (rsp == null)
 				rsp = Activator.CreateInstance<T>();
 
-			if (rsp != null)
-				rsp.Body = body;
+			rsp.Body = body;
 
 			return rsp;
 		}
