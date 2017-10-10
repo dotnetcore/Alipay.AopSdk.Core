@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Alipay.AopSdk.Core", "Alipay.AopSdk.Core\Alipay.AopSdk.Core.csproj", "{4B01FFF7-C94A-46DC-A9DA-6407992F1C52}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alipay.AopSdk.Core.UnitTest", "Alipay.AopSdk.Core.UnitTest\Alipay.AopSdk.Core.UnitTest.csproj", "{FC4F36D1-13BF-4974-BCB1-5B4E905F7B07}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Alipay.AopSdk.Core.UnitTest", "Alipay.AopSdk.Core.UnitTest\Alipay.AopSdk.Core.UnitTest.csproj", "{FC4F36D1-13BF-4974-BCB1-5B4E905F7B07}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alipay.AopSdk.F2FPay", "Alipay.AopSdk.F2FPay\Alipay.AopSdk.F2FPay.csproj", "{B9434C62-8278-43BC-9AA6-F9246BB63C39}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{FC4F36D1-13BF-4974-BCB1-5B4E905F7B07}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC4F36D1-13BF-4974-BCB1-5B4E905F7B07}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC4F36D1-13BF-4974-BCB1-5B4E905F7B07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9434C62-8278-43BC-9AA6-F9246BB63C39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9434C62-8278-43BC-9AA6-F9246BB63C39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9434C62-8278-43BC-9AA6-F9246BB63C39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9434C62-8278-43BC-9AA6-F9246BB63C39}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Alipay.AopSdk.Core\Alipay.AopSdk.Core.csproj" />
+  </ItemGroup>
+
+</Project>
