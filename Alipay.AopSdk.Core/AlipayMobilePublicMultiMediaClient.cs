@@ -64,7 +64,6 @@ namespace Alipay.AopSdk.Core
 			AlipayMobilePublicMultiMediaDownloadResponse response = null;
 
 			var url = serverUrl;
-			Console.WriteLine(url);
 			if (parameters != null && parameters.Count > 0)
 				if (url.Contains("?"))
 					url = url + "&" + WebUtils.BuildQuery(parameters, charset);

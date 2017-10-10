@@ -131,7 +131,6 @@ namespace Alipay.AopSdk.Core.Parser
 		private static string GetSign(string body)
 		{
 			var json = JsonConvert.DeserializeObject<IDictionary>(body);
-			Console.WriteLine(json);
 			return (string) json["sign"];
 		}
 
