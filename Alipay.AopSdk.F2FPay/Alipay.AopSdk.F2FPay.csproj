@@ -2,6 +2,17 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>stulzq</Authors>
+    <Company>stulzq</Company>
+    <PackageLicenseUrl>https://github.com/stulzq/Alipay.AopSdk.Core/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/stulzq/Alipay.AopSdk.Core</PackageProjectUrl>
+    <PackageTags>支付宝当面付,支付宝条码支付,Alipay,AopSdk,支付宝服务端SDK,支付宝支付</PackageTags>
+    <PackageReleaseNotes>支付宝当面付SDK，包括条码支付、扫码支付</PackageReleaseNotes>
+    <Description>支付宝当面付SDK，包括条码支付、扫码支付。采用.NET Standard 2.0，支持.NET Core 2.0。github:https://github.com/stulzq/Alipay.AopSdk.Core，访问github获取demo以及使用文档。</Description>
+    <PackageIconUrl>https://www.alipay.com/favicon.ico</PackageIconUrl>
+    <AssemblyVersion>2.1.0.0</AssemblyVersion>
+    <FileVersion>2.1.0.0</FileVersion>
+    <Version>2.1.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
