@@ -61,7 +61,7 @@ namespace Alipay.AopSdk.Core.Util
 		//*/
 		public static string RSASignCharSet(string data, string privateKeyPem, string charset, string signType)
 		{
-			var rsaCsp = LoadCertificateFile(privateKeyPem, signType);
+			RSA rsaCsp = LoadCertificateFile(privateKeyPem, signType);
 			byte[] dataBytes = null;
 			if (string.IsNullOrEmpty(charset))
 				dataBytes = Encoding.UTF8.GetBytes(data);
@@ -71,13 +71,13 @@ namespace Alipay.AopSdk.Core.Util
 
 			if ("RSA2".Equals(signType))
 			{
-				var signatureBytes = rsaCsp.SignData(dataBytes, "SHA256");
+				var signatureBytes = rsaCsp.SignData(dataBytes, HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
 
 				return Convert.ToBase64String(signatureBytes);
 			}
 			else
 			{
-				var signatureBytes = rsaCsp.SignData(dataBytes, "SHA1");
+				var signatureBytes = rsaCsp.SignData(dataBytes, HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
 
 				return Convert.ToBase64String(signatureBytes);
 			}
@@ -90,7 +90,7 @@ namespace Alipay.AopSdk.Core.Util
 			byte[] signatureBytes = null;
 			try
 			{
-				RSACryptoServiceProvider rsaCsp = null;
+				RSA rsaCsp = null;
 				if (keyFromFile)
 					rsaCsp = LoadCertificateFile(privateKeyPem, signType);
 				else
@@ -104,9 +104,9 @@ namespace Alipay.AopSdk.Core.Util
 				if (null == rsaCsp)
 					throw new AopException("您使用的私钥格式错误，请检查RSA私钥配置" + ",charset = " + charset);
 				if ("RSA2".Equals(signType))
-					signatureBytes = rsaCsp.SignData(dataBytes, "SHA256");
+					signatureBytes = rsaCsp.SignData(dataBytes,HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
 				else
-					signatureBytes = rsaCsp.SignData(dataBytes, "SHA1");
+					signatureBytes = rsaCsp.SignData(dataBytes, HashAlgorithmName.SHA1, RSASignaturePadding.Pkcs1);
 			}
 			catch (Exception ex)
 			{
@@ -179,6 +179,112 @@ namespace Alipay.AopSdk.Core.Util
 			return RSACheckContent(signContent, sign, publicKeyPem, charset, signType, keyFromFile);
 		}
 
+		public static RSA CreateRsaProviderFromPublicKey(string publicKeyString,string signType)
+		{
+			// encoded OID sequence for  PKCS #1 rsaEncryption szOID_RSA_RSA = "1.2.840.113549.1.1.1"
+			byte[] seqOid = { 0x30, 0x0D, 0x06, 0x09, 0x2A, 0x86, 0x48, 0x86, 0xF7, 0x0D, 0x01, 0x01, 0x01, 0x05, 0x00 };
+			byte[] seq = new byte[15];
+
+			var x509Key = Convert.FromBase64String(publicKeyString);
+
+			// ---------  Set up stream to read the asn.1 encoded SubjectPublicKeyInfo blob  ------
+			using (MemoryStream mem = new MemoryStream(x509Key))
+			{
+				using (BinaryReader binr = new BinaryReader(mem))  //wrap Memory Stream with BinaryReader for easy reading
+				{
+					byte bt = 0;
+					ushort twobytes = 0;
+
+					twobytes = binr.ReadUInt16();
+					if (twobytes == 0x8130) //data read as little endian order (actual data order for Sequence is 30 81)
+						binr.ReadByte();    //advance 1 byte
+					else if (twobytes == 0x8230)
+						binr.ReadInt16();   //advance 2 bytes
+					else
+						return null;
+
+					seq = binr.ReadBytes(15);       //read the Sequence OID
+					if (!CompareBytearrays(seq, seqOid))    //make sure Sequence for OID is correct
+						return null;
+
+					twobytes = binr.ReadUInt16();
+					if (twobytes == 0x8103) //data read as little endian order (actual data order for Bit String is 03 81)
+						binr.ReadByte();    //advance 1 byte
+					else if (twobytes == 0x8203)
+						binr.ReadInt16();   //advance 2 bytes
+					else
+						return null;
+
+					bt = binr.ReadByte();
+					if (bt != 0x00)     //expect null byte next
+						return null;
+
+					twobytes = binr.ReadUInt16();
+					if (twobytes == 0x8130) //data read as little endian order (actual data order for Sequence is 30 81)
+						binr.ReadByte();    //advance 1 byte
+					else if (twobytes == 0x8230)
+						binr.ReadInt16();   //advance 2 bytes
+					else
+						return null;
+
+					twobytes = binr.ReadUInt16();
+					byte lowbyte = 0x00;
+					byte highbyte = 0x00;
+
+					if (twobytes == 0x8102) //data read as little endian order (actual data order for Integer is 02 81)
+						lowbyte = binr.ReadByte();  // read next bytes which is bytes in modulus
+					else if (twobytes == 0x8202)
+					{
+						highbyte = binr.ReadByte(); //advance 2 bytes
+						lowbyte = binr.ReadByte();
+					}
+					else
+						return null;
+					byte[] modint = { lowbyte, highbyte, 0x00, 0x00 };   //reverse byte order since asn.1 key uses big endian order
+					int modsize = BitConverter.ToInt32(modint, 0);
+
+					int firstbyte = binr.PeekChar();
+					if (firstbyte == 0x00)
+					{   //if first byte (highest order) of modulus is zero, don't include it
+						binr.ReadByte();    //skip this null byte
+						modsize -= 1;   //reduce modulus buffer size by 1
+					}
+
+					byte[] modulus = binr.ReadBytes(modsize);   //read the modulus bytes
+
+					if (binr.ReadByte() != 0x02)            //expect an Integer for the exponent data
+						return null;
+					int expbytes = (int)binr.ReadByte();        // should only need one byte for actual exponent data (for all useful values)
+					byte[] exponent = binr.ReadBytes(expbytes);
+
+					// ------- create RSACryptoServiceProvider instance and initialize with public key -----
+					var rsa = RSA.Create();
+					rsa.KeySize = signType == "RSA" ? 1024 : 2048;
+					RSAParameters rsaKeyInfo = new RSAParameters();
+					rsaKeyInfo.Modulus = modulus;
+					rsaKeyInfo.Exponent = exponent;
+					rsa.ImportParameters(rsaKeyInfo);
+
+					return rsa;
+				}
+
+			}
+		}
+
+		private static bool CompareBytearrays(byte[] a, byte[] b)
+		{
+			if (a.Length != b.Length)
+				return false;
+			int i = 0;
+			foreach (byte c in a)
+			{
+				if (c != b[i])
+					return false;
+				i++;
+			}
+			return true;
+		}
+
 		public static bool RSACheckContent(string signContent, string sign, string publicKeyPem, string charset,
 			string signType)
 		{
@@ -187,29 +293,23 @@ namespace Alipay.AopSdk.Core.Util
 				if (string.IsNullOrEmpty(charset))
 					charset = DEFAULT_CHARSET;
 
+				var sPublicKeyPem = File.ReadAllText(publicKeyPem);
+
+				var rsa = CreateRsaProviderFromPublicKey(sPublicKeyPem, signType);
 
 				if ("RSA2".Equals(signType))
 				{
-					var sPublicKeyPEM = File.ReadAllText(publicKeyPem);
+					
 
-					var rsa = new RSACryptoServiceProvider();
-					rsa.PersistKeyInCsp = false;
-					RSACryptoServiceProviderExtension.LoadPublicKeyPEM(rsa, sPublicKeyPEM);
-
-					var bVerifyResultOriginal = rsa.VerifyData(Encoding.GetEncoding(charset).GetBytes(signContent), "SHA256",
-						Convert.FromBase64String(sign));
+					var bVerifyResultOriginal = rsa.VerifyData(Encoding.GetEncoding(charset).GetBytes(signContent),
+						Convert.FromBase64String(sign),HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
 					return bVerifyResultOriginal;
 				}
 				else
 				{
-					var sPublicKeyPEM = File.ReadAllText(publicKeyPem);
-					var rsa = new RSACryptoServiceProvider();
-					rsa.PersistKeyInCsp = false;
-					RSACryptoServiceProviderExtension.LoadPublicKeyPEM(rsa, sPublicKeyPEM);
-
-					var sha1 = new SHA1CryptoServiceProvider();
-					var bVerifyResultOriginal = rsa.VerifyData(Encoding.GetEncoding(charset).GetBytes(signContent), sha1,
-						Convert.FromBase64String(sign));
+					
+					var bVerifyResultOriginal = rsa.VerifyData(Encoding.GetEncoding(charset).GetBytes(signContent),
+						Convert.FromBase64String(sign), HashAlgorithmName.SHA1, RSASignaturePadding.Pkcs1);
 					return bVerifyResultOriginal;
 				}
 			}
@@ -227,39 +327,27 @@ namespace Alipay.AopSdk.Core.Util
 				if (string.IsNullOrEmpty(charset))
 					charset = DEFAULT_CHARSET;
 
-				string sPublicKeyPEM;
+				string sPublicKeyPem= publicKeyPem;
 
 				if (keyFromFile)
 				{
-					sPublicKeyPEM = File.ReadAllText(publicKeyPem);
+					sPublicKeyPem = File.ReadAllText(publicKeyPem);
 				}
-				else
-				{
-					sPublicKeyPEM = "-----BEGIN PUBLIC KEY-----\r\n";
-					sPublicKeyPEM += publicKeyPem;
-					sPublicKeyPEM += "-----END PUBLIC KEY-----\r\n\r\n";
-				}
-
+				var rsa = CreateRsaProviderFromPublicKey(sPublicKeyPem, signType);
 
 				if ("RSA2".Equals(signType))
 				{
-					var rsa = new RSACryptoServiceProvider();
-					rsa.PersistKeyInCsp = false;
-					RSACryptoServiceProviderExtension.LoadPublicKeyPEM(rsa, sPublicKeyPEM);
+					
 
-					var bVerifyResultOriginal = rsa.VerifyData(Encoding.GetEncoding(charset).GetBytes(signContent), "SHA256",
-						Convert.FromBase64String(sign));
+					var bVerifyResultOriginal = rsa.VerifyData(Encoding.GetEncoding(charset).GetBytes(signContent),
+						Convert.FromBase64String(sign), HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
 					return bVerifyResultOriginal;
 				}
 				else
 				{
-					var rsa = new RSACryptoServiceProvider();
-					rsa.PersistKeyInCsp = false;
-					RSACryptoServiceProviderExtension.LoadPublicKeyPEM(rsa, sPublicKeyPEM);
-
 					var sha1 = new SHA1CryptoServiceProvider();
-					var bVerifyResultOriginal = rsa.VerifyData(Encoding.GetEncoding(charset).GetBytes(signContent), sha1,
-						Convert.FromBase64String(sign));
+					var bVerifyResultOriginal = rsa.VerifyData(Encoding.GetEncoding(charset).GetBytes(signContent),
+						Convert.FromBase64String(sign), HashAlgorithmName.SHA1, RSASignaturePadding.Pkcs1);
 					return bVerifyResultOriginal;
 				}
 			}
@@ -274,25 +362,17 @@ namespace Alipay.AopSdk.Core.Util
 		{
 			try
 			{
-				string sPublicKeyPEM;
+				string sPublicKeyPem= publicKeyPem;
 				if (keyFromFile)
 				{
-					sPublicKeyPEM = File.ReadAllText(publicKeyPem);
+					sPublicKeyPem = File.ReadAllText(publicKeyPem);
 				}
-				else
-				{
-					sPublicKeyPEM = "-----BEGIN PUBLIC KEY-----\r\n";
-					sPublicKeyPEM = sPublicKeyPEM + publicKeyPem;
-					sPublicKeyPEM = sPublicKeyPEM + "-----END PUBLIC KEY-----\r\n\r\n";
-				}
-				var rsa = new RSACryptoServiceProvider();
-				rsa.PersistKeyInCsp = false;
-				RSACryptoServiceProviderExtension.LoadPublicKeyPEM(rsa, sPublicKeyPEM);
+				var rsa = CreateRsaProviderFromPublicKey(sPublicKeyPem, "RSA");
 				var sha1 = new SHA1CryptoServiceProvider();
 				if (string.IsNullOrEmpty(charset))
 					charset = DEFAULT_CHARSET;
-				var bVerifyResultOriginal = rsa.VerifyData(Encoding.GetEncoding(charset).GetBytes(signContent), sha1,
-					Convert.FromBase64String(sign));
+				var bVerifyResultOriginal = rsa.VerifyData(Encoding.GetEncoding(charset).GetBytes(signContent),
+					Convert.FromBase64String(sign),HashAlgorithmName.SHA1,RSASignaturePadding.Pkcs1);
 				return bVerifyResultOriginal;
 			}
 			catch (Exception ex)
@@ -421,16 +501,14 @@ namespace Alipay.AopSdk.Core.Util
 			try
 			{
 				var sPublicKeyPEM = File.ReadAllText(publicKeyPem);
-				var rsa = new RSACryptoServiceProvider();
-				rsa.PersistKeyInCsp = false;
-				RSACryptoServiceProviderExtension.LoadPublicKeyPEM(rsa, sPublicKeyPEM);
+				var rsa = CreateRsaProviderFromPublicKey(sPublicKeyPEM, "RSA");
 				if (string.IsNullOrEmpty(charset))
 					charset = DEFAULT_CHARSET;
 				var data = Encoding.GetEncoding(charset).GetBytes(content);
 				var maxBlockSize = rsa.KeySize / 8 - 11; //加密块最大长度限制
 				if (data.Length <= maxBlockSize)
 				{
-					var cipherbytes = rsa.Encrypt(data, false);
+					var cipherbytes = rsa.Encrypt(data, RSAEncryptionPadding.Pkcs1);
 					return Convert.ToBase64String(cipherbytes);
 				}
 				var plaiStream = new MemoryStream(data);
@@ -441,7 +519,7 @@ namespace Alipay.AopSdk.Core.Util
 				{
 					var toEncrypt = new byte[blockSize];
 					Array.Copy(buffer, 0, toEncrypt, 0, blockSize);
-					var cryptograph = rsa.Encrypt(toEncrypt, false);
+					var cryptograph = rsa.Encrypt(toEncrypt, RSAEncryptionPadding.Pkcs1);
 					crypStream.Write(cryptograph, 0, cryptograph.Length);
 					blockSize = plaiStream.Read(buffer, 0, maxBlockSize);
 				}
@@ -458,27 +536,19 @@ namespace Alipay.AopSdk.Core.Util
 		{
 			try
 			{
-				string sPublicKeyPEM;
+				string sPublicKeyPEM= publicKeyPem;
 				if (keyFromFile)
 				{
 					sPublicKeyPEM = File.ReadAllText(publicKeyPem);
 				}
-				else
-				{
-					sPublicKeyPEM = "-----BEGIN PUBLIC KEY-----\r\n";
-					sPublicKeyPEM += publicKeyPem;
-					sPublicKeyPEM += "-----END PUBLIC KEY-----\r\n\r\n";
-				}
-				var rsa = new RSACryptoServiceProvider();
-				rsa.PersistKeyInCsp = false;
-				RSACryptoServiceProviderExtension.LoadPublicKeyPEM(rsa, sPublicKeyPEM);
+				var rsa = CreateRsaProviderFromPublicKey(publicKeyPem, "RSA");
 				if (string.IsNullOrEmpty(charset))
 					charset = DEFAULT_CHARSET;
 				var data = Encoding.GetEncoding(charset).GetBytes(content);
 				var maxBlockSize = rsa.KeySize / 8 - 11; //加密块最大长度限制
 				if (data.Length <= maxBlockSize)
 				{
-					var cipherbytes = rsa.Encrypt(data, false);
+					var cipherbytes = rsa.Encrypt(data, RSAEncryptionPadding.Pkcs1);
 					return Convert.ToBase64String(cipherbytes);
 				}
 				var plaiStream = new MemoryStream(data);
@@ -489,7 +559,7 @@ namespace Alipay.AopSdk.Core.Util
 				{
 					var toEncrypt = new byte[blockSize];
 					Array.Copy(buffer, 0, toEncrypt, 0, blockSize);
-					var cryptograph = rsa.Encrypt(toEncrypt, false);
+					var cryptograph = rsa.Encrypt(toEncrypt, RSAEncryptionPadding.Pkcs1);
 					crypStream.Write(cryptograph, 0, cryptograph.Length);
 					blockSize = plaiStream.Read(buffer, 0, maxBlockSize);
 				}
@@ -513,7 +583,7 @@ namespace Alipay.AopSdk.Core.Util
 				var maxBlockSize = rsaCsp.KeySize / 8; //解密块最大长度限制
 				if (data.Length <= maxBlockSize)
 				{
-					var cipherbytes = rsaCsp.Decrypt(data, false);
+					var cipherbytes = rsaCsp.Decrypt(data, RSAEncryptionPadding.Pkcs1);
 					return Encoding.GetEncoding(charset).GetString(cipherbytes);
 				}
 				var crypStream = new MemoryStream(data);
@@ -524,7 +594,7 @@ namespace Alipay.AopSdk.Core.Util
 				{
 					var toDecrypt = new byte[blockSize];
 					Array.Copy(buffer, 0, toDecrypt, 0, blockSize);
-					var cryptograph = rsaCsp.Decrypt(toDecrypt, false);
+					var cryptograph = rsaCsp.Decrypt(toDecrypt, RSAEncryptionPadding.Pkcs1);
 					plaiStream.Write(cryptograph, 0, cryptograph.Length);
 					blockSize = crypStream.Read(buffer, 0, maxBlockSize);
 				}
@@ -542,7 +612,7 @@ namespace Alipay.AopSdk.Core.Util
 		{
 			try
 			{
-				RSACryptoServiceProvider rsaCsp = null;
+				RSA rsaCsp = null;
 				if (keyFromFile)
 					rsaCsp = LoadCertificateFile(privateKeyPem, signType);
 				else
@@ -553,7 +623,7 @@ namespace Alipay.AopSdk.Core.Util
 				var maxBlockSize = rsaCsp.KeySize / 8; //解密块最大长度限制
 				if (data.Length <= maxBlockSize)
 				{
-					var cipherbytes = rsaCsp.Decrypt(data, false);
+					var cipherbytes = rsaCsp.Decrypt(data, RSAEncryptionPadding.Pkcs1);
 					return Encoding.GetEncoding(charset).GetString(cipherbytes);
 				}
 				var crypStream = new MemoryStream(data);
@@ -564,7 +634,7 @@ namespace Alipay.AopSdk.Core.Util
 				{
 					var toDecrypt = new byte[blockSize];
 					Array.Copy(buffer, 0, toDecrypt, 0, blockSize);
-					var cryptograph = rsaCsp.Decrypt(toDecrypt, false);
+					var cryptograph = rsaCsp.Decrypt(toDecrypt, RSAEncryptionPadding.Pkcs1);
 					plaiStream.Write(cryptograph, 0, cryptograph.Length);
 					blockSize = crypStream.Read(buffer, 0, maxBlockSize);
 				}
@@ -589,7 +659,7 @@ namespace Alipay.AopSdk.Core.Util
 			return Convert.FromBase64String(base64);
 		}
 
-		private static RSACryptoServiceProvider LoadCertificateFile(string filename, string signType)
+		private static RSA LoadCertificateFile(string filename, string signType)
 		{
 			using (var fs = File.OpenRead(filename))
 			{
@@ -610,7 +680,7 @@ namespace Alipay.AopSdk.Core.Util
 			}
 		}
 
-		private static RSACryptoServiceProvider LoadCertificateString(string strKey, string signType)
+		private static RSA LoadCertificateString(string strKey, string signType)
 		{
 			byte[] data = null;
 			//读取带
@@ -629,7 +699,7 @@ namespace Alipay.AopSdk.Core.Util
 			return null;
 		}
 
-		private static RSACryptoServiceProvider DecodeRSAPrivateKey(byte[] privkey, string signType)
+		private static RSA DecodeRSAPrivateKey(byte[] privkey, string signType)
 		{
 			byte[] MODULUS, E, D, P, Q, DP, DQ, IQ;
 
@@ -691,18 +761,19 @@ namespace Alipay.AopSdk.Core.Util
 				if ("RSA2".Equals(signType))
 					bitLen = 2048;
 
-				var RSA = new RSACryptoServiceProvider(bitLen, CspParameters);
-				var RSAparams = new RSAParameters();
-				RSAparams.Modulus = MODULUS;
-				RSAparams.Exponent = E;
-				RSAparams.D = D;
-				RSAparams.P = P;
-				RSAparams.Q = Q;
-				RSAparams.DP = DP;
-				RSAparams.DQ = DQ;
-				RSAparams.InverseQ = IQ;
-				RSA.ImportParameters(RSAparams);
-				return RSA;
+				var rsa = RSA.Create();
+				rsa.KeySize = bitLen;
+				var rsAparams = new RSAParameters();
+				rsAparams.Modulus = MODULUS;
+				rsAparams.Exponent = E;
+				rsAparams.D = D;
+				rsAparams.P = P;
+				rsAparams.Q = Q;
+				rsAparams.DP = DP;
+				rsAparams.DQ = DQ;
+				rsAparams.InverseQ = IQ;
+				rsa.ImportParameters(rsAparams);
+				return rsa;
 			}
 			catch (Exception ex)
 			{

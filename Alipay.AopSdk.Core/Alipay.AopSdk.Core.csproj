@@ -2,18 +2,18 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>2.2.1</Version>
+    <Version>2.2.2</Version>
     <Authors>stulzq</Authors>
     <Description>支付宝（Alipay）服务端SDK AopSdk，移植自官方最新版本（.NET Framework）：113。采用.NET Standard 2.0，支持.NET Core 2.0，与官方SDK接口完全相同。完全可以按照官方文档进行开发。github:https://github.com/stulzq/Alipay.AopSdk.Core，访问github获取demo以及使用文档。</Description>
-    <Copyright />
+    <Copyright>Copyright 2017 stulzq</Copyright>
     <PackageProjectUrl>https://github.com/stulzq/Alipay.AopSdk.Core</PackageProjectUrl>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageLicenseUrl>https://github.com/stulzq/Alipay.AopSdk.Core/blob/master/LICENSE</PackageLicenseUrl>
     <PackageTags>Alipay,AopSdk,支付宝服务端SDK,支付宝支付</PackageTags>
     <PackageIconUrl>https://www.alipay.com/favicon.ico</PackageIconUrl>
-    <PackageReleaseNotes>修复bug，请更新</PackageReleaseNotes>
-    <AssemblyVersion>2.2.1.0</AssemblyVersion>
-    <FileVersion>2.2.1.0</FileVersion>
+    <PackageReleaseNotes>修复在Linux上出错的BUG，经测试Linux可正常使用</PackageReleaseNotes>
+    <AssemblyVersion>2.2.2.0</AssemblyVersion>
+    <FileVersion>2.2.2.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
