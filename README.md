@@ -12,6 +12,34 @@ Alipay.AopSdk.F2FPay.AspnetCore  | 当面付SDK的ASP.NET Core组件，为了能
 
 支付宝（Alipay）服务端SDK AopSdk，修改自官方最新版本：113。采用.NET Standard 2.0，支持.NET Core 2.0，与官方SDK接口完全相同。完全可以按照官方文档进行开发。不仅仅支持支付，官方SDK支持的功能本SDK全部支持，用法几乎一样。由于精力有限，所以只做了几个Demo，但是其他功能可以参照官方的Demo来使用。可以使用官方文档中的示例代码。如有问题请联系QQ501232752
 
+#ASP.NET Core
+
+## Alipay.AopSdk.AspnetCore
+
+````csharp
+services.AddAlipay(options =>
+	        {
+		        options.AlipayPublicKey = "支付宝公钥";
+		        options.AppId = "应用ID";
+		        options.CharSet = "密钥编码";
+		        options.Gatewayurl = "支付网关";
+		        options.PrivateKey = "商家私钥";
+		        options.SignType = "签名方式 RSA/RSA2";
+		        options.Uid = "商户ID";
+	        });
+````
+使用：
+
+````csharp
+private readonly IAlipayService  _alipayService;
+
+public PayController(IAlipayService alipayService)
+{
+	_alipayService = alipayService;
+	_alipayService.Execute();
+}
+````
+
 更新日志：
 
 - 2017-11-3 添加对ASP.NET Core的支持
