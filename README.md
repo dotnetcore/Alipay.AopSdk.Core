@@ -6,7 +6,11 @@ Alipay.AopSdk.Core:[![Latest version](https://img.shields.io/nuget/v/Alipay.AopS
 
 Alipay.AopSdk.F2FPay:[![Latest version](https://img.shields.io/nuget/v/Alipay.AopSdk.F2FPay.svg)](https://www.nuget.org/packages/Alipay.AopSdk.F2FPay/) 当面付sdk
 
-支付宝（Alipay）服务端SDK AopSdk，修改自官方最新版本：113。采用.NET Standard 2.0，支持.NET Core 2.0，与官方SDK接口完全相同。完全可以按照官方文档进行开发。
+支付宝（Alipay）服务端SDK AopSdk，修改自官方最新版本：113。采用.NET Standard 2.0，支持.NET Core 2.0，与官方SDK接口完全相同。完全可以按照官方文档进行开发。不仅仅支持支付，官方SDK支持的功能本SDK全部支持用法几乎一样。由于精力有限，所以只做了几个Demo，但是其他功能可以参照官方的Demo来使用。
+
+更新日志：
+
+- 2017-10-30 修复在Linux上的BUG
 
 官方文档：
 
