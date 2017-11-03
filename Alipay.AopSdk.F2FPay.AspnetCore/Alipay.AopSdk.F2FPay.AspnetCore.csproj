@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>2.2.2</Version>
+    <Authors>stulzq</Authors>
+    <Company>stulzq</Company>
+    <Description>提供扫码支付能力。支付宝（Alipay）服务端SDK AopSdk，修改自官方，不仅仅支持支付，官方SDK支持的功能本SDK全部支持用法，几乎一样。本组件为AopSdk的ASP.NET Core组件，旨在ASP.NET Core中快捷使用AopSdk。功能持续更新中...使用文档请访问:https://github.com/stulzq/Alipay.AopSdk.Core</Description>
+    <Copyright>Copyright 2017 stulzq</Copyright>
+    <PackageLicenseUrl>https://github.com/stulzq/Alipay.AopSdk.Core/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/stulzq/Alipay.AopSdk.Core</PackageProjectUrl>
+    <PackageIconUrl>https://www.alipay.com/favicon.ico</PackageIconUrl>
+    <PackageReleaseNotes>目前只是使用ASP.NET Core 自带的DI注入支付服务，以达到快捷使用的目的，不用去重复实例化Client对象。功能持续更新中...</PackageReleaseNotes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Alipay.AopSdk.AspnetCore\Alipay.AopSdk.AspnetCore.csproj" />
+    <ProjectReference Include="..\Alipay.AopSdk.F2FPay\Alipay.AopSdk.F2FPay.csproj" />
+  </ItemGroup>
+
+</Project>

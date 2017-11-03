@@ -345,7 +345,6 @@ namespace Alipay.AopSdk.Core.Util
 				}
 				else
 				{
-					var sha1 = new SHA1CryptoServiceProvider();
 					var bVerifyResultOriginal = rsa.VerifyData(Encoding.GetEncoding(charset).GetBytes(signContent),
 						Convert.FromBase64String(sign), HashAlgorithmName.SHA1, RSASignaturePadding.Pkcs1);
 					return bVerifyResultOriginal;
