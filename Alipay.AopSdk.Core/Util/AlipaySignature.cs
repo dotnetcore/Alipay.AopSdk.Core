@@ -68,19 +68,9 @@ namespace Alipay.AopSdk.Core.Util
 			else
 				dataBytes = Encoding.GetEncoding(charset).GetBytes(data);
 
+			var signatureBytes = rsaCsp.SignData(dataBytes, "RSA2".Equals(signType) ? HashAlgorithmName.SHA256 : HashAlgorithmName.SHA1, RSASignaturePadding.Pkcs1);
 
-			if ("RSA2".Equals(signType))
-			{
-				var signatureBytes = rsaCsp.SignData(dataBytes, HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
-
-				return Convert.ToBase64String(signatureBytes);
-			}
-			else
-			{
-				var signatureBytes = rsaCsp.SignData(dataBytes, HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
-
-				return Convert.ToBase64String(signatureBytes);
-			}
+			return Convert.ToBase64String(signatureBytes);
 		}
 
 
@@ -91,10 +81,7 @@ namespace Alipay.AopSdk.Core.Util
 			try
 			{
 				RSA rsaCsp = null;
-				if (keyFromFile)
-					rsaCsp = LoadCertificateFile(privateKeyPem, signType);
-				else
-					rsaCsp = LoadCertificateString(privateKeyPem, signType);
+				rsaCsp = keyFromFile ? LoadCertificateFile(privateKeyPem, signType) : LoadCertificateString(privateKeyPem, signType);
 
 				byte[] dataBytes = null;
 				if (string.IsNullOrEmpty(charset))
@@ -103,14 +90,11 @@ namespace Alipay.AopSdk.Core.Util
 					dataBytes = Encoding.GetEncoding(charset).GetBytes(data);
 				if (null == rsaCsp)
 					throw new AopException("您使用的私钥格式错误，请检查RSA私钥配置" + ",charset = " + charset);
-				if ("RSA2".Equals(signType))
-					signatureBytes = rsaCsp.SignData(dataBytes,HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
-				else
-					signatureBytes = rsaCsp.SignData(dataBytes, HashAlgorithmName.SHA1, RSASignaturePadding.Pkcs1);
+				signatureBytes = rsaCsp.SignData(dataBytes, "RSA2".Equals(signType) ? HashAlgorithmName.SHA256 : HashAlgorithmName.SHA1, RSASignaturePadding.Pkcs1);
 			}
 			catch (Exception ex)
 			{
-				throw new AopException("您使用的私钥格式错误，请检查RSA私钥配置" + ",charset = " + charset);
+				throw new AopException("您使用的私钥格式错误，请检查RSA私钥配置" + ",charset = " + charset, ex);
 			}
 			return Convert.ToBase64String(signatureBytes);
 		}
