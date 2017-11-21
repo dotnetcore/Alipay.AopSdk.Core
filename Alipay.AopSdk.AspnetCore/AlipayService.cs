@@ -21,7 +21,7 @@ namespace Alipay.AopSdk.AspnetCore
 			Options = alipayOptions.Value;
 			//_context = contextAccessor.HttpContext; ,IHttpContextAccessor contextAccessor
 			_aopClient = new DefaultAopClient(Options.Gatewayurl, Options.AppId, Options.PrivateKey, "json", "1.0",
-				Options.SignType, Options.AlipayPublicKey, Options.CharSet, false);
+				Options.SignType, Options.AlipayPublicKey, Options.CharSet, Options.IsKeyFromFile);
 		}
 		public T Execute<T>(IAopRequest<T> request) where T : AopResponse
 		{
