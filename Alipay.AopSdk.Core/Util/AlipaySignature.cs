@@ -677,7 +677,7 @@ namespace Alipay.AopSdk.Core.Util
 			}
 			catch (Exception ex)
 			{
-				//    throw new AopException("EncryptContent = woshihaoren,zheshiyigeceshi,wanerde", ex);
+				throw new AopException("Alipay.AopSdk.Core.Util.AlipaySignature LoadCertificateString DecodeRSAPrivateKey Error", ex);
 			}
 			return null;
 		}
