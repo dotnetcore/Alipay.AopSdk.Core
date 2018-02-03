@@ -95,6 +95,8 @@ _alipayF2FService.Execute();
 
 - [扫码支付Demo](https://github.com/stulzq/Alipay.Demo.PCPayment "扫码支付Demo")
 
+- [PC获取支付宝会员信息（网站使用支付宝登录）](http://www.cnblogs.com/liulun/p/8410870.html "PC获取支付宝会员信息（网站使用支付宝登录）")
+
 - 更新中...
 
 # Doc
