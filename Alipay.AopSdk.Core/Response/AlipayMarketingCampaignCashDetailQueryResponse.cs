@@ -1,3 +1,4 @@
+using System;
 using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Response
@@ -71,6 +72,12 @@ namespace Alipay.AopSdk.Core.Response
 		///     红包总个数
 		/// </summary>
 		[JsonProperty("total_num")]
+		[Obsolete("废弃 变更为TotalCount")]
 		public long TotalNum { get; set; }
+		/// <summary>
+		///     红包总个数
+		/// </summary>
+		[JsonProperty("total_count")]
+		public long TotalCount { get; set; }
 	}
 }
