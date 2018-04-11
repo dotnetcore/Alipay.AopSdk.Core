@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using Alipay.AopSdk.Core.Domain;
 using Alipay.AopSdk.Core.Response;
 
 namespace Alipay.AopSdk.Core.Request
@@ -111,9 +113,33 @@ namespace Alipay.AopSdk.Core.Request
 			return bizModel;
 		}
 
-		public void SetBizModel(AopObject bizModel)
+		public void SetBizModel(AopObject paramModel)
 		{
-			this.bizModel = bizModel;
+			if (!(paramModel is AlipayTradeAppPayModel model))
+			{
+				throw new Exception("传入Model类型错误，应为 AlipayTradeAppPayModel");
+			}
+			else
+			{
+				if (decimal.TryParse(model.TotalAmount, out var result))
+				{
+					if (model.TotalAmount.Contains("."))
+					{
+						var temp = model.TotalAmount.Split('.');
+						if (temp[1].Length > 2)
+						{
+							throw new ArgumentException("参数值不正确，小数位数不得大于两位", nameof(model.TotalAmount));
+						}
+					}
+				}
+				else
+				{
+					throw new ArgumentException("参数值不正确", nameof(model.TotalAmount));
+				}
+			}
+
+
+			this.bizModel = paramModel;
 		}
 
 		#endregion
