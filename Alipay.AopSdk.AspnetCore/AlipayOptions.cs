@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Options;
+﻿using System;
+using Alipay.AopSdk.Core.Domain;
+using Microsoft.Extensions.Options;
 
 namespace Alipay.AopSdk.AspnetCore
 {
@@ -19,20 +21,56 @@ namespace Alipay.AopSdk.AspnetCore
 		/// </summary>
 		public string Gatewayurl { get; set; }
 
+		
+		private string _privateKey;
 		/// <summary>
 		/// 商户私钥，您的原始格式RSA私钥
 		/// </summary>
-		public string PrivateKey { get; set; }
+		public string PrivateKey
+		{
+			get => _privateKey;
+			set
+			{
+				_privateKey = value;
+				if (_privateKey == null)
+				{
+					throw new ArgumentException("参数不得为空", nameof(PrivateKey));
+				}
+				if (!string.IsNullOrEmpty(_privateKey))
+				{
+					AlipayConfigChecker.Check(this);
+				}
+			}
+		}
 
 		/// <summary>
 		/// 支付宝公钥,查看地址：https://openhome.alipay.com/platform/keyManage.htm 对应APPID下的支付宝公钥。
 		/// </summary>
 		public string AlipayPublicKey { get; set; }
 
+		
+		private string _signType="RSA2";
 		/// <summary>
 		/// 签名方式
 		/// </summary>
-		public string SignType { get; set; } = "RSA2";
+		public string SignType
+		{
+			get => _signType;
+			set
+			{
+				_signType = value;
+
+				if (_signType == null)
+				{
+					throw new ArgumentException("参数不得为空",nameof(SignType));
+				}
+
+				if (!string.IsNullOrEmpty(_privateKey))
+				{
+					AlipayConfigChecker.Check(this);
+				}
+			}
+		} 
 
 		/// <summary>
 		/// 编码格式
