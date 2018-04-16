@@ -10,16 +10,16 @@ namespace Alipay.AopSdk.AspnetCore
 {
 	public class AlipayConfigChecker
 	{
-		public static void Check(AlipayOptions options)
+		public static void Check(string signType,string privateKey)
 		{
 			//SignType私钥检查
-			if (string.IsNullOrEmpty(options.SignType))
+			if (string.IsNullOrEmpty(signType))
 			{
 				throw new Exception("您的支付宝配置未能通过检查，详细信息：签名类型未指定！");
 			}
 
 			//RSA私钥检查
-			if (string.IsNullOrEmpty(options.PrivateKey))
+			if (string.IsNullOrEmpty(privateKey))
 			{
 				throw new Exception("您的支付宝配置未能通过检查，详细信息：未能获取到商户私钥！");
 			}
@@ -27,7 +27,7 @@ namespace Alipay.AopSdk.AspnetCore
 			try
 			{
 				//RSA私钥格式检查
-				RSA rsaCsp = LoadCertificateString(options.PrivateKey, options.SignType);
+				RSA rsaCsp = LoadCertificateString(privateKey, signType);
 
 				if (rsaCsp == null)
 				{
@@ -50,17 +50,16 @@ namespace Alipay.AopSdk.AspnetCore
 			//data = GetPem("RSA PRIVATE KEY", data);
 			try
 			{
-				var rsa = DecodeRSAPrivateKey(data, signType);
+				var rsa = DecodeRsaPrivateKey(data, signType);
 				return rsa;
 			}
 			catch (Exception ex)
 			{
 				throw new AopException("Alipay.AopSdk.Core.Util.AlipaySignature LoadCertificateString DecodeRSAPrivateKey Error", ex);
 			}
-			return null;
 		}
 
-		private static RSA DecodeRSAPrivateKey(byte[] privkey, string signType)
+		private static RSA DecodeRsaPrivateKey(byte[] privkey, string signType)
 		{
 			byte[] MODULUS, E, D, P, Q, DP, DQ, IQ;
 
