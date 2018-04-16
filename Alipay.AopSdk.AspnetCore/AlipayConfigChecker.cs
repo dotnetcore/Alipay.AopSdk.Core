@@ -24,19 +24,12 @@ namespace Alipay.AopSdk.AspnetCore
 				throw new Exception("您的支付宝配置未能通过检查，详细信息：未能获取到商户私钥！");
 			}
 
-			try
-			{
-				//RSA私钥格式检查
-				RSA rsaCsp = LoadCertificateString(privateKey, signType);
+			//RSA私钥格式检查
+			RSA rsaCsp = LoadCertificateString(privateKey, signType);
 
-				if (rsaCsp == null)
-				{
-					throw new Exception("您的支付宝配置未能通过检查，详细信息：商户私钥格式错误，未能导入！");
-				}
-			}
-			catch (Exception e)
+			if (rsaCsp == null)
 			{
-				throw new Exception("您的支付宝配置未能通过检查，详细信息：商户私钥格式错误，未能导入！",e);
+				throw new Exception("您的支付宝配置未能通过检查，详细信息：商户私钥格式错误，未能导入！");
 			}
 
 		}
