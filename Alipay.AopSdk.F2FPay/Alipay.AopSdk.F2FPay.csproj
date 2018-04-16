@@ -7,14 +7,14 @@
     <PackageLicenseUrl>https://github.com/stulzq/Alipay.AopSdk.Core/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/stulzq/Alipay.AopSdk.Core</PackageProjectUrl>
     <PackageTags>支付宝当面付,支付宝条码支付,Alipay,AopSdk,支付宝服务端SDK,支付宝支付</PackageTags>
-    <PackageReleaseNotes>修复在Linux上出错的BUG，经测试Linux可正常使用。</PackageReleaseNotes>
+    <PackageReleaseNotes></PackageReleaseNotes>
     <Description>支付宝当面付SDK，包括条码支付、扫码支付。采用.NET Standard 2.0，支持.NET Core 2.0。github:https://github.com/stulzq/Alipay.AopSdk.Core，访问github获取demo以及使用文档。</Description>
     <PackageIconUrl>https://www.alipay.com/favicon.ico</PackageIconUrl>
-    <AssemblyVersion>2.2.2.0</AssemblyVersion>
-    <FileVersion>2.2.2.0</FileVersion>
-    <Version>2.2.2</Version>
+    <AssemblyVersion>2.2.5.0</AssemblyVersion>
+    <FileVersion>2.2.5.0</FileVersion>
+    <Version>2.2.5</Version>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <Copyright>Copyright 2017 stulzq</Copyright>
+    <Copyright>Copyright 2017-2018 stulzq</Copyright>
   </PropertyGroup>
 
   <ItemGroup>

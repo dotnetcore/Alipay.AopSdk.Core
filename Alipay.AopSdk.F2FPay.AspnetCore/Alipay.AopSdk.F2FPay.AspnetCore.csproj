@@ -2,15 +2,18 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>2.2.2</Version>
+    <Version>2.2.5</Version>
     <Authors>stulzq</Authors>
     <Company>stulzq</Company>
-    <Description>提供扫码支付能力。支付宝（Alipay）服务端SDK AopSdk，修改自官方，不仅仅支持支付，官方SDK支持的功能本SDK全部支持用法，几乎一样。本组件为AopSdk的ASP.NET Core组件，旨在ASP.NET Core中快捷使用AopSdk。功能持续更新中...使用文档请访问:https://github.com/stulzq/Alipay.AopSdk.Core</Description>
-    <Copyright>Copyright 2017 stulzq</Copyright>
+    <Description>提供扫码支付能力。支付宝（Alipay）服务端SDK AopSdk，当面付ASP.NET Core支持。</Description>
+    <Copyright>Copyright 2017-2018 stulzq</Copyright>
     <PackageLicenseUrl>https://github.com/stulzq/Alipay.AopSdk.Core/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/stulzq/Alipay.AopSdk.Core</PackageProjectUrl>
     <PackageIconUrl>https://www.alipay.com/favicon.ico</PackageIconUrl>
-    <PackageReleaseNotes>目前只是使用ASP.NET Core 自带的DI注入支付服务，以达到快捷使用的目的，不用去重复实例化Client对象。功能持续更新中...</PackageReleaseNotes>
+    <PackageReleaseNotes></PackageReleaseNotes>
+    <AssemblyVersion>2.2.5.0</AssemblyVersion>
+    <FileVersion>2.2.5.0</FileVersion>
+    <PackageTags>Alipay,AopSdk,支付宝服务端SDK,支付宝支付</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
