@@ -108,4 +108,6 @@ _alipayF2FService.Execute();
 
 - [ASP.NET Core 2.0 支付宝当面付之扫码支付](http://www.cnblogs.com/stulzq/p/7647948.html "ASP.NET Core 2.0 支付宝当面付之扫码支付")
 
+- [常见问题解答](http://www.cnblogs.com/stulzq/p/7873909.html)
+
 - 更新中...
