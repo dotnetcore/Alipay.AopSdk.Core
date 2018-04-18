@@ -86,6 +86,8 @@ _alipayF2FService.Execute();
 
 - 2017-10-30 修复在Linux上的BUG
 
+- 2018-04-17 修复红包接口调整，增加手机支付金额验证，增加启动配置检查器
+
 官方文档：
 
 - [支付宝开放平台文档](https://docs.open.alipay.com/54/103419 "支付宝开放平台文档")
@@ -105,5 +107,7 @@ _alipayF2FService.Execute();
 - [ASP.NET Core 2.0 使用支付宝PC网站支付](http://www.cnblogs.com/stulzq/p/7606164.html "ASP.NET Core 2.0 使用支付宝PC网站支付")
 
 - [ASP.NET Core 2.0 支付宝当面付之扫码支付](http://www.cnblogs.com/stulzq/p/7647948.html "ASP.NET Core 2.0 支付宝当面付之扫码支付")
+
+- [常见问题解答](http://www.cnblogs.com/stulzq/p/7873909.html)
 
 - 更新中...
