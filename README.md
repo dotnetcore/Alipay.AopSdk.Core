@@ -80,6 +80,13 @@ public xxxController(IAlipayF2FService alipayF2FService)
 _alipayF2FService.Execute();
 ````
 
+### 在启动时进行私钥检查
+
+````
+AlipayConfigChecker.Check(string signType,string privateKey)
+````
+两个参数第一个为签名算法类型，第二个为私钥。此方法作用为检查私钥是否有效。建议与注入配置的代码一致。
+
 具体用法可以看Demo
 
 更新日志：
