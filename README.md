@@ -87,9 +87,25 @@ AlipayConfigChecker.Check(string signType,string privateKey)
 ````
 两个参数第一个为签名算法类型，第二个为私钥。此方法作用为检查私钥是否有效。建议与注入配置的代码一致。
 
+演示：
+
+````csharp
+services.AddAlipay(options =>
+{
+	options.AlipayPublicKey = Configuration["Alipay:AlipayPublicKey"];
+	options.AppId = Configuration["Alipay:AppId"];
+	options.CharSet = Configuration["Alipay:CharSet"];
+	options.Gatewayurl = Configuration["Alipay:Gatewayurl"];
+	options.PrivateKey = Configuration["Alipay:PrivateKey"];
+	options.SignType = Configuration["Alipay:SignType"];
+	options.Uid = Configuration["Alipay:Uid"];
+}).AddAlipayF2F();
+AlipayConfigChecker.Check(Configuration["Alipay:SignType"],Configuration["Alipay:PrivateKey"])
+````
+
 具体用法可以看Demo
 
-更新日志：
+## 更新日志：
 
 - 2017-11-3 添加对ASP.NET Core的支持
 
