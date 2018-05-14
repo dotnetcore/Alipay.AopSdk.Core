@@ -20,8 +20,7 @@ namespace Alipay.AopSdk.AspnetCore
 				throw new ArgumentNullException(nameof(options));
 			services.AddOptions();
 			services.Configure(options);
-			services.Add(ServiceDescriptor.Transient<IAlipayService, AlipayService>());
-//			services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped<IAlipayService, AlipayService>();
 			return services;
 		}
 	}

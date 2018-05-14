@@ -58,33 +58,6 @@ namespace Alipay.AopSdk.AspnetCore
 			return AlipaySignature.RSACheckV1(data, Options.AlipayPublicKey, Options.CharSet, Options.SignType, false);
 		}
 
-		/*public Dictionary<string, string> RequestParamToDictionaryForHttpGet()
-		{
-			Dictionary<string, string> sArray = new Dictionary<string, string>();
-
-			ICollection<string> requestItem = _context.Request.Query.Keys as ICollection<string>;
-
-			foreach (var item in requestItem)
-			{
-				sArray.Add(item, _context.Request.Query[item]);
-
-			}
-			return sArray;
-
-		}
-
-		public Dictionary<string, string> RequestParamToDictionaryForHttpPost()
-		{
-			Dictionary<string, string> sArray = new Dictionary<string, string>();
-
-			ICollection<string> requestItem = _context.Request.Form.Keys as ICollection<string>;
-			foreach (var item in requestItem)
-			{
-				sArray.Add(item, _context.Request.Form[item]);
-
-			}
-			return sArray;
-
-		}*/
+		
 	}
 }

@@ -4,7 +4,7 @@ using Microsoft.Extensions.Options;
 
 namespace Alipay.AopSdk.AspnetCore
 {
-	public class AlipayOptions : IOptions<AlipayOptions>
+	public class AlipayOptions
 	{
 		/// <summary>
 		///  应用ID,您的APPID
@@ -45,7 +45,5 @@ namespace Alipay.AopSdk.AspnetCore
 		/// 是否从文件读取公私钥 如果为true ，那么公私钥应该配置为密钥文件路径
 		/// </summary>
 		public bool IsKeyFromFile { get; set; } = false;
-
-		AlipayOptions IOptions<AlipayOptions>.Value => this;
 	}
 }
