@@ -11,7 +11,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Alipay.AopSdk.F2FPay", "Ali
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Alipay.AopSdk.AspnetCore", "Alipay.AopSdk.AspnetCore\Alipay.AopSdk.AspnetCore.csproj", "{6A78B4AB-B857-4BA8-88C4-85F6298C8E70}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alipay.AopSdk.F2FPay.AspnetCore", "Alipay.AopSdk.F2FPay.AspnetCore\Alipay.AopSdk.F2FPay.AspnetCore.csproj", "{314FA1F7-4545-4C7E-AE12-DC98BF136F27}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Alipay.AopSdk.F2FPay.AspnetCore", "Alipay.AopSdk.F2FPay.AspnetCore\Alipay.AopSdk.F2FPay.AspnetCore.csproj", "{314FA1F7-4545-4C7E-AE12-DC98BF136F27}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{946D3C5A-4580-44C8-9EA9-B529F5657143}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
