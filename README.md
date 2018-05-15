@@ -92,34 +92,52 @@ public xxxController(IAlipayF2FService alipayF2FService)
 _alipayF2FService.Execute();
 ````
 
-## 四.其他
+## 四.配置
 
-### 1.在启动时进行私钥检查
+### 1.快捷添加配置的方法
+
+在`appsettings.json`里添加如下信息
+
+````json
+ "Alipay": {
+    "AlipayPublicKey": "",
+    "AppId": "",
+    "CharSet": "UTF-8",
+    "Gatewayurl": "https://openapi.alipaydev.com/gateway.do",
+    "PrivateKey": "",
+    "SignType": "RSA2",
+    "Uid": ""
+  }
+````
+
+添加配置代码可改为如下：
+
+````csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    //配置alipay服务
+    ConfigureAlipay(services);
+    services.AddMvc();
+}
+
+private void ConfigureAlipay(IServiceCollection services)
+{
+    var alipayOptions = Configuration.GetSection("Alipay").Get<AlipayOptions>();
+    //检查RSA私钥
+    AlipayConfigChecker.Check(alipayOptions.SignType, alipayOptions.PrivateKey);
+    services.AddAlipay(options => Configuration.GetSection("Alipay").Get<AlipayOptions>()).AddAlipayF2F();
+}
+````
+
+### 2.在启动时进行私钥检查
 
 通过方法`AlipayConfigChecker.Check`来在启动时对配置的私钥进行**格式**检查
 
-````
+````csharp
 AlipayConfigChecker.Check(string signType,string privateKey)
 ````
 该方法有两个参数第一个为签名算法类型，第二个为私钥。此方法作用为检查私钥是否有效。建议与注入配置的代码一致。
 
-使用示例：
-
-````csharp
-services.AddAlipay(options =>
-{
-	options.AlipayPublicKey = Configuration["Alipay:AlipayPublicKey"];
-	options.AppId = Configuration["Alipay:AppId"];
-	options.CharSet = Configuration["Alipay:CharSet"];
-	options.Gatewayurl = Configuration["Alipay:Gatewayurl"];
-	options.PrivateKey = Configuration["Alipay:PrivateKey"];
-	options.SignType = Configuration["Alipay:SignType"];
-	options.Uid = Configuration["Alipay:Uid"];
-}).AddAlipayF2F();
-
-//检查
-AlipayConfigChecker.Check(Configuration["Alipay:SignType"],Configuration["Alipay:PrivateKey"])
-````
 
 ## 五.文档信息
 
