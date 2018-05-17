@@ -125,7 +125,7 @@ private void ConfigureAlipay(IServiceCollection services)
     var alipayOptions = Configuration.GetSection("Alipay").Get<AlipayOptions>();
     //检查RSA私钥
     AlipayConfigChecker.Check(alipayOptions.SignType, alipayOptions.PrivateKey);
-    services.AddAlipay(options => Configuration.GetSection("Alipay").Get<AlipayOptions>()).AddAlipayF2F();
+    services.AddAlipay(options => options.SetOption(alipayOptions)).AddAlipayF2F();
 }
 ````
 
