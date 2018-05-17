@@ -1,10 +1,11 @@
 ﻿using System;
 using Alipay.AopSdk.Core.Domain;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 
 namespace Alipay.AopSdk.AspnetCore
 {
-	public class AlipayOptions : IOptions<AlipayOptions>
+	public class AlipayOptions
 	{
 		/// <summary>
 		///  应用ID,您的APPID
@@ -46,6 +47,32 @@ namespace Alipay.AopSdk.AspnetCore
 		/// </summary>
 		public bool IsKeyFromFile { get; set; } = false;
 
-		AlipayOptions IOptions<AlipayOptions>.Value => this;
-	}
+	    public void SetOption(IConfigurationSection section)
+	    {
+	        if (section == null)
+	        {
+	            throw new ArgumentException(nameof(section));
+	        }
+
+	        var options = section.Get<AlipayOptions>();
+	        SetOption(options);
+        }
+
+	    public void SetOption(AlipayOptions options)
+	    {
+	        if (options == null)
+	        {
+	            throw new ArgumentException(nameof(options));
+	        }
+
+	        this.Uid = options.Uid;
+	        this.AlipayPublicKey = options.AlipayPublicKey;
+	        this.AppId = options.AppId;
+	        this.CharSet = options.CharSet;
+	        this.Gatewayurl = options.Gatewayurl;
+	        this.PrivateKey = options.PrivateKey;
+	        this.SignType = options.SignType;
+        }
+
+    }
 }

@@ -663,7 +663,7 @@ namespace Alipay.AopSdk.Core.Util
 			}
 		}
 
-		private static RSA LoadCertificateString(string strKey, string signType)
+		public static RSA LoadCertificateString(string strKey, string signType)
 		{
 			byte[] data = null;
 			//读取带
