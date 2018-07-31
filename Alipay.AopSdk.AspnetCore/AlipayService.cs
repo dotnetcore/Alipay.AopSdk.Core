@@ -13,13 +13,10 @@ namespace Alipay.AopSdk.AspnetCore
 	{
 		public AlipayOptions Options { get; set; }
 
-		//private readonly HttpContext _context;
-
 		private readonly IAopClient _aopClient;
 		public AlipayService(IOptions<AlipayOptions> alipayOptions)
 		{
 			Options = alipayOptions.Value;
-			//_context = contextAccessor.HttpContext; ,IHttpContextAccessor contextAccessor
 			_aopClient = new DefaultAopClient(Options.Gatewayurl, Options.AppId, Options.PrivateKey, "json", "1.0",
 				Options.SignType, Options.AlipayPublicKey, Options.CharSet, Options.IsKeyFromFile);
 		}
