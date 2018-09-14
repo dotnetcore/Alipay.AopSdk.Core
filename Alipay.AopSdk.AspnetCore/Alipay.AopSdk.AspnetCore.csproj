@@ -2,9 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>2.2.7</Version>
-    <AssemblyVersion>2.2.7.0</AssemblyVersion>
-    <FileVersion>2.2.7.0</FileVersion>
+    <Version>2.3.0</Version>
+    <AssemblyVersion>2.3.0.0</AssemblyVersion>
+    <FileVersion>2.3.0.0</FileVersion>
     <Copyright>Copyright 2017-2018 stulzq</Copyright>
     <Authors>stulzq</Authors>
     <Company>stulzq</Company>
@@ -13,9 +13,9 @@
     <PackageLicenseUrl>https://github.com/stulzq/Alipay.AopSdk.Core/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/stulzq/Alipay.AopSdk.Core</PackageProjectUrl>
     <PackageIconUrl>https://www.alipay.com/favicon.ico</PackageIconUrl>
-    <Description>支付宝（Alipay）服务端SDK AopSdk，ASP.NET Core支持。</Description>
-    <PackageReleaseNotes>添加快捷配置的方法</PackageReleaseNotes>
-    <PackageTags>Alipay,AopSdk,支付宝服务端SDK,支付宝支付</PackageTags>
+    <Description>支付宝（Alipay）服务端SDK AopSdk，ASP.NET Core 项目只用安装这一个组件。使用文档 https://github.com/dotnetcore/Alipay.AopSdk.Core</Description>
+    <PackageReleaseNotes>合并扫码支付，简化使用</PackageReleaseNotes>
+    <PackageTags>Alipay,AopSdk,支付宝服务端SDK,支付宝支付,扫码支付</PackageTags>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/stulzq/Alipay.AopSdk.Core</RepositoryUrl>
   </PropertyGroup>
@@ -23,6 +23,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="2.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="2.0.0" />
   </ItemGroup>
 
   <ItemGroup>

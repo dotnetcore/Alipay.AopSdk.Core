@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Security.Cryptography;
 using Alipay.AopSdk.Core.Domain;
+using Alipay.AopSdk.Core.Util;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 
@@ -65,7 +67,27 @@ namespace Alipay.AopSdk.AspnetCore
 	            throw new ArgumentException(nameof(options));
 	        }
 
-	        this.Uid = options.Uid;
+	        //SignType私钥检查
+	        if (string.IsNullOrEmpty(options.SignType))
+	        {
+	            throw new Exception("您的支付宝配置未能通过检查，详细信息：签名类型未指定！");
+	        }
+
+	        //RSA私钥检查
+	        if (string.IsNullOrEmpty(options.PrivateKey))
+	        {
+	            throw new Exception("您的支付宝配置未能通过检查，详细信息：未能获取到商户私钥！");
+	        }
+
+	        //RSA私钥格式检查
+	        RSA rsaCsp = AlipaySignature.LoadCertificateString(options.PrivateKey, options.SignType);
+
+	        if (rsaCsp == null)
+	        {
+	            throw new Exception("您的支付宝配置未能通过检查，详细信息：商户私钥格式错误，未能导入！");
+	        }
+
+            this.Uid = options.Uid;
 	        this.AlipayPublicKey = options.AlipayPublicKey;
 	        this.AppId = options.AppId;
 	        this.CharSet = options.CharSet;

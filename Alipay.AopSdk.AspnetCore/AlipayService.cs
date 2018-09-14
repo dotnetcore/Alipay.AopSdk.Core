@@ -3,23 +3,22 @@ using System.Collections.Generic;
 using System.Net.Http;
 using Alipay.AopSdk.Core;
 using Alipay.AopSdk.Core.Util;
+using Alipay.AopSdk.F2FPay.Business;
+using Alipay.AopSdk.F2FPay.Domain;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
 
 namespace Alipay.AopSdk.AspnetCore
 {
-	public class AlipayService:IAlipayService
+	public class AlipayService
 	{
 		public AlipayOptions Options { get; set; }
-
-		//private readonly HttpContext _context;
 
 		private readonly IAopClient _aopClient;
 		public AlipayService(IOptions<AlipayOptions> alipayOptions)
 		{
 			Options = alipayOptions.Value;
-			//_context = contextAccessor.HttpContext; ,IHttpContextAccessor contextAccessor
 			_aopClient = new DefaultAopClient(Options.Gatewayurl, Options.AppId, Options.PrivateKey, "json", "1.0",
 				Options.SignType, Options.AlipayPublicKey, Options.CharSet, Options.IsKeyFromFile);
 		}
@@ -58,6 +57,6 @@ namespace Alipay.AopSdk.AspnetCore
 			return AlipaySignature.RSACheckV1(data, Options.AlipayPublicKey, Options.CharSet, Options.SignType, false);
 		}
 
-		
-	}
+	    
+    }
 }
