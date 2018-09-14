@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.Net.Http;
 using Alipay.AopSdk.Core;
 using Alipay.AopSdk.Core.Util;
+using Alipay.AopSdk.F2FPay.Business;
+using Alipay.AopSdk.F2FPay.Domain;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
 
 namespace Alipay.AopSdk.AspnetCore
 {
-	public class AlipayService:IAlipayService
+	public class AlipayService
 	{
 		public AlipayOptions Options { get; set; }
 
@@ -55,6 +57,6 @@ namespace Alipay.AopSdk.AspnetCore
 			return AlipaySignature.RSACheckV1(data, Options.AlipayPublicKey, Options.CharSet, Options.SignType, false);
 		}
 
-		
-	}
+	    
+    }
 }
