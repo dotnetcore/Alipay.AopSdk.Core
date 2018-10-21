@@ -39,12 +39,12 @@ namespace Alipay.AopSdk.AspnetCore
 
 		public T pageExecute<T>(IAopRequest<T> request) where T : AopResponse
 		{
-			return _aopClient.pageExecute(request);
+			return _aopClient.PageExecute(request);
 		}
 
 		public T pageExecute<T>(IAopRequest<T> request, string session, string reqMethod) where T : AopResponse
 		{
-			return _aopClient.pageExecute(request,session,reqMethod);
+			return _aopClient.PageExecute(request,session,reqMethod);
 		}
 
 		public T SdkExecute<T>(IAopRequest<T> request) where T : AopResponse
