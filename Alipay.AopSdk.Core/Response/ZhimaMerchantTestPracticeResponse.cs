@@ -8,16 +8,6 @@ namespace Alipay.AopSdk.Core.Response
 	/// </summary>
 	public class ZhimaMerchantTestPracticeResponse : AopResponse
 	{
-		/// <summary>
-		///     xxxx
-		/// </summary>
-		[JsonProperty("dddd")]
-		public XXXXsdasdasd Dddd { get; set; }
 
-		/// <summary>
-		///     ccc
-		/// </summary>
-		[JsonProperty("sss")]
-		public string Sss { get; set; }
 	}
 }
