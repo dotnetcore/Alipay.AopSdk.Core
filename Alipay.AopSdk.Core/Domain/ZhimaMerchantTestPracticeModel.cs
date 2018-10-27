@@ -16,11 +16,5 @@ namespace Alipay.AopSdk.Core.Domain
 		[JsonProperty("add")]
 		
 		public List<string> Add { get; set; }
-
-		/// <summary>
-		///     zzz
-		/// </summary>
-		[JsonProperty("xxxx")]
-		public XXXXsdasdasd Xxxx { get; set; }
 	}
 }
