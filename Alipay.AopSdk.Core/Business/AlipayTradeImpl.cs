@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 using Alipay.AopSdk.Core;
 using Alipay.AopSdk.Core.Request;
 using Alipay.AopSdk.Core.Response;
+using Alipay.AopSdk.Core.Util;
 using Alipay.AopSdk.F2FPay.Domain;
 using Alipay.AopSdk.F2FPay.Model;
 
@@ -30,7 +32,7 @@ namespace Alipay.AopSdk.F2FPay.Business
 
 
         #region 接口方法
-        public AlipayF2FPayResult tradePay(AlipayTradePayContentBuilder builder)
+        public AlipayF2FPayResult TradePay(AlipayTradePayContentBuilder builder)
         {               
             AlipayF2FPayResult payResult = new AlipayF2FPayResult();
             try
@@ -123,8 +125,13 @@ namespace Alipay.AopSdk.F2FPay.Business
             }
         }
 
-        public AlipayF2FQueryResult tradeQuery(string outTradeNo)
-        {                
+        public AlipayF2FQueryResult TradeQuery(string outTradeNo)
+        {
+            return AsyncHelper.RunSync(async () => await TradeQueryAsync(outTradeNo));
+        }
+
+        public async Task<AlipayF2FQueryResult> TradeQueryAsync(string outTradeNo)
+        {
             AlipayF2FQueryResult result = new AlipayF2FQueryResult();
             try
             {
@@ -133,7 +140,7 @@ namespace Alipay.AopSdk.F2FPay.Business
                 build.out_trade_no = outTradeNo;
                 AlipayTradeQueryRequest payRequest = new AlipayTradeQueryRequest();
                 payRequest.BizContent = build.BuildJson();
-                result.response = client.Execute(payRequest);
+                result.response = await client.ExecuteAsync(payRequest);
                 return result;
             }
             catch
@@ -144,15 +151,20 @@ namespace Alipay.AopSdk.F2FPay.Business
         }
 
 
-        public AlipayF2FRefundResult tradeRefund(AlipayTradeRefundContentBuilder builder)
-        {               
-            AlipayF2FRefundResult refundResult = new AlipayF2FRefundResult();
+        public AlipayF2FRefundResult TradeRefund(AlipayTradeRefundContentBuilder builder)
+        {
+            return AsyncHelper.RunSync(async () => await TradeRefundAsync(builder));
+        }
+
+        public async Task<AlipayF2FRefundResult> TradeRefundAsync(AlipayTradeRefundContentBuilder builder)
+        {
+            var refundResult = new AlipayF2FRefundResult();
             try
             {
 
                 AlipayTradeRefundRequest refundRequest = new AlipayTradeRefundRequest();
                 refundRequest.BizContent = builder.BuildJson();
-                refundResult.response = client.Execute(refundRequest);
+                refundResult.response = await client.ExecuteAsync(refundRequest);
                 return refundResult;
             }
             catch
@@ -162,17 +174,22 @@ namespace Alipay.AopSdk.F2FPay.Business
             }
         }
 
-        public AlipayF2FPrecreateResult tradePrecreate(AlipayTradePrecreateContentBuilder builder)
-        {               
+        public AlipayF2FPrecreateResult TradePrecreate(AlipayTradePrecreateContentBuilder builder)
+        {
+            return AsyncHelper.RunSync(async () => await TradePrecreateAsync(builder));
+        }
+
+        public async Task<AlipayF2FPrecreateResult> TradePrecreateAsync(AlipayTradePrecreateContentBuilder builder)
+        {
             AlipayF2FPrecreateResult payResult = new AlipayF2FPrecreateResult();
             try
             {
 
                 AlipayTradePrecreateRequest payRequest = new AlipayTradePrecreateRequest();
                 payRequest.BizContent = builder.BuildJson();
-                
-                
-                payResult.response = client.Execute(payRequest);
+
+
+                payResult.response = await client.ExecuteAsync(payRequest);
                 return payResult;
             }
             catch
@@ -182,15 +199,20 @@ namespace Alipay.AopSdk.F2FPay.Business
             }
         }
 
-        public AlipayF2FPrecreateResult tradePrecreate(AlipayTradePrecreateContentBuilder builder, string notify_url)
-        {                
+        public AlipayF2FPrecreateResult TradePrecreate(AlipayTradePrecreateContentBuilder builder, string notify_url)
+        {
+            return AsyncHelper.RunSync(async () => await TradePrecreateAsync(builder, notify_url));
+        }
+
+        public async Task<AlipayF2FPrecreateResult> TradePrecreateAsync(AlipayTradePrecreateContentBuilder builder, string notify_url)
+        {
             AlipayF2FPrecreateResult payResult = new AlipayF2FPrecreateResult();
             try
             {
                 AlipayTradePrecreateRequest payRequest = new AlipayTradePrecreateRequest();
                 payRequest.BizContent = builder.BuildJson();
                 payRequest.SetNotifyUrl(notify_url);
-                payResult.response = client.Execute(payRequest);
+                payResult.response = await client.ExecuteAsync(payRequest);
                 return payResult;
 
             }

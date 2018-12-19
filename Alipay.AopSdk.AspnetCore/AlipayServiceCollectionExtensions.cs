@@ -18,8 +18,8 @@ namespace Alipay.AopSdk.AspnetCore
 				throw new ArgumentNullException(nameof(options));
 			services.AddOptions();
 			services.Configure(options);
-            services.AddScoped<AlipayService>();
-		    services.AddScoped<AlipayF2FService>();
+            services.AddSingleton<AlipayService>();
+		    services.AddSingleton<AlipayF2FService>();
             return services;
 		}
 
@@ -31,8 +31,8 @@ namespace Alipay.AopSdk.AspnetCore
 	            throw new ArgumentNullException(nameof(section));
             services.AddOptions();
             services.Configure<AlipayOptions>(section);
-	        services.AddScoped<AlipayService>();
-	        services.AddScoped<AlipayF2FService>();
+	        services.AddSingleton<AlipayService>();
+	        services.AddSingleton<AlipayF2FService>();
 	        return services;
 	    }
     }
