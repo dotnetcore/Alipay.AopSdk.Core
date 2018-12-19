@@ -2,6 +2,7 @@
 using System.IO;
 using System.Net;
 using System.Text;
+using System.Threading.Tasks;
 using Alipay.AopSdk.Core.Parser;
 using Alipay.AopSdk.Core.Util;
 
@@ -44,12 +45,12 @@ namespace Alipay.AopSdk.Core
 			set => format = value;
 		}
 
-		public T pageExecute<T>(IAopRequest<T> request) where T : AopResponse
+		public T PageExecute<T>(IAopRequest<T> request) where T : AopResponse
 		{
 			throw new NotImplementedException();
 		}
 
-		public T pageExecute<T>(IAopRequest<T> request, string session, string reqMethod) where T : AopResponse
+		public T PageExecute<T>(IAopRequest<T> request, string session, string reqMethod) where T : AopResponse
 		{
 			throw new NotImplementedException();
 		}
@@ -59,7 +60,37 @@ namespace Alipay.AopSdk.Core
 			throw new NotImplementedException();
 		}
 
-		private AopResponse DoGet(AopDictionary parameters, Stream outStream)
+	    public Task<T> PageExecuteAsync<T>(IAopRequest<T> request) where T : AopResponse
+	    {
+	        throw new NotImplementedException();
+	    }
+
+	    public Task<T> PageExecuteAsync<T>(IAopRequest<T> request, string accessToken, string reqMethod) where T : AopResponse
+	    {
+	        throw new NotImplementedException();
+	    }
+
+	    public Task<T> ExecuteAsync<T>(IAopRequest<T> request) where T : AopResponse
+	    {
+	        throw new NotImplementedException();
+	    }
+
+	    public Task<T> ExecuteAsync<T>(IAopRequest<T> request, string accessToken) where T : AopResponse
+	    {
+	        throw new NotImplementedException();
+	    }
+
+	    public Task<T> ExecuteAsync<T>(IAopRequest<T> request, string accessToken, string appAuthToken) where T : AopResponse
+	    {
+	        throw new NotImplementedException();
+	    }
+
+	    private AopResponse DoGet(AopDictionary parameters, Stream outStream)
+	    {
+	        return AsyncHelper.RunSync(async () => await DoGetAsync(parameters, outStream));
+	    }
+
+        private async Task<AopResponse> DoGetAsync(AopDictionary parameters, Stream outStream)
 		{
 			AlipayMobilePublicMultiMediaDownloadResponse response = null;
 
@@ -70,24 +101,21 @@ namespace Alipay.AopSdk.Core
 				else
 					url = url + "?" + WebUtils.BuildQuery(parameters, charset);
 
-			var req = webUtils.GetWebRequest(url, "GET");
-			req.ContentType = "application/x-www-form-urlencoded;charset=" + charset;
+		    var client = webUtils.ConnectionPool.GetClient();
+            var query=new Uri(url).Query;
+		    var resp = await client.GetAsync(query);
+		    if (resp.StatusCode == HttpStatusCode.OK)
+		    {
 
-			var rsp = (HttpWebResponse) req.GetResponse();
-			if (rsp.StatusCode == HttpStatusCode.OK)
-				if (rsp.ContentType.ToLower().Contains("text/plain"))
-				{
-					var encoding = Encoding.GetEncoding(rsp.CharacterSet);
-					var body = webUtils.GetResponseAsString(rsp, encoding);
-					IAopParser<AlipayMobilePublicMultiMediaDownloadResponse> tp =
-						new AopJsonParser<AlipayMobilePublicMultiMediaDownloadResponse>();
-					response = tp.Parse(body, charset);
-				}
-				else
-				{
-					GetResponseAsStream(outStream, rsp);
-					response = new AlipayMobilePublicMultiMediaDownloadResponse();
-				}
+		        var body = await resp.Content.ReadAsStringAsync();
+		        IAopParser<AlipayMobilePublicMultiMediaDownloadResponse> tp =
+		            new AopJsonParser<AlipayMobilePublicMultiMediaDownloadResponse>();
+		        response = tp.Parse(body, charset);
+            }
+			else
+			{
+				response = new AlipayMobilePublicMultiMediaDownloadResponse();
+			}
 			return response;
 		}
 
@@ -137,7 +165,7 @@ namespace Alipay.AopSdk.Core
 			this.appId = appId;
 			this.privateKeyPem = privateKeyPem;
 			this.serverUrl = serverUrl;
-			webUtils = new WebUtils();
+			webUtils = new WebUtils(serverUrl);
 		}
 
 		public AlipayMobilePublicMultiMediaClient(string serverUrl, string appId, string privateKeyPem, string format)
@@ -161,10 +189,6 @@ namespace Alipay.AopSdk.Core
 			this.signType = signType;
 		}
 
-		public void SetTimeout(int timeout)
-		{
-			webUtils.Timeout = timeout;
-		}
 
 		#endregion
 
