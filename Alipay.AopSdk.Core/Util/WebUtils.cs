@@ -148,8 +148,9 @@ namespace Alipay.AopSdk.Core.Util
 		            {
 		                var streamContent = new StreamContent(new MemoryStream(encoding.GetBytes(textEnum.Current.Value)));
 		                streamContent.Headers.ContentType = new MediaTypeHeaderValue("text/plain");
-		                streamContent.Headers.ContentDisposition=new ContentDispositionHeaderValue($"form-data;name=\"{textEnum.Current.Key}\"");
-                        content.Add(streamContent);
+//		                streamContent.Headers.ContentDisposition=new ContentDispositionHeaderValue($"form-data;name=\"logo.jpg\"");
+//		                streamContent.Headers.ContentDisposition=new ContentDispositionHeaderValue($"form-data;name=\"{textEnum.Current.Key}\"");
+                        content.Add(streamContent, textEnum.Current.Key);
                     }
 		        }
 		        // 组装文件请求参数
@@ -161,8 +162,8 @@ namespace Alipay.AopSdk.Core.Util
 		                var fileItem = fileEnum.Current.Value;
 		                var streamContent = new StreamContent(new MemoryStream(fileItem.GetContent()));
 		                streamContent.Headers.ContentType = new MediaTypeHeaderValue(fileItem.GetMimeType());
-		                streamContent.Headers.ContentDisposition = new ContentDispositionHeaderValue($"form-data;name=\"{key}\";filename=\"{fileItem.GetFileName()}\"");
-		                content.Add(streamContent);
+//		                streamContent.Headers.ContentDisposition = new ContentDispositionHeaderValue($"form-data;name=\"{key}\";filename=\"{fileItem.GetFileName()}\"");
+		                content.Add(streamContent,key,fileItem.GetFileName());
                     }
                 }
 
