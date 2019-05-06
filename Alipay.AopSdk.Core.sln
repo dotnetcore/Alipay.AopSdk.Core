@@ -7,11 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Alipay.AopSdk.Core", "Alipa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Alipay.AopSdk.Core.UnitTest", "Alipay.AopSdk.Core.UnitTest\Alipay.AopSdk.Core.UnitTest.csproj", "{FC4F36D1-13BF-4974-BCB1-5B4E905F7B07}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Alipay.AopSdk.F2FPay", "Alipay.AopSdk.F2FPay\Alipay.AopSdk.F2FPay.csproj", "{B9434C62-8278-43BC-9AA6-F9246BB63C39}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Alipay.AopSdk.AspnetCore", "Alipay.AopSdk.AspnetCore\Alipay.AopSdk.AspnetCore.csproj", "{6A78B4AB-B857-4BA8-88C4-85F6298C8E70}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Alipay.AopSdk.F2FPay.AspnetCore", "Alipay.AopSdk.F2FPay.AspnetCore\Alipay.AopSdk.F2FPay.AspnetCore.csproj", "{314FA1F7-4545-4C7E-AE12-DC98BF136F27}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{946D3C5A-4580-44C8-9EA9-B529F5657143}"
 	ProjectSection(SolutionItems) = preProject
@@ -33,18 +29,10 @@ Global
 		{FC4F36D1-13BF-4974-BCB1-5B4E905F7B07}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC4F36D1-13BF-4974-BCB1-5B4E905F7B07}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC4F36D1-13BF-4974-BCB1-5B4E905F7B07}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B9434C62-8278-43BC-9AA6-F9246BB63C39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B9434C62-8278-43BC-9AA6-F9246BB63C39}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B9434C62-8278-43BC-9AA6-F9246BB63C39}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B9434C62-8278-43BC-9AA6-F9246BB63C39}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6A78B4AB-B857-4BA8-88C4-85F6298C8E70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6A78B4AB-B857-4BA8-88C4-85F6298C8E70}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A78B4AB-B857-4BA8-88C4-85F6298C8E70}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A78B4AB-B857-4BA8-88C4-85F6298C8E70}.Release|Any CPU.Build.0 = Release|Any CPU
-		{314FA1F7-4545-4C7E-AE12-DC98BF136F27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{314FA1F7-4545-4C7E-AE12-DC98BF136F27}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{314FA1F7-4545-4C7E-AE12-DC98BF136F27}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{314FA1F7-4545-4C7E-AE12-DC98BF136F27}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

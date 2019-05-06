@@ -29,12 +29,8 @@ namespace Alipay.AopSdk.F2FPay.Domain
         public string time_expire { get; set; }
         public string timeout_express { get; set; }
 
-        public AlipayTradePrecreateContentBuilder()
-        {
-            //
-            // TODO: 在此处添加构造函数逻辑
-            //
-        }
+        public string qr_code_timeout_express { get; set; }
+
 
   
         public override bool Validate()

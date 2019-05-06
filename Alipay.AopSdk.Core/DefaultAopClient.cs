@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using System.Web;
 using Alipay.AopSdk.Core.Parser;
 using Alipay.AopSdk.Core.Util;
@@ -65,16 +66,24 @@ namespace Alipay.AopSdk.Core
 
 		#region IAopClient Members
 
-		public T pageExecute<T>(IAopRequest<T> request) where T : AopResponse
+		public T PageExecute<T>(IAopRequest<T> request) where T : AopResponse
 		{
-			return pageExecute(request, null, "POST");
+			return PageExecute(request, null, "POST");
 		}
 
-		#endregion
+	    public async Task<T> PageExecuteAsync<T>(IAopRequest<T> request) where T : AopResponse
+	    {
+	        return await PageExecuteAsync(request, null, "POST");
+	    }
+        #endregion
 
-		#region IAopClient Members
+        #region IAopClient Members
+        public T PageExecute<T> (IAopRequest<T> request, string accessToken, string reqMethod) where T : AopResponse
+        {
+            return AsyncHelper.RunSync(async () => await PageExecuteAsync(request, accessToken, reqMethod));
+        }
 
-		public T pageExecute<T>(IAopRequest<T> request, string accessToken, string reqMethod) where T : AopResponse
+        public async Task<T> PageExecuteAsync<T>(IAopRequest<T> request, string accessToken, string reqMethod) where T : AopResponse
 		{
 			if (string.IsNullOrEmpty(charset))
 				charset = "utf-8";
@@ -120,7 +129,7 @@ namespace Alipay.AopSdk.Core
 			{
 				var uRequest = (IAopUploadRequest<T>) request;
 				var fileParams = AopUtils.CleanupDictionary(uRequest.GetFileParameters());
-				body = webUtils.DoPost(serverUrl + "?" + CHARSET + "=" + charset, txtParams, fileParams, charset);
+				body = await webUtils.DoPostAsync(serverUrl + "?" + CHARSET + "=" + charset, txtParams, fileParams, charset);
 			}
 			else
 			{
@@ -193,11 +202,11 @@ namespace Alipay.AopSdk.Core
 			return rsp;
 		}
 
-		#endregion
+        #endregion
 
-		#region IAopClient Members
+        #region IAopClient Members
 
-		public string BuildHtmlRequest(IDictionary<string, string> sParaTemp, string strMethod, string strButtonValue)
+        public string BuildHtmlRequest(IDictionary<string, string> sParaTemp, string strMethod, string strButtonValue)
 		{
 			//待请求参数数组
 			IDictionary<string, string> dicPara = new Dictionary<string, string>();
@@ -284,7 +293,7 @@ namespace Alipay.AopSdk.Core
 			AppId = appId;
 			this.privateKeyPem = privateKeyPem;
 			this.serverUrl = serverUrl;
-			webUtils = new WebUtils();
+            webUtils = new WebUtils(serverUrl);
 		}
 
 		public DefaultAopClient(string serverUrl, string appId, string privateKeyPem, bool keyFromFile)
@@ -293,7 +302,7 @@ namespace Alipay.AopSdk.Core
 			this.privateKeyPem = privateKeyPem;
 			this.serverUrl = serverUrl;
 			this.keyFromFile = keyFromFile;
-			webUtils = new WebUtils();
+            webUtils = new WebUtils(serverUrl);
 		}
 
 		public DefaultAopClient(string serverUrl, string appId, string privateKeyPem, string format)
@@ -302,7 +311,7 @@ namespace Alipay.AopSdk.Core
 			this.privateKeyPem = privateKeyPem;
 			this.serverUrl = serverUrl;
 			this.format = format;
-			webUtils = new WebUtils();
+            webUtils = new WebUtils(serverUrl);
 		}
 
 		public DefaultAopClient(string serverUrl, string appId, string privateKeyPem, string format, string charset)
@@ -351,12 +360,6 @@ namespace Alipay.AopSdk.Core
 			encyptType = "AES";
 		}
 
-
-		public void SetTimeout(int timeout)
-		{
-			webUtils.Timeout = timeout;
-		}
-
 		#endregion
 
 		#region IAopClient Members
@@ -371,106 +374,121 @@ namespace Alipay.AopSdk.Core
 			return Execute(request, accessToken, null);
 		}
 
-		#endregion
+	    public async Task<T> ExecuteAsync<T>(IAopRequest<T> request) where T : AopResponse
+	    {
+	        return await ExecuteAsync(request, null);
+	    }
 
-		#region IAopClient Members
+	    public async Task<T> ExecuteAsync<T>(IAopRequest<T> request, string accessToken) where T : AopResponse
+	    {
+	        return await ExecuteAsync(request, accessToken, null);
+	    }
 
-		public T Execute<T>(IAopRequest<T> request, string accessToken, string appAuthToken) where T : AopResponse
+        #endregion
+
+        #region IAopClient Members
+
+        public T Execute<T>(IAopRequest<T> request, string accessToken, string appAuthToken) where T : AopResponse
 		{
-			if (string.IsNullOrEmpty(charset))
-				charset = "utf-8";
-
-			string apiVersion = null;
-
-			if (!string.IsNullOrEmpty(request.GetApiVersion()))
-				apiVersion = request.GetApiVersion();
-			else
-				apiVersion = Version;
-
-			// 添加协议级请求参数
-			var txtParams = new AopDictionary(request.GetParameters());
-
-			// 序列化BizModel
-			txtParams = SerializeBizModel(txtParams, request);
-
-			txtParams.Add(METHOD, request.GetApiName());
-			txtParams.Add(VERSION, apiVersion);
-			txtParams.Add(APP_ID, AppId);
-			txtParams.Add(FORMAT, format);
-			txtParams.Add(TIMESTAMP, DateTime.Now);
-			txtParams.Add(ACCESS_TOKEN, accessToken);
-			txtParams.Add(SIGN_TYPE, signType);
-			txtParams.Add(TERMINAL_TYPE, request.GetTerminalType());
-			txtParams.Add(TERMINAL_INFO, request.GetTerminalInfo());
-			txtParams.Add(PROD_CODE, request.GetProdCode());
-			txtParams.Add(CHARSET, charset);
-
-
-			if (!string.IsNullOrEmpty(request.GetNotifyUrl()))
-				txtParams.Add(NOTIFY_URL, request.GetNotifyUrl());
-
-			if (!string.IsNullOrEmpty(appAuthToken))
-				txtParams.Add(APP_AUTH_TOKEN, appAuthToken);
-
-
-			if (request.GetNeedEncrypt())
-			{
-				if (string.IsNullOrEmpty(txtParams[BIZ_CONTENT]))
-					throw new AopException("api request Fail ! The reason: encrypt request is not supported!");
-
-				if (string.IsNullOrEmpty(encyptKey) || string.IsNullOrEmpty(encyptType))
-					throw new AopException("encryptType or encryptKey must not null!");
-
-				if (!"AES".Equals(encyptType))
-					throw new AopException("api only support Aes!");
-
-				var encryptContent = AopUtils.AesEncrypt(encyptKey, txtParams[BIZ_CONTENT], charset);
-				txtParams.Remove(BIZ_CONTENT);
-				txtParams.Add(BIZ_CONTENT, encryptContent);
-				txtParams.Add(ENCRYPT_TYPE, encyptType);
-			}
-
-			// 添加签名参数
-			txtParams.Add(SIGN, AopUtils.SignAopRequest(txtParams, privateKeyPem, charset, keyFromFile, signType));
-
-
-			// 是否需要上传文件
-			string body;
-
-
-			if (request is IAopUploadRequest<T>)
-			{
-				var uRequest = (IAopUploadRequest<T>) request;
-				var fileParams = AopUtils.CleanupDictionary(uRequest.GetFileParameters());
-				body = webUtils.DoPost(serverUrl + "?" + CHARSET + "=" + charset, txtParams, fileParams, charset);
-			}
-			else
-			{
-				body = webUtils.DoPost(serverUrl + "?" + CHARSET + "=" + charset, txtParams, charset);
-			}
-
-			T rsp = null;
-			IAopParser<T> parser = null;
-			if ("xml".Equals(format))
-			{
-				parser = new AopXmlParser<T>();
-				rsp = parser.Parse(body, charset);
-			}
-			else
-			{
-				parser = new AopJsonParser<T>();
-				rsp = parser.Parse(body, charset);
-			}
-
-			var item = parseRespItem(request, body, parser, encyptKey, encyptType, charset);
-			rsp = parser.Parse(item.realContent, charset);
-
-			CheckResponseSign(request, item.respContent, rsp.IsError, parser, alipayPublicKey, charset, signType, keyFromFile);
-
-			return rsp;
+		    return AsyncHelper.RunSync(async () => await ExecuteAsync(request, accessToken, appAuthToken));
 		}
 
-		private static ResponseParseItem parseRespItem<T>(IAopRequest<T> request, string respBody, IAopParser<T> parser,
+        public async Task<T> ExecuteAsync<T>(IAopRequest<T> request, string accessToken, string appAuthToken) where T : AopResponse
+        {
+            if (string.IsNullOrEmpty(charset))
+                charset = "utf-8";
+
+            string apiVersion = null;
+
+            if (!string.IsNullOrEmpty(request.GetApiVersion()))
+                apiVersion = request.GetApiVersion();
+            else
+                apiVersion = Version;
+
+            // 添加协议级请求参数
+            var txtParams = new AopDictionary(request.GetParameters());
+
+            // 序列化BizModel
+            txtParams = SerializeBizModel(txtParams, request);
+
+            txtParams.Add(METHOD, request.GetApiName());
+            txtParams.Add(VERSION, apiVersion);
+            txtParams.Add(APP_ID, AppId);
+            txtParams.Add(FORMAT, format);
+            txtParams.Add(TIMESTAMP, DateTime.Now);
+            txtParams.Add(ACCESS_TOKEN, accessToken);
+            txtParams.Add(SIGN_TYPE, signType);
+            txtParams.Add(TERMINAL_TYPE, request.GetTerminalType());
+            txtParams.Add(TERMINAL_INFO, request.GetTerminalInfo());
+            txtParams.Add(PROD_CODE, request.GetProdCode());
+            txtParams.Add(CHARSET, charset);
+
+
+            if (!string.IsNullOrEmpty(request.GetNotifyUrl()))
+                txtParams.Add(NOTIFY_URL, request.GetNotifyUrl());
+
+            if (!string.IsNullOrEmpty(appAuthToken))
+                txtParams.Add(APP_AUTH_TOKEN, appAuthToken);
+
+
+            if (request.GetNeedEncrypt())
+            {
+                if (string.IsNullOrEmpty(txtParams[BIZ_CONTENT]))
+                    throw new AopException("api request Fail ! The reason: encrypt request is not supported!");
+
+                if (string.IsNullOrEmpty(encyptKey) || string.IsNullOrEmpty(encyptType))
+                    throw new AopException("encryptType or encryptKey must not null!");
+
+                if (!"AES".Equals(encyptType))
+                    throw new AopException("api only support Aes!");
+
+                var encryptContent = AopUtils.AesEncrypt(encyptKey, txtParams[BIZ_CONTENT], charset);
+                txtParams.Remove(BIZ_CONTENT);
+                txtParams.Add(BIZ_CONTENT, encryptContent);
+                txtParams.Add(ENCRYPT_TYPE, encyptType);
+            }
+
+            // 添加签名参数
+            txtParams.Add(SIGN, AopUtils.SignAopRequest(txtParams, privateKeyPem, charset, keyFromFile, signType));
+
+
+            // 是否需要上传文件
+            string body;
+
+
+            if (request is IAopUploadRequest<T>)
+            {
+                var uRequest = (IAopUploadRequest<T>)request;
+                var fileParams = AopUtils.CleanupDictionary(uRequest.GetFileParameters());
+                body = await webUtils.DoPostAsync(serverUrl + "?" + CHARSET + "=" + charset, txtParams, fileParams, charset);
+            }
+            else
+            {
+                body = await webUtils.DoPostAsync(serverUrl + "?" + CHARSET + "=" + charset, txtParams, charset);
+            }
+
+            T rsp = null;
+            IAopParser<T> parser = null;
+            if ("xml".Equals(format))
+            {
+                parser = new AopXmlParser<T>();
+                rsp = parser.Parse(body, charset);
+            }
+            else
+            {
+                parser = new AopJsonParser<T>();
+                rsp = parser.Parse(body, charset);
+            }
+
+            var item = parseRespItem(request, body, parser, encyptKey, encyptType, charset);
+            rsp = parser.Parse(item.realContent, charset);
+
+            CheckResponseSign(request, item.respContent, rsp.IsError, parser, alipayPublicKey, charset, signType, keyFromFile);
+
+            return rsp;
+        }
+
+        private static ResponseParseItem parseRespItem<T>(IAopRequest<T> request, string respBody, IAopParser<T> parser,
 			string encryptKey, string encryptType, string charset) where T : AopResponse
 		{
 			string realContent = null;
