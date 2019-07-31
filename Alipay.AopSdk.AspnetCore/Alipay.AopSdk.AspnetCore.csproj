@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>2.4.2</Version>
+    <Version>2.4.3</Version>
     <Copyright>Copyright 2017-2018 stulzq</Copyright>
     <Authors>stulzq</Authors>
     <Company>stulzq</Company>
@@ -12,7 +12,7 @@
     <PackageProjectUrl>https://github.com/stulzq/Alipay.AopSdk.Core</PackageProjectUrl>
     <PackageIconUrl>https://www.alipay.com/favicon.ico</PackageIconUrl>
     <Description>支付宝（Alipay）服务端SDK AopSdk，ASP.NET Core 项目只用安装这一个组件。使用文档 https://github.com/dotnetcore/Alipay.AopSdk.Core</Description>
-    <PackageReleaseNotes>修复上传媒体文件</PackageReleaseNotes>
+    <PackageReleaseNotes>添加 SmilePay,SmileLife</PackageReleaseNotes>
     <PackageTags>Alipay,AopSdk,支付宝服务端SDK,支付宝支付,扫码支付</PackageTags>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/stulzq/Alipay.AopSdk.Core</RepositoryUrl>
@@ -29,3 +29,4 @@
   </ItemGroup>
 
 </Project>
+ 
