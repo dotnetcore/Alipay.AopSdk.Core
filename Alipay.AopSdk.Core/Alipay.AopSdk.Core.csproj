@@ -14,7 +14,7 @@
     <RepositoryType>git</RepositoryType>
     <PackageLicenseUrl />
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <PackageIconUrl>https://www.alipay.com/favicon.ico</PackageIconUrl>
+    <PackageIcon>alipay.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,6 +24,10 @@
 
   <ItemGroup>
     <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="..\alipay.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>

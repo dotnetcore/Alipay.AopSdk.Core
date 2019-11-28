@@ -9,7 +9,7 @@
     <PackageId>Alipay.AopSdk.AspnetCore</PackageId>
     <Product>Alipay.AopSdk.AspnetCore</Product>
     <PackageProjectUrl>https://github.com/stulzq/Alipay.AopSdk.Core</PackageProjectUrl>
-    <PackageIconUrl>https://www.alipay.com/favicon.ico</PackageIconUrl>
+    <PackageIcon>alipay.png</PackageIcon>
     <Description>支付宝（Alipay）服务端SDK AopSdk，ASP.NET Core 项目只用安装这一个组件。使用文档 https://github.com/dotnetcore/Alipay.AopSdk.Core</Description>
     <PackageReleaseNotes>更新至 .NET Core 3.0</PackageReleaseNotes>
     <PackageTags>Alipay,AopSdk,支付宝服务端SDK,支付宝支付,扫码支付</PackageTags>
@@ -34,6 +34,10 @@
 
   <ItemGroup>
     <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="..\alipay.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
