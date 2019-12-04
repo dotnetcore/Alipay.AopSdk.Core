@@ -1,15 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>2.4.5</Version>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Version>2.5.0</Version>
     <Authors>stulzq</Authors>
-    <Description>支付宝（Alipay）服务端SDK，采用.NET Standard 2.0，支持.NET Core 2.0，与官方SDK接口完全相同。完全可以按照官方文档进行开发。除了支持支付以外，官方SDK支持的功能本SDK全部支持，且用法几乎一样，代码都可参考官方文档代码。github:https://github.com/stulzq/Alipay.AopSdk.Core，访问github获取demo以及使用文档。</Description>
-    <Copyright>Copyright 2017-2018 stulzq</Copyright>
+    <Description>支付宝（Alipay）服务端SDK，与官方SDK接口完全相同。完全可以按照官方文档进行开发。除了支持支付以外，官方SDK支持的功能本SDK全部支持，且用法几乎一样，代码都可参考官方文档代码。github:https://github.com/stulzq/Alipay.AopSdk.Core，访问github获取demo以及使用文档。</Description>
+    <Copyright>Copyright 2017-2019 stulzq</Copyright>
     <PackageProjectUrl>https://github.com/stulzq/Alipay.AopSdk.Core</PackageProjectUrl>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageTags>Alipay,AopSdk,支付宝服务端SDK,支付宝支付</PackageTags>
-    <PackageReleaseNotes>更新依赖版本</PackageReleaseNotes>
+    <PackageReleaseNotes>更新到 .NET Core 3.1</PackageReleaseNotes>
     <RepositoryUrl>https://github.com/stulzq/Alipay.AopSdk.Core</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageLicenseUrl />
