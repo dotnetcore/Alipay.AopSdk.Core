@@ -1,27 +1,27 @@
 using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Xml.Serialization;
 
 namespace Alipay.AopSdk.Core.Domain
 {
-	/// <summary>
-	///     Datas Data Structure.
-	/// </summary>
-	[Serializable]
-	public class Datas : AopObject
-	{
-		/// <summary>
-		///     指标数据区
-		/// </summary>
-		[JsonProperty("data")]
-		
-		public List<DataEntry> Data { get; set; }
+    /// <summary>
+    /// Datas Data Structure.
+    /// </summary>
+    [Serializable]
+    public class Datas : AopObject
+    {
+        /// <summary>
+        /// 指标数据区
+        /// </summary>
+        [XmlArray("data")]
+        [XmlArrayItem("data_entry")]
+        public List<DataEntry> Data { get; set; }
 
-		/// <summary>
-		///     数据维度
-		/// </summary>
-		[JsonProperty("dimension")]
-		
-		public List<DataDim> Dimension { get; set; }
-	}
+        /// <summary>
+        /// 数据维度
+        /// </summary>
+        [XmlArray("dimension")]
+        [XmlArrayItem("data_dim")]
+        public List<DataDim> Dimension { get; set; }
+    }
 }

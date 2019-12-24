@@ -1,5 +1,4 @@
 using System;
-using Alipay.AopSdk.Core.Domain;
 using System.Collections.Generic;
 using Alipay.AopSdk.Core.Response;
 

@@ -1,4 +1,3 @@
-using System;
 using System.Xml.Serialization;
 using Alipay.AopSdk.Core.Domain;
 
@@ -9,6 +8,12 @@ namespace Alipay.AopSdk.Core.Response
     /// </summary>
     public class ZolozIdentificationCustomerCertifyzhubQueryResponse : AopResponse
     {
+        /// <summary>
+        /// 是否为攻击
+        /// </summary>
+        [XmlElement("attack")]
+        public bool Attack { get; set; }
+
         /// <summary>
         /// 业务单据号，用于核对和排查
         /// </summary>

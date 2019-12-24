@@ -1,16 +1,16 @@
-using Newtonsoft.Json;
+using System.Xml.Serialization;
 
 namespace Alipay.AopSdk.Core.Response
 {
-	/// <summary>
-	///     AntMerchantExpandImageUploadResponse.
-	/// </summary>
-	public class AntMerchantExpandImageUploadResponse : AopResponse
-	{
-		/// <summary>
-		///     图片在sfs中的标识
-		/// </summary>
-		[JsonProperty("image_id")]
-		public string ImageId { get; set; }
-	}
+    /// <summary>
+    /// AntMerchantExpandImageUploadResponse.
+    /// </summary>
+    public class AntMerchantExpandImageUploadResponse : AopResponse
+    {
+        /// <summary>
+        /// 图片在sfs中的标识
+        /// </summary>
+        [XmlElement("image_id")]
+        public string ImageId { get; set; }
+    }
 }

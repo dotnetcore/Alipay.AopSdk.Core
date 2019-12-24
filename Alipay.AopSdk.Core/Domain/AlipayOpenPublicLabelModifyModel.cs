@@ -1,24 +1,24 @@
 using System;
-using Newtonsoft.Json;
+using System.Xml.Serialization;
 
 namespace Alipay.AopSdk.Core.Domain
 {
-	/// <summary>
-	///     AlipayOpenPublicLabelModifyModel Data Structure.
-	/// </summary>
-	[Serializable]
-	public class AlipayOpenPublicLabelModifyModel : AopObject
-	{
-		/// <summary>
-		///     要修改的标签id
-		/// </summary>
-		[JsonProperty("id")]
-		public string Id { get; set; }
+    /// <summary>
+    /// AlipayOpenPublicLabelModifyModel Data Structure.
+    /// </summary>
+    [Serializable]
+    public class AlipayOpenPublicLabelModifyModel : AopObject
+    {
+        /// <summary>
+        /// 要修改的标签id
+        /// </summary>
+        [XmlElement("id")]
+        public string Id { get; set; }
 
-		/// <summary>
-		///     要修改成的标签名
-		/// </summary>
-		[JsonProperty("name")]
-		public string Name { get; set; }
-	}
+        /// <summary>
+        /// 要修改成的标签名
+        /// </summary>
+        [XmlElement("name")]
+        public string Name { get; set; }
+    }
 }

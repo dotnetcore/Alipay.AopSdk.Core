@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using Alipay.AopSdk.F2FPay.Model;
 
-namespace Alipay.AopSdk.F2FPay.Domain
+namespace Alipay.AopSdk.Core.Domain
 {
     /// <summary>
     /// AlipayTradePayContentBuilder 的摘要说明
@@ -17,14 +16,14 @@ namespace Alipay.AopSdk.F2FPay.Domain
         public string subject { get; set; }
         public string body { get; set; }
 
-        public List<GoodsInfo> goods_detail{get;set;}
+        public List<F2FPay.Model.GoodsInfo> goods_detail{get;set;}
         public string operator_id { get; set; }
 
         public string store_id { get; set; }
 
         public string terminal_id { get; set; }
 
-        public ExtendParams extend_params;
+        public F2FPay.Model.ExtendParams extend_params;
         public string timeout_express { get; set; }
 
 

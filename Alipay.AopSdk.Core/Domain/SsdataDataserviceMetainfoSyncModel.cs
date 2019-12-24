@@ -1,18 +1,18 @@
 using System;
-using Newtonsoft.Json;
+using System.Xml.Serialization;
 
 namespace Alipay.AopSdk.Core.Domain
 {
-	/// <summary>
-	///     SsdataDataserviceMetainfoSyncModel Data Structure.
-	/// </summary>
-	[Serializable]
-	public class SsdataDataserviceMetainfoSyncModel : AopObject
-	{
-		/// <summary>
-		///     元数据信息
-		/// </summary>
-		[JsonProperty("meta_info")]
-		public string MetaInfo { get; set; }
-	}
+    /// <summary>
+    /// SsdataDataserviceMetainfoSyncModel Data Structure.
+    /// </summary>
+    [Serializable]
+    public class SsdataDataserviceMetainfoSyncModel : AopObject
+    {
+        /// <summary>
+        /// 元数据信息
+        /// </summary>
+        [XmlElement("meta_info")]
+        public string MetaInfo { get; set; }
+    }
 }

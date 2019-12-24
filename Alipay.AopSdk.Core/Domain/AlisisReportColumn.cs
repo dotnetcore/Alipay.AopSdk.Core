@@ -1,24 +1,24 @@
 using System;
-using Newtonsoft.Json;
+using System.Xml.Serialization;
 
 namespace Alipay.AopSdk.Core.Domain
 {
-	/// <summary>
-	///     AlisisReportColumn Data Structure.
-	/// </summary>
-	[Serializable]
-	public class AlisisReportColumn : AopObject
-	{
-		/// <summary>
-		///     列别名
-		/// </summary>
-		[JsonProperty("alias")]
-		public string Alias { get; set; }
+    /// <summary>
+    /// AlisisReportColumn Data Structure.
+    /// </summary>
+    [Serializable]
+    public class AlisisReportColumn : AopObject
+    {
+        /// <summary>
+        /// 列别名
+        /// </summary>
+        [XmlElement("alias")]
+        public string Alias { get; set; }
 
-		/// <summary>
-		///     列值
-		/// </summary>
-		[JsonProperty("data")]
-		public string Data { get; set; }
-	}
+        /// <summary>
+        /// 列值
+        /// </summary>
+        [XmlElement("data")]
+        public string Data { get; set; }
+    }
 }

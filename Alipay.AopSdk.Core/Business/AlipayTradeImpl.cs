@@ -3,10 +3,10 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Alipay.AopSdk.Core;
+using Alipay.AopSdk.Core.Domain;
 using Alipay.AopSdk.Core.Request;
 using Alipay.AopSdk.Core.Response;
 using Alipay.AopSdk.Core.Util;
-using Alipay.AopSdk.F2FPay.Domain;
 using Alipay.AopSdk.F2FPay.Model;
 
 

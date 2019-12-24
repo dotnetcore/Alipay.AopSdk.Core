@@ -1,24 +1,24 @@
 using System;
-using Newtonsoft.Json;
+using System.Xml.Serialization;
 
 namespace Alipay.AopSdk.Core.Domain
 {
-	/// <summary>
-	///     ClaimProgress Data Structure.
-	/// </summary>
-	[Serializable]
-	public class ClaimProgress : AopObject
-	{
-		/// <summary>
-		///     更新内容
-		/// </summary>
-		[JsonProperty("update_content")]
-		public string UpdateContent { get; set; }
+    /// <summary>
+    /// ClaimProgress Data Structure.
+    /// </summary>
+    [Serializable]
+    public class ClaimProgress : AopObject
+    {
+        /// <summary>
+        /// 更新内容
+        /// </summary>
+        [XmlElement("update_content")]
+        public string UpdateContent { get; set; }
 
-		/// <summary>
-		///     更新时间
-		/// </summary>
-		[JsonProperty("update_time")]
-		public string UpdateTime { get; set; }
-	}
+        /// <summary>
+        /// 更新时间
+        /// </summary>
+        [XmlElement("update_time")]
+        public string UpdateTime { get; set; }
+    }
 }

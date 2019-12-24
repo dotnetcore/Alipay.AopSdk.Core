@@ -16,7 +16,13 @@ namespace Alipay.AopSdk.Core.Domain
         public string Age { get; set; }
 
         /// <summary>
-        /// 证件号信息
+        /// 算法的辅助因子如blur、pitch、yaw、roll值
+        /// </summary>
+        [XmlElement("algfactors")]
+        public string Algfactors { get; set; }
+
+        /// <summary>
+        /// 姓名信息
         /// </summary>
         [XmlElement("cert_name")]
         public string CertName { get; set; }
@@ -38,6 +44,18 @@ namespace Alipay.AopSdk.Core.Domain
         /// </summary>
         [XmlElement("channel")]
         public string Channel { get; set; }
+
+        /// <summary>
+        /// maxRule:选择最大脸规则；  centerRule：选择中心脸规则；  默认空字符串表示不进行选脸
+        /// </summary>
+        [XmlElement("choose_face_rule")]
+        public string ChooseFaceRule { get; set; }
+
+        /// <summary>
+        /// 2D或者3D，默认2D
+        /// </summary>
+        [XmlElement("face_data_type")]
+        public string FaceDataType { get; set; }
 
         /// <summary>
         /// 人脸加密后的特征

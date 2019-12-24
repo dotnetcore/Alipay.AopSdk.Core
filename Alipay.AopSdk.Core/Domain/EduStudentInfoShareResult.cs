@@ -1,32 +1,32 @@
 using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Xml.Serialization;
 
 namespace Alipay.AopSdk.Core.Domain
 {
-	/// <summary>
-	///     EduStudentInfoShareResult Data Structure.
-	/// </summary>
-	[Serializable]
-	public class EduStudentInfoShareResult : AopObject
-	{
-		/// <summary>
-		///     教育分类
-		/// </summary>
-		[JsonProperty("biz_type")]
-		public string BizType { get; set; }
+    /// <summary>
+    /// EduStudentInfoShareResult Data Structure.
+    /// </summary>
+    [Serializable]
+    public class EduStudentInfoShareResult : AopObject
+    {
+        /// <summary>
+        /// 教育分类
+        /// </summary>
+        [XmlElement("biz_type")]
+        public string BizType { get; set; }
 
-		/// <summary>
-		///     学生详细信息
-		/// </summary>
-		[JsonProperty("student_infos")]
-		
-		public List<StudentInfo> StudentInfos { get; set; }
+        /// <summary>
+        /// 学生详细信息
+        /// </summary>
+        [XmlArray("student_infos")]
+        [XmlArrayItem("student_info")]
+        public List<StudentInfo> StudentInfos { get; set; }
 
-		/// <summary>
-		///     用户的userid
-		/// </summary>
-		[JsonProperty("user_id")]
-		public string UserId { get; set; }
-	}
+        /// <summary>
+        /// 用户的userid
+        /// </summary>
+        [XmlElement("user_id")]
+        public string UserId { get; set; }
+    }
 }
