@@ -1,7 +1,6 @@
-﻿using System;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
-namespace Alipay.AopSdk.F2FPay.Domain
+namespace Alipay.AopSdk.Core.Domain
 {
 
     /// <summary>

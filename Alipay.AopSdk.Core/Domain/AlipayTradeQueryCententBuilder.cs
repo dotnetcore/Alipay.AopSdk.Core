@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Alipay.AopSdk.F2FPay.Domain
+namespace Alipay.AopSdk.Core.Domain
 {
     /// <summary>
     /// AlipayTradeQueryCententBuilder 的摘要说明

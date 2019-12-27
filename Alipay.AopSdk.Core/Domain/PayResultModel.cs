@@ -1,6 +1,6 @@
 ﻿//using System.Linq;
 
-namespace Alipay.AopSdk.F2FPay.Model
+namespace Alipay.AopSdk.Core.Domain
 {
     public  class ResultCode
     {

@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using Alipay.AopSdk.F2FPay.Model;
 
-namespace Alipay.AopSdk.F2FPay.Domain
+namespace Alipay.AopSdk.Core.Domain
 {
     /// <summary>
     /// AlipayTradePrecreateContentBuilder 的摘要说明

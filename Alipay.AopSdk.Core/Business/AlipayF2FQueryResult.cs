@@ -1,5 +1,5 @@
-﻿using Alipay.AopSdk.Core.Response;
-using Alipay.AopSdk.F2FPay.Model;
+﻿using Alipay.AopSdk.Core.Domain;
+using Alipay.AopSdk.Core.Response;
 
 namespace Alipay.AopSdk.F2FPay.Business
 {
