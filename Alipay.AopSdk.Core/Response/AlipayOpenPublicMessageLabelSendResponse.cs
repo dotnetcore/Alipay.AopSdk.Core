@@ -1,9 +1,9 @@
 namespace Alipay.AopSdk.Core.Response
 {
-	/// <summary>
-	///     AlipayOpenPublicMessageLabelSendResponse.
-	/// </summary>
-	public class AlipayOpenPublicMessageLabelSendResponse : AopResponse
-	{
-	}
+    /// <summary>
+    /// AlipayOpenPublicMessageLabelSendResponse.
+    /// </summary>
+    public class AlipayOpenPublicMessageLabelSendResponse : AopResponse
+    {
+    }
 }

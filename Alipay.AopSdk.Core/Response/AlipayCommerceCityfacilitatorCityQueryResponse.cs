@@ -1,19 +1,19 @@
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Xml.Serialization;
 using Alipay.AopSdk.Core.Domain;
 
 namespace Alipay.AopSdk.Core.Response
 {
-	/// <summary>
-	///     AlipayCommerceCityfacilitatorCityQueryResponse.
-	/// </summary>
-	public class AlipayCommerceCityfacilitatorCityQueryResponse : AopResponse
-	{
-		/// <summary>
-		///     城市列表
-		/// </summary>
-		[JsonProperty("citys")]
-		
-		public List<CityFunction> Citys { get; set; }
-	}
+    /// <summary>
+    /// AlipayCommerceCityfacilitatorCityQueryResponse.
+    /// </summary>
+    public class AlipayCommerceCityfacilitatorCityQueryResponse : AopResponse
+    {
+        /// <summary>
+        /// 城市列表
+        /// </summary>
+        [XmlArray("citys")]
+        [XmlArrayItem("city_function")]
+        public List<CityFunction> Citys { get; set; }
+    }
 }

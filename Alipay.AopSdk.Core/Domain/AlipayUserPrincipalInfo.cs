@@ -1,30 +1,30 @@
 using System;
-using Newtonsoft.Json;
+using System.Xml.Serialization;
 
 namespace Alipay.AopSdk.Core.Domain
 {
-	/// <summary>
-	///     AlipayUserPrincipalInfo Data Structure.
-	/// </summary>
-	[Serializable]
-	public class AlipayUserPrincipalInfo : AopObject
-	{
-		/// <summary>
-		///     用户电子邮箱
-		/// </summary>
-		[JsonProperty("email")]
-		public string Email { get; set; }
+    /// <summary>
+    /// AlipayUserPrincipalInfo Data Structure.
+    /// </summary>
+    [Serializable]
+    public class AlipayUserPrincipalInfo : AopObject
+    {
+        /// <summary>
+        /// 用户电子邮箱
+        /// </summary>
+        [XmlElement("email")]
+        public string Email { get; set; }
 
-		/// <summary>
-		///     用户的手机号
-		/// </summary>
-		[JsonProperty("mobile")]
-		public string Mobile { get; set; }
+        /// <summary>
+        /// 用户的手机号
+        /// </summary>
+        [XmlElement("mobile")]
+        public string Mobile { get; set; }
 
-		/// <summary>
-		///     支付宝userId
-		/// </summary>
-		[JsonProperty("user_id")]
-		public string UserId { get; set; }
-	}
+        /// <summary>
+        /// 支付宝userId
+        /// </summary>
+        [XmlElement("user_id")]
+        public string UserId { get; set; }
+    }
 }

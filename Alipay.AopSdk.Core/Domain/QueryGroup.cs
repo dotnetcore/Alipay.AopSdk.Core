@@ -1,32 +1,32 @@
 using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Xml.Serialization;
 
 namespace Alipay.AopSdk.Core.Domain
 {
-	/// <summary>
-	///     QueryGroup Data Structure.
-	/// </summary>
-	[Serializable]
-	public class QueryGroup : AopObject
-	{
-		/// <summary>
-		///     分组id
-		/// </summary>
-		[JsonProperty("id")]
-		public string Id { get; set; }
+    /// <summary>
+    /// QueryGroup Data Structure.
+    /// </summary>
+    [Serializable]
+    public class QueryGroup : AopObject
+    {
+        /// <summary>
+        /// 分组id
+        /// </summary>
+        [XmlElement("id")]
+        public string Id { get; set; }
 
-		/// <summary>
-		///     分组中的圈人规则
-		/// </summary>
-		[JsonProperty("label_rule")]
-		
-		public List<QueryComplexLabelRule> LabelRule { get; set; }
+        /// <summary>
+        /// 分组中的圈人规则
+        /// </summary>
+        [XmlArray("label_rule")]
+        [XmlArrayItem("query_complex_label_rule")]
+        public List<QueryComplexLabelRule> LabelRule { get; set; }
 
-		/// <summary>
-		///     用户分组名称
-		/// </summary>
-		[JsonProperty("name")]
-		public string Name { get; set; }
-	}
+        /// <summary>
+        /// 用户分组名称
+        /// </summary>
+        [XmlElement("name")]
+        public string Name { get; set; }
+    }
 }

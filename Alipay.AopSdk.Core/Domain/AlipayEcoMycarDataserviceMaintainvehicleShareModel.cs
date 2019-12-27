@@ -1,18 +1,18 @@
 using System;
-using Newtonsoft.Json;
+using System.Xml.Serialization;
 
 namespace Alipay.AopSdk.Core.Domain
 {
-	/// <summary>
-	///     AlipayEcoMycarDataserviceMaintainvehicleShareModel Data Structure.
-	/// </summary>
-	[Serializable]
-	public class AlipayEcoMycarDataserviceMaintainvehicleShareModel : AopObject
-	{
-		/// <summary>
-		///     车辆ID
-		/// </summary>
-		[JsonProperty("vid")]
-		public string Vid { get; set; }
-	}
+    /// <summary>
+    /// AlipayEcoMycarDataserviceMaintainvehicleShareModel Data Structure.
+    /// </summary>
+    [Serializable]
+    public class AlipayEcoMycarDataserviceMaintainvehicleShareModel : AopObject
+    {
+        /// <summary>
+        /// 车辆ID
+        /// </summary>
+        [XmlElement("vid")]
+        public string Vid { get; set; }
+    }
 }

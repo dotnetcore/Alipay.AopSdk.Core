@@ -218,7 +218,7 @@ namespace Alipay.AopSdk.Core.Parser
 			T rsp = null;
 
 			IDictionary json = null;
-			if (!body.StartsWith("<form"))
+			if (!body.StartsWith("<form") && !body.StartsWith("http"))
 			{
 				json=JsonConvert.DeserializeObject<IDictionary>(body);
 			}

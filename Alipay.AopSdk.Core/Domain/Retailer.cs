@@ -1,24 +1,24 @@
 using System;
-using Newtonsoft.Json;
+using System.Xml.Serialization;
 
 namespace Alipay.AopSdk.Core.Domain
 {
-	/// <summary>
-	///     Retailer Data Structure.
-	/// </summary>
-	[Serializable]
-	public class Retailer : AopObject
-	{
-		/// <summary>
-		///     零售商名称
-		/// </summary>
-		[JsonProperty("name")]
-		public string Name { get; set; }
+    /// <summary>
+    /// Retailer Data Structure.
+    /// </summary>
+    [Serializable]
+    public class Retailer : AopObject
+    {
+        /// <summary>
+        /// 零售商名称
+        /// </summary>
+        [XmlElement("name")]
+        public string Name { get; set; }
 
-		/// <summary>
-		///     零售商pid
-		/// </summary>
-		[JsonProperty("partner_id")]
-		public string PartnerId { get; set; }
-	}
+        /// <summary>
+        /// 零售商pid
+        /// </summary>
+        [XmlElement("partner_id")]
+        public string PartnerId { get; set; }
+    }
 }

@@ -1,9 +1,9 @@
 namespace Alipay.AopSdk.Core.Response
 {
-	/// <summary>
-	///     AlipayEcoMycarParkingOrderUpdateResponse.
-	/// </summary>
-	public class AlipayEcoMycarParkingOrderUpdateResponse : AopResponse
-	{
-	}
+    /// <summary>
+    /// AlipayEcoMycarParkingOrderUpdateResponse.
+    /// </summary>
+    public class AlipayEcoMycarParkingOrderUpdateResponse : AopResponse
+    {
+    }
 }

@@ -1,48 +1,48 @@
 using System;
-using Newtonsoft.Json;
+using System.Xml.Serialization;
 
 namespace Alipay.AopSdk.Core.Domain
 {
-	/// <summary>
-	///     InsClaimAttachment Data Structure.
-	/// </summary>
-	[Serializable]
-	public class InsClaimAttachment : AopObject
-	{
-		/// <summary>
-		///     材料描述
-		/// </summary>
-		[JsonProperty("description")]
-		public string Description { get; set; }
+    /// <summary>
+    /// InsClaimAttachment Data Structure.
+    /// </summary>
+    [Serializable]
+    public class InsClaimAttachment : AopObject
+    {
+        /// <summary>
+        /// 材料描述
+        /// </summary>
+        [XmlElement("description")]
+        public string Description { get; set; }
 
-		/// <summary>
-		///     文件名称
-		/// </summary>
-		[JsonProperty("name")]
-		public string Name { get; set; }
+        /// <summary>
+        /// 文件名称
+        /// </summary>
+        [XmlElement("name")]
+        public string Name { get; set; }
 
-		/// <summary>
-		///     附件对应的路径
-		/// </summary>
-		[JsonProperty("path")]
-		public string Path { get; set; }
+        /// <summary>
+        /// 附件对应的路径
+        /// </summary>
+        [XmlElement("path")]
+        public string Path { get; set; }
 
-		/// <summary>
-		///     审核理由
-		/// </summary>
-		[JsonProperty("reason")]
-		public string Reason { get; set; }
+        /// <summary>
+        /// 审核理由
+        /// </summary>
+        [XmlElement("reason")]
+        public string Reason { get; set; }
 
-		/// <summary>
-		///     材料审核状态
-		/// </summary>
-		[JsonProperty("status")]
-		public string Status { get; set; }
+        /// <summary>
+        /// 材料审核状态
+        /// </summary>
+        [XmlElement("status")]
+        public string Status { get; set; }
 
-		/// <summary>
-		///     附件类型
-		/// </summary>
-		[JsonProperty("type")]
-		public string Type { get; set; }
-	}
+        /// <summary>
+        /// 附件类型
+        /// </summary>
+        [XmlElement("type")]
+        public string Type { get; set; }
+    }
 }
