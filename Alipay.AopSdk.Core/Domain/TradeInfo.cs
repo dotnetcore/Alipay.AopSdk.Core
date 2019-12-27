@@ -1,4 +1,4 @@
-﻿namespace Alipay.AopSdk.F2FPay.Model
+﻿namespace Alipay.AopSdk.Core.Domain
 {
     /// <summary>
     /// TradeInfo 的摘要说明

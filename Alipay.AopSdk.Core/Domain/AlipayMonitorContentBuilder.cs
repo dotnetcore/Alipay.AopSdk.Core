@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Alipay.AopSdk.F2FPay.Model;
 
 namespace Alipay.AopSdk.Core.Domain
 {

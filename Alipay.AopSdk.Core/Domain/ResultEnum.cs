@@ -1,4 +1,4 @@
-﻿namespace Alipay.AopSdk.F2FPay.Model
+﻿namespace Alipay.AopSdk.Core.Domain
 {
     /// <summary>
     /// ResultEnum 的摘要说明
