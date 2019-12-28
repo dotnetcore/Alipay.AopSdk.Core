@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
-using Alipay.AopSdk.Core.Domain;
 using Alipay.AopSdk.F2FPay.Business;
+using Alipay.AopSdk.F2FPay.Domain;
 using Microsoft.Extensions.Options;
 
 namespace Alipay.AopSdk.AspnetCore

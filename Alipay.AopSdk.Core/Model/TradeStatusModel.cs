@@ -1,4 +1,4 @@
-﻿namespace Alipay.AopSdk.Core.Domain
+﻿namespace Alipay.AopSdk.F2FPay.Model
 {
     /// <summary>
     /// TradeStatusEnum 的摘要说明

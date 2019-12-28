@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using Alipay.AopSdk.Core.Domain;
+using Alipay.AopSdk.F2FPay.Domain;
 
 namespace Alipay.AopSdk.F2FPay.Business
 {
