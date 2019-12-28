@@ -1,5 +1,6 @@
-using System.Collections.Generic;
+using System;
 using System.Xml.Serialization;
+using System.Collections.Generic;
 using Alipay.AopSdk.Core.Domain;
 
 namespace Alipay.AopSdk.Core.Response

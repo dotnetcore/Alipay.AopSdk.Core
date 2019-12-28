@@ -1,24 +1,24 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
-    /// <summary>
-    /// InsMktFactorDTO Data Structure.
-    /// </summary>
-    [Serializable]
-    public class InsMktFactorDTO : AopObject
-    {
-        /// <summary>
-        /// 规则因子
-        /// </summary>
-        [XmlElement("key")]
-        public string Key { get; set; }
+	/// <summary>
+	///     InsMktFactorDTO Data Structure.
+	/// </summary>
+	[Serializable]
+	public class InsMktFactorDTO : AopObject
+	{
+		/// <summary>
+		///     规则因子
+		/// </summary>
+		[JsonProperty("key")]
+		public string Key { get; set; }
 
-        /// <summary>
-        /// 规则因子值
-        /// </summary>
-        [XmlElement("value")]
-        public string Value { get; set; }
-    }
+		/// <summary>
+		///     规则因子值
+		/// </summary>
+		[JsonProperty("value")]
+		public string Value { get; set; }
+	}
 }

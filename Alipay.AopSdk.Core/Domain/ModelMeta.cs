@@ -1,38 +1,38 @@
 using System;
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
-    /// <summary>
-    /// ModelMeta Data Structure.
-    /// </summary>
-    [Serializable]
-    public class ModelMeta : AopObject
-    {
-        /// <summary>
-        /// 模型描述
-        /// </summary>
-        [XmlElement("model_desc")]
-        public string ModelDesc { get; set; }
+	/// <summary>
+	///     ModelMeta Data Structure.
+	/// </summary>
+	[Serializable]
+	public class ModelMeta : AopObject
+	{
+		/// <summary>
+		///     模型描述
+		/// </summary>
+		[JsonProperty("model_desc")]
+		public string ModelDesc { get; set; }
 
-        /// <summary>
-        /// 模型名称
-        /// </summary>
-        [XmlElement("model_name")]
-        public string ModelName { get; set; }
+		/// <summary>
+		///     模型名称
+		/// </summary>
+		[JsonProperty("model_name")]
+		public string ModelName { get; set; }
 
-        /// <summary>
-        /// 模型唯一查询标识符
-        /// </summary>
-        [XmlElement("model_uk")]
-        public string ModelUk { get; set; }
+		/// <summary>
+		///     模型唯一查询标识符
+		/// </summary>
+		[JsonProperty("model_uk")]
+		public string ModelUk { get; set; }
 
-        /// <summary>
-        /// 查询参数
-        /// </summary>
-        [XmlArray("query_key")]
-        [XmlArrayItem("string")]
-        public List<string> QueryKey { get; set; }
-    }
+		/// <summary>
+		///     查询参数
+		/// </summary>
+		[JsonProperty("query_key")]
+		
+		public List<string> QueryKey { get; set; }
+	}
 }

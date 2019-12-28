@@ -1,9 +1,9 @@
 namespace Alipay.AopSdk.Core.Response
 {
-    /// <summary>
-    /// AlipayDaoweiOrderRefuseResponse.
-    /// </summary>
-    public class AlipayDaoweiOrderRefuseResponse : AopResponse
-    {
-    }
+	/// <summary>
+	///     AlipayDaoweiOrderRefuseResponse.
+	/// </summary>
+	public class AlipayDaoweiOrderRefuseResponse : AopResponse
+	{
+	}
 }

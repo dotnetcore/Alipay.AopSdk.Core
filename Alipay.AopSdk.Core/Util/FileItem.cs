@@ -1,8 +1,7 @@
 ﻿using System;
 using System.IO;
-using Alipay.AopSdk.Core.Util;
 
-namespace Alipay.AopSdk.Core
+namespace Alipay.AopSdk.Core.Util
 {
 	/// <summary>
 	///     文件元数据。

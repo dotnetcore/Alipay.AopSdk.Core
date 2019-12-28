@@ -1,53 +1,53 @@
 using System;
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
-    /// <summary>
-    /// AlipayDataDataexchangeSfasdfModel Data Structure.
-    /// </summary>
-    [Serializable]
-    public class AlipayDataDataexchangeSfasdfModel : AopObject
-    {
-        /// <summary>
-        /// sdafsdfsaf
-        /// </summary>
-        [XmlElement("adsfghjf")]
-        public AlipayItemVoucherTemplete Adsfghjf { get; set; }
+	/// <summary>
+	///     AlipayDataDataexchangeSfasdfModel Data Structure.
+	/// </summary>
+	[Serializable]
+	public class AlipayDataDataexchangeSfasdfModel : AopObject
+	{
+		/// <summary>
+		///     sdafsdfsaf
+		/// </summary>
+		[JsonProperty("adsfghjf")]
+		public AlipayItemVoucherTemplete Adsfghjf { get; set; }
 
-        /// <summary>
-        /// ghjffdssfghj
-        /// </summary>
-        [XmlArray("easadasfd")]
-        [XmlArrayItem("string")]
-        public List<string> Easadasfd { get; set; }
+		/// <summary>
+		///     ghjffdssfghj
+		/// </summary>
+		[JsonProperty("easadasfd")]
+		
+		public List<string> Easadasfd { get; set; }
 
-        /// <summary>
-        /// dsfghdsagfhd
-        /// </summary>
-        [XmlArray("gdfsa")]
-        [XmlArrayItem("string")]
-        public List<string> Gdfsa { get; set; }
+		/// <summary>
+		///     dsfghdsagfhd
+		/// </summary>
+		[JsonProperty("gdfsa")]
+		
+		public List<string> Gdfsa { get; set; }
 
-        /// <summary>
-        /// ghjkhg
-        /// </summary>
-        [XmlElement("hjgdfs")]
-        public string Hjgdfs { get; set; }
+		/// <summary>
+		///     ghjkhg
+		/// </summary>
+		[JsonProperty("hjgdfs")]
+		public string Hjgdfs { get; set; }
 
-        /// <summary>
-        /// sdgfjhkg
-        /// </summary>
-        [XmlArray("sdfgsdfg")]
-        [XmlArrayItem("string")]
-        public List<string> Sdfgsdfg { get; set; }
+		/// <summary>
+		///     sdgfjhkg
+		/// </summary>
+		[JsonProperty("sdfgsdfg")]
+		
+		public List<string> Sdfgsdfg { get; set; }
 
-        /// <summary>
-        /// ASGFDGASaaf
-        /// </summary>
-        [XmlArray("wehtegf")]
-        [XmlArrayItem("string")]
-        public List<string> Wehtegf { get; set; }
-    }
+		/// <summary>
+		///     ASGFDGASaaf
+		/// </summary>
+		[JsonProperty("wehtegf")]
+		
+		public List<string> Wehtegf { get; set; }
+	}
 }

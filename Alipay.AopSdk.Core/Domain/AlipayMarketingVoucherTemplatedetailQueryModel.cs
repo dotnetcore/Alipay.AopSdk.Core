@@ -1,18 +1,18 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
-    /// <summary>
-    /// AlipayMarketingVoucherTemplatedetailQueryModel Data Structure.
-    /// </summary>
-    [Serializable]
-    public class AlipayMarketingVoucherTemplatedetailQueryModel : AopObject
-    {
-        /// <summary>
-        /// 券模板ID
-        /// </summary>
-        [XmlElement("template_id")]
-        public string TemplateId { get; set; }
-    }
+	/// <summary>
+	///     AlipayMarketingVoucherTemplatedetailQueryModel Data Structure.
+	/// </summary>
+	[Serializable]
+	public class AlipayMarketingVoucherTemplatedetailQueryModel : AopObject
+	{
+		/// <summary>
+		///     券模板ID
+		/// </summary>
+		[JsonProperty("template_id")]
+		public string TemplateId { get; set; }
+	}
 }

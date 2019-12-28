@@ -22,12 +22,6 @@ namespace Alipay.AopSdk.Core.Domain
         public long FaceType { get; set; }
 
         /// <summary>
-        /// 是否需要返回人脸照片
-        /// </summary>
-        [XmlElement("need_img")]
-        public bool NeedImg { get; set; }
-
-        /// <summary>
         /// zimId，用于查询认证结果
         /// </summary>
         [XmlElement("zim_id")]

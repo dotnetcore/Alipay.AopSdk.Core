@@ -1,9 +1,9 @@
 namespace Alipay.AopSdk.Core.Response
 {
-    /// <summary>
-    /// AlipayCommerceCityfacilitatorDepositConfirmResponse.
-    /// </summary>
-    public class AlipayCommerceCityfacilitatorDepositConfirmResponse : AopResponse
-    {
-    }
+	/// <summary>
+	///     AlipayCommerceCityfacilitatorDepositConfirmResponse.
+	/// </summary>
+	public class AlipayCommerceCityfacilitatorDepositConfirmResponse : AopResponse
+	{
+	}
 }

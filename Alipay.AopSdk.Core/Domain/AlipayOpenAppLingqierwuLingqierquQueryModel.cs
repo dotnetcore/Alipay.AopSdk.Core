@@ -1,20 +1,20 @@
 using System;
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
-    /// <summary>
-    /// AlipayOpenAppLingqierwuLingqierquQueryModel Data Structure.
-    /// </summary>
-    [Serializable]
-    public class AlipayOpenAppLingqierwuLingqierquQueryModel : AopObject
-    {
-        /// <summary>
-        /// 12
-        /// </summary>
-        [XmlArray("test")]
-        [XmlArrayItem("string")]
-        public List<string> Test { get; set; }
-    }
+	/// <summary>
+	///     AlipayOpenAppLingqierwuLingqierquQueryModel Data Structure.
+	/// </summary>
+	[Serializable]
+	public class AlipayOpenAppLingqierwuLingqierquQueryModel : AopObject
+	{
+		/// <summary>
+		///     12
+		/// </summary>
+		[JsonProperty("test")]
+		
+		public List<string> Test { get; set; }
+	}
 }

@@ -1,9 +1,9 @@
 namespace Alipay.AopSdk.Core.Response
 {
-    /// <summary>
-    /// KoubeiMarketingCampaignCrowdDeleteResponse.
-    /// </summary>
-    public class KoubeiMarketingCampaignCrowdDeleteResponse : AopResponse
-    {
-    }
+	/// <summary>
+	///     KoubeiMarketingCampaignCrowdDeleteResponse.
+	/// </summary>
+	public class KoubeiMarketingCampaignCrowdDeleteResponse : AopResponse
+	{
+	}
 }

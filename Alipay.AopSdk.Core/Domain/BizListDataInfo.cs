@@ -1,24 +1,24 @@
 using System;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
-    /// <summary>
-    /// BizListDataInfo Data Structure.
-    /// </summary>
-    [Serializable]
-    public class BizListDataInfo : AopObject
-    {
-        /// <summary>
-        /// 下拉列表编号
-        /// </summary>
-        [XmlElement("code")]
-        public string Code { get; set; }
+	/// <summary>
+	///     BizListDataInfo Data Structure.
+	/// </summary>
+	[Serializable]
+	public class BizListDataInfo : AopObject
+	{
+		/// <summary>
+		///     下拉列表编号
+		/// </summary>
+		[JsonProperty("code")]
+		public string Code { get; set; }
 
-        /// <summary>
-        /// 下拉列表名称
-        /// </summary>
-        [XmlElement("name")]
-        public string Name { get; set; }
-    }
+		/// <summary>
+		///     下拉列表名称
+		/// </summary>
+		[JsonProperty("name")]
+		public string Name { get; set; }
+	}
 }

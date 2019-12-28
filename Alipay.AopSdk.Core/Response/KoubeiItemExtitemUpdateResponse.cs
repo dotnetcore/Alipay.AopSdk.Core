@@ -1,9 +1,9 @@
 namespace Alipay.AopSdk.Core.Response
 {
-    /// <summary>
-    /// KoubeiItemExtitemUpdateResponse.
-    /// </summary>
-    public class KoubeiItemExtitemUpdateResponse : AopResponse
-    {
-    }
+	/// <summary>
+	///     KoubeiItemExtitemUpdateResponse.
+	/// </summary>
+	public class KoubeiItemExtitemUpdateResponse : AopResponse
+	{
+	}
 }

@@ -1,9 +1,9 @@
 namespace Alipay.AopSdk.Core.Response
 {
-    /// <summary>
-    /// AlipayEcoCplifeResidentinfoDeleteResponse.
-    /// </summary>
-    public class AlipayEcoCplifeResidentinfoDeleteResponse : AopResponse
-    {
-    }
+	/// <summary>
+	///     AlipayEcoCplifeResidentinfoDeleteResponse.
+	/// </summary>
+	public class AlipayEcoCplifeResidentinfoDeleteResponse : AopResponse
+	{
+	}
 }

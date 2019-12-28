@@ -1,32 +1,32 @@
 using System;
 using System.Collections.Generic;
-using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Alipay.AopSdk.Core.Domain
 {
-    /// <summary>
-    /// KoubeiMarketingDataCustomreportQueryModel Data Structure.
-    /// </summary>
-    [Serializable]
-    public class KoubeiMarketingDataCustomreportQueryModel : AopObject
-    {
-        /// <summary>
-        /// 规则KEY
-        /// </summary>
-        [XmlElement("condition_key")]
-        public string ConditionKey { get; set; }
+	/// <summary>
+	///     KoubeiMarketingDataCustomreportQueryModel Data Structure.
+	/// </summary>
+	[Serializable]
+	public class KoubeiMarketingDataCustomreportQueryModel : AopObject
+	{
+		/// <summary>
+		///     规则KEY
+		/// </summary>
+		[JsonProperty("condition_key")]
+		public string ConditionKey { get; set; }
 
-        /// <summary>
-        /// 额外增加的查询过滤条件
-        /// </summary>
-        [XmlArray("filter_tags")]
-        [XmlArrayItem("filter_tag")]
-        public List<FilterTag> FilterTags { get; set; }
+		/// <summary>
+		///     额外增加的查询过滤条件
+		/// </summary>
+		[JsonProperty("filter_tags")]
+		
+		public List<FilterTag> FilterTags { get; set; }
 
-        /// <summary>
-        /// 一次拉多少条
-        /// </summary>
-        [XmlElement("max_count")]
-        public string MaxCount { get; set; }
-    }
+		/// <summary>
+		///     一次拉多少条
+		/// </summary>
+		[JsonProperty("max_count")]
+		public string MaxCount { get; set; }
+	}
 }

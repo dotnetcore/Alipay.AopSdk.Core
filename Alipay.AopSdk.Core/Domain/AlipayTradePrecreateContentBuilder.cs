@@ -18,14 +18,14 @@ namespace Alipay.AopSdk.F2FPay.Domain
         public string subject { get; set; }
         public string body { get; set; }
 
-        public List<F2FPay.Model.GoodsInfo> goods_detail{get;set;}
+        public List<GoodsInfo> goods_detail{get;set;}
         public string operator_id { get; set; }
 
         public string store_id { get; set; }
 
         public string terminal_id { get; set; }
 
-        public F2FPay.Model.ExtendParams extend_params { get; set; }
+        public ExtendParams extend_params { get; set; }
         public string time_expire { get; set; }
         public string timeout_express { get; set; }
 
