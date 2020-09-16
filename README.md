@@ -1,4 +1,6 @@
-[![Member project of .NET Core Community](https://img.shields.io/badge/member%20project%20of-NCC-9e20c9.svg?style=flat-square)](https://github.com/dotnetcore)  ![Jenkins](https://img.shields.io/jenkins/s/https/ci2.xcmaster.com/job/Alipay.Aopsdk.Core.svg?style=flat-square)
+[![Member project of .NET Core Community](https://img.shields.io/badge/member%20project%20of-NCC-9e20c9.svg?style=flat-square)](https://github.com/dotnetcore)
+
+>说明：Alipay.AopSdk.Core 源起于 .NET Core 1.1 时期，当时的社区生态还不完善，很多组件都还没有迁移到 .NET Core ,当时有整好碰巧对接支付宝支付，所以基于支付宝官方的 Framework 的源码进行改造，进而诞生了 Alipay.AopSdk.Core，但随着时间的推移，支付宝业务的新增和变更，Alipay.AopSdk.Core 的更新速度远远比不上，而且官方也重构了 .NET SDK ，且配合官方文档以及代码生成器，现在使用十分方便，Alipay.AopSdk.Core 是时候退出舞台了。2020.9.16
 
 # Alipay.AopSdk.Core
 
